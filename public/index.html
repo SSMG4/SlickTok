@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SlickTok — TikTok video downloader, no watermark, no ads</title>
+<meta name="description" content="Paste a TikTok link, get the clean video back. Free, open source, no watermark, no ads, no account.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__row">
+    <a class="wordmark" href="/" aria-label="SlickTok home">
+      <svg class="wordmark__mark" viewBox="0 0 28 28" aria-hidden="true">
+        <rect x="1" y="1" width="26" height="26" rx="7" fill="var(--ink)"/>
+        <path d="M8 19.5V8.5h5.4c2.6 0 4.3 1.5 4.3 3.7 0 1.5-.8 2.7-2.1 3.2l2.6 4.1h-2.6l-2.3-3.7H10v3.7H8Zm2-5.6h3.2c1.3 0 2.1-.7 2.1-1.9 0-1.1-.8-1.8-2.1-1.8H10v3.7Z" fill="var(--accent)"/>
+      </svg>
+      <span>Slick<b>Tok</b></span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/SSMG4/slicktok" data-i18n-skip target="_blank" rel="noopener" id="github-link">Source</a>
+    </nav>
+
+    <label class="lang-switch">
+      <span class="sr-only">Language</span>
+      <select id="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="id">Indonesia</option>
+        <option value="vi">Tiếng Việt</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Free · Open source · No ads, ever</p>
+        <h1 data-i18n="hero.title">Download TikTok videos, minus the watermark.</h1>
+        <p class="hero__sub" data-i18n="hero.subtitle">Paste a link, get an HD, watermark-free file back. No account, no tracking, nothing installed.</p>
+
+        <form id="download-form" novalidate>
+          <div class="input-row">
+            <label class="sr-only" for="url-input" data-i18n="hero.inputLabel">TikTok video link</label>
+            <input
+              id="url-input"
+              name="url"
+              type="text"
+              inputmode="url"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              data-i18n-placeholder="hero.placeholder"
+              placeholder="https://www.tiktok.com/@user/video/…"
+              required
+            >
+            <button type="button" id="paste-btn" class="icon-btn" data-i18n-label="hero.paste" aria-label="Paste">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6a1 1 0 0 1 1 1V5h1.5A1.5 1.5 0 0 1 19 6.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 7 19.5v-13A1.5 1.5 0 0 1 8.5 5H10v-.5a1 1 0 0 1 1-1Zm-.5 3v12h9v-12h-9Z"/></svg>
+            </button>
+            <button type="submit" id="submit-btn" data-i18n="hero.submit">
+              <span class="btn-label">Download</span>
+              <svg class="spinner" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke-width="3"/></svg>
+            </button>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </form>
+      </div>
+
+      <div class="hero__signature" aria-hidden="true">
+        <svg viewBox="0 0 320 240" class="peel-art">
+          <rect x="24" y="24" width="220" height="192" rx="18" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+          <g clip-path="url(#clip)">
+            <clipPath id="clip"><rect x="24" y="24" width="220" height="192" rx="18"/></clipPath>
+            <g fill="var(--line)" opacity="0.55">
+              <rect x="150" y="24" width="94" height="94"/>
+            </g>
+            <g fill="var(--muted)" opacity="0.25">
+              <text x="158" y="70" font-size="13" font-family="ui-monospace, monospace">watermark</text>
+              <text x="158" y="88" font-size="13" font-family="ui-monospace, monospace">watermark</text>
+              <text x="158" y="106" font-size="13" font-family="ui-monospace, monospace">watermark</text>
+            </g>
+          </g>
+          <path d="M170 24 L244 24 L244 98 Z" fill="var(--accent)"/>
+          <path d="M170 24 C 195 40, 220 65, 244 98" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-dasharray="4 5" opacity="0.5"/>
+          <circle cx="76" cy="150" r="26" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+          <path d="M68 138 l24 12 -24 12 Z" fill="var(--ink)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="result-section" class="result-section" hidden>
+    <div class="wrap">
+      <div id="result-card" class="result-card"></div>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="wrap">
+      <h2 data-i18n="how.title">Three steps, no detours</h2>
+      <ol class="how__steps">
+        <li>
+          <span class="how__num">1</span>
+          <h3 data-i18n="how.step1Title">Copy the link</h3>
+          <p data-i18n="how.step1Body">In the TikTok app, tap Share, then Copy link.</p>
+        </li>
+        <li>
+          <span class="how__num">2</span>
+          <h3 data-i18n="how.step2Title">Paste it above</h3>
+          <p data-i18n="how.step2Body">Works with full tiktok.com links and short vm.tiktok.com links.</p>
+        </li>
+        <li>
+          <span class="how__num">3</span>
+          <h3 data-i18n="how.step3Title">Save the clean file</h3>
+          <p data-i18n="how.step3Body">Download the watermark-free video straight to your device.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="wrap">
+      <h2 data-i18n="features.title">What SlickTok does</h2>
+      <div class="features__grid">
+        <article>
+          <h3 data-i18n="features.f1Title">No watermark</h3>
+          <p data-i18n="features.f1Body">Downloads use TikTok's own clean playback file — nothing stamped on top.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.f2Title">Ad-free, always</h3>
+          <p data-i18n="features.f2Body">No ad slots, no popups, no "watch an ad for HD." It's just the tool.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.f3Title">Open source</h3>
+          <p data-i18n="features.f3Body">Every line is public. Read it, fork it, self-host your own copy.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.f4Title">No account</h3>
+          <p data-i18n="features.f4Body">Nothing to sign up for. Rate-limited by IP, not by login.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.f5Title">HD when available</h3>
+          <p data-i18n="features.f5Body">If TikTok served a higher-resolution version, SlickTok offers it too.</p>
+        </article>
+        <article>
+          <h3 data-i18n="features.f6Title">Photos & slideshows</h3>
+          <p data-i18n="features.f6Body">Photo posts are supported on a best-effort basis, background music included.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <h2 data-i18n="faq.title">Questions</h2>
+      <div class="faq__list">
+        <details>
+          <summary><span data-i18n="faq.q1">Does SlickTok add a watermark of its own?</span></summary>
+          <p data-i18n="faq.a1">No. The file you get is the same one TikTok's own app plays back internally, before any watermark is added for sharing.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq.q2">Do I need an account?</span></summary>
+          <p data-i18n="faq.a2">No. There's no login anywhere on this site. Usage is limited per IP address instead, to keep the server available for everyone.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq.q3">What links are supported?</span></summary>
+          <p data-i18n="faq.a3">Full links like tiktok.com/@user/video/123…, and short links like vm.tiktok.com/xxxxx/.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq.q4">Is this affiliated with TikTok?</span></summary>
+          <p data-i18n="faq.a4">No. SlickTok is an independent, unaffiliated open-source project. It is not made, endorsed, or supported by TikTok or ByteDance Ltd.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq.q5">Can I run my own copy?</span></summary>
+          <p data-i18n="faq.a5">Yes — that's the point. The full source and a deployment guide are in the repository linked in the footer.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq.q6">Am I allowed to download any video I want?</span></summary>
+          <p data-i18n="faq.a6">Only download videos you own, have permission to save, or that you're viewing for personal, non-infringing use. See the Terms for details.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="wrap notice__box">
+      <p data-i18n="notice.text">SlickTok is not affiliated with, endorsed by, or connected to TikTok or ByteDance Ltd. Please only download content you have the right to save. See the <a href="/legal/terms.html" data-i18n="notice.terms">Terms</a> and <a href="/legal/privacy.html" data-i18n="notice.privacy">Privacy Policy</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__row">
+    <p>SlickTok — AGPL-3.0-or-later.</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/SSMG4/slicktok" id="github-link-footer" target="_blank" rel="noopener">GitHub</a>
+      <a href="/legal/terms.html">Terms</a>
+      <a href="/legal/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/js/app.js" defer></script>
+</body>
+</html>

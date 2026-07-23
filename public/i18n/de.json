@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — TikTok-Video-Downloader, ohne Wasserzeichen, ohne Werbung" },
+  "hero": {
+    "eyebrow": "Kostenlos · Open Source · Ohne Werbung, immer",
+    "title": "TikTok-Videos herunterladen, ohne Wasserzeichen.",
+    "subtitle": "Link einfügen, HD-Datei ohne Wasserzeichen erhalten. Kein Konto, kein Tracking, keine Installation.",
+    "inputLabel": "TikTok-Videolink",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Einfügen",
+    "submit": "Herunterladen"
+  },
+  "how": {
+    "title": "Drei Schritte, kein Umweg",
+    "step1Title": "Link kopieren",
+    "step1Body": "In der TikTok-App auf Teilen und dann Link kopieren tippen.",
+    "step2Title": "Oben einfügen",
+    "step2Body": "Funktioniert mit vollständigen tiktok.com-Links und kurzen vm.tiktok.com-Links.",
+    "step3Title": "Saubere Datei speichern",
+    "step3Body": "Das Video ohne Wasserzeichen direkt auf dein Gerät herunterladen."
+  },
+  "features": {
+    "title": "Was SlickTok macht",
+    "f1Title": "Ohne Wasserzeichen",
+    "f1Body": "Downloads nutzen TikToks eigene saubere Wiedergabedatei — nichts wird darübergelegt.",
+    "f2Title": "Immer werbefrei",
+    "f2Body": "Keine Werbeflächen, keine Popups, kein \"Werbung ansehen für HD\". Nur das Werkzeug.",
+    "f3Title": "Open Source",
+    "f3Body": "Jede Zeile ist öffentlich einsehbar. Lesen, forken, eigene Kopie selbst hosten.",
+    "f4Title": "Kein Konto",
+    "f4Body": "Nichts zum Registrieren. Begrenzung erfolgt pro IP, nicht pro Login.",
+    "f5Title": "HD, wenn verfügbar",
+    "f5Body": "Wenn TikTok eine höher auflösende Version bereitstellt, bietet SlickTok sie ebenfalls an.",
+    "f6Title": "Fotos & Diashows",
+    "f6Body": "Fotobeiträge werden nach bestem Bemühen unterstützt, inklusive Hintergrundmusik."
+  },
+  "faq": {
+    "title": "Fragen",
+    "q1": "Fügt SlickTok ein eigenes Wasserzeichen hinzu?",
+    "a1": "Nein. Die Datei ist dieselbe, die TikToks eigene App intern abspielt, bevor beim Teilen ein Wasserzeichen hinzugefügt wird.",
+    "q2": "Brauche ich ein Konto?",
+    "a2": "Nein. Es gibt keinen Login auf dieser Seite. Stattdessen wird die Nutzung pro IP-Adresse begrenzt, damit der Server für alle verfügbar bleibt.",
+    "q3": "Welche Links werden unterstützt?",
+    "a3": "Vollständige Links wie tiktok.com/@user/video/123… und Kurzlinks wie vm.tiktok.com/xxxxx/.",
+    "q4": "Ist das mit TikTok verbunden?",
+    "a4": "Nein. SlickTok ist ein unabhängiges Open-Source-Projekt ohne Zugehörigkeit. Es wird nicht von TikTok oder ByteDance Ltd. erstellt, unterstützt oder gefördert.",
+    "q5": "Kann ich eine eigene Kopie betreiben?",
+    "a5": "Ja, genau darum geht es. Der vollständige Quellcode und eine Anleitung zum Selbst-Hosten stehen im Repository, das in der Fußzeile verlinkt ist.",
+    "q6": "Darf ich jedes beliebige Video herunterladen?",
+    "a6": "Lade nur Videos herunter, die dir gehören, die du speichern darfst, oder die du zu persönlichen, rechtmäßigen Zwecken ansiehst. Siehe die Nutzungsbedingungen."
+  },
+  "notice": {
+    "text": "SlickTok ist nicht mit TikTok oder ByteDance Ltd. verbunden, von ihnen unterstützt oder genehmigt. Lade bitte nur Inhalte herunter, die du speichern darfst. Siehe die Nutzungsbedingungen und die Datenschutzerklärung.",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutz"
+  },
+  "result": {
+    "views": "Aufrufe",
+    "comments": "Kommentare",
+    "shares": "Geteilt",
+    "untitled": "Ohne Titel",
+    "download": "Herunterladen (ohne Wasserzeichen)",
+    "downloadHd": "In HD herunterladen (ohne Wasserzeichen)",
+    "downloadAudio": "Audio herunterladen",
+    "zip": "Alles herunterladen (ZIP)",
+    "another": "Weiteres Video herunterladen"
+  },
+  "errors": {
+    "empty": "Füge zuerst einen TikTok-Link ein.",
+    "generic": "Etwas ist schiefgelaufen.",
+    "network": "Netzwerkfehler. Bitte erneut versuchen."
+  }
+}

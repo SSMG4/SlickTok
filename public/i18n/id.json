@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — Pengunduh video TikTok, tanpa watermark, tanpa iklan" },
+  "hero": {
+    "eyebrow": "Gratis · Open source · Tanpa iklan, selamanya",
+    "title": "Unduh video TikTok, tanpa watermark.",
+    "subtitle": "Tempel tautan, dapatkan file HD tanpa watermark. Tanpa akun, tanpa pelacakan, tanpa instalasi.",
+    "inputLabel": "Tautan video TikTok",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Tempel",
+    "submit": "Unduh"
+  },
+  "how": {
+    "title": "Tiga langkah, tanpa ribet",
+    "step1Title": "Salin tautan",
+    "step1Body": "Di aplikasi TikTok, ketuk Bagikan, lalu Salin tautan.",
+    "step2Title": "Tempel di atas",
+    "step2Body": "Berfungsi dengan tautan lengkap tiktok.com maupun tautan pendek vm.tiktok.com.",
+    "step3Title": "Simpan file bersih",
+    "step3Body": "Unduh video tanpa watermark langsung ke perangkatmu."
+  },
+  "features": {
+    "title": "Yang dilakukan SlickTok",
+    "f1Title": "Tanpa watermark",
+    "f1Body": "Unduhan menggunakan file pemutaran asli TikTok — tidak ada yang ditambahkan di atasnya.",
+    "f2Title": "Selalu tanpa iklan",
+    "f2Body": "Tidak ada slot iklan, tidak ada popup, tidak ada \"tonton iklan untuk HD\". Hanya alatnya saja.",
+    "f3Title": "Open source",
+    "f3Body": "Setiap baris kode bersifat publik. Baca, fork, dan hosting salinanmu sendiri.",
+    "f4Title": "Tanpa akun",
+    "f4Body": "Tidak perlu mendaftar. Batasan berlaku per IP, bukan per login.",
+    "f5Title": "HD jika tersedia",
+    "f5Body": "Jika TikTok menyediakan versi resolusi lebih tinggi, SlickTok juga menawarkannya.",
+    "f6Title": "Foto & slideshow",
+    "f6Body": "Postingan foto didukung secara best-effort, termasuk musik latarnya."
+  },
+  "faq": {
+    "title": "Pertanyaan",
+    "q1": "Apakah SlickTok menambahkan watermark sendiri?",
+    "a1": "Tidak. File yang kamu dapatkan sama dengan yang diputar secara internal oleh aplikasi TikTok, sebelum watermark ditambahkan untuk berbagi.",
+    "q2": "Apakah saya perlu akun?",
+    "a2": "Tidak. Tidak ada login di situs ini. Penggunaan dibatasi per alamat IP, agar server tetap tersedia untuk semua orang.",
+    "q3": "Tautan apa saja yang didukung?",
+    "a3": "Tautan lengkap seperti tiktok.com/@user/video/123…, dan tautan pendek seperti vm.tiktok.com/xxxxx/.",
+    "q4": "Apakah ini berafiliasi dengan TikTok?",
+    "a4": "Tidak. SlickTok adalah proyek open source independen dan tidak berafiliasi. Tidak dibuat, didukung, atau disponsori oleh TikTok atau ByteDance Ltd.",
+    "q5": "Bisakah saya menjalankan salinan sendiri?",
+    "a5": "Bisa — memang itu tujuannya. Kode sumber lengkap dan panduan deployment ada di repositori yang tertaut di footer.",
+    "q6": "Apakah saya boleh mengunduh video apa saja?",
+    "a6": "Unduh hanya video yang kamu miliki, yang diizinkan untuk disimpan, atau yang kamu tonton untuk penggunaan pribadi yang sah. Lihat Ketentuan Layanan."
+  },
+  "notice": {
+    "text": "SlickTok tidak berafiliasi, didukung, atau terhubung dengan TikTok atau ByteDance Ltd. Harap hanya mengunduh konten yang berhak kamu simpan. Lihat Ketentuan Layanan dan Kebijakan Privasi.",
+    "terms": "Ketentuan",
+    "privacy": "Privasi"
+  },
+  "result": {
+    "views": "tayangan",
+    "comments": "komentar",
+    "shares": "dibagikan",
+    "untitled": "Tanpa judul",
+    "download": "Unduh (tanpa watermark)",
+    "downloadHd": "Unduh HD (tanpa watermark)",
+    "downloadAudio": "Unduh audio",
+    "zip": "Unduh semua (ZIP)",
+    "another": "Unduh video lain"
+  },
+  "errors": {
+    "empty": "Tempel tautan TikTok terlebih dahulu.",
+    "generic": "Terjadi kesalahan.",
+    "network": "Kesalahan jaringan. Coba lagi."
+  }
+}

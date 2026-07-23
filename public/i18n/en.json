@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — TikTok video downloader, no watermark, no ads" },
+  "hero": {
+    "eyebrow": "Free · Open source · No ads, ever",
+    "title": "Download TikTok videos, minus the watermark.",
+    "subtitle": "Paste a link, get an HD, watermark-free file back. No account, no tracking, nothing installed.",
+    "inputLabel": "TikTok video link",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Paste",
+    "submit": "Download"
+  },
+  "how": {
+    "title": "Three steps, no detours",
+    "step1Title": "Copy the link",
+    "step1Body": "In the TikTok app, tap Share, then Copy link.",
+    "step2Title": "Paste it above",
+    "step2Body": "Works with full tiktok.com links and short vm.tiktok.com links.",
+    "step3Title": "Save the clean file",
+    "step3Body": "Download the watermark-free video straight to your device."
+  },
+  "features": {
+    "title": "What SlickTok does",
+    "f1Title": "No watermark",
+    "f1Body": "Downloads use TikTok's own clean playback file — nothing stamped on top.",
+    "f2Title": "Ad-free, always",
+    "f2Body": "No ad slots, no popups, no \"watch an ad for HD.\" It's just the tool.",
+    "f3Title": "Open source",
+    "f3Body": "Every line is public. Read it, fork it, self-host your own copy.",
+    "f4Title": "No account",
+    "f4Body": "Nothing to sign up for. Rate-limited by IP, not by login.",
+    "f5Title": "HD when available",
+    "f5Body": "If TikTok served a higher-resolution version, SlickTok offers it too.",
+    "f6Title": "Photos & slideshows",
+    "f6Body": "Photo posts are supported on a best-effort basis, background music included."
+  },
+  "faq": {
+    "title": "Questions",
+    "q1": "Does SlickTok add a watermark of its own?",
+    "a1": "No. The file you get is the same one TikTok's own app plays back internally, before any watermark is added for sharing.",
+    "q2": "Do I need an account?",
+    "a2": "No. There's no login anywhere on this site. Usage is limited per IP address instead, to keep the server available for everyone.",
+    "q3": "What links are supported?",
+    "a3": "Full links like tiktok.com/@user/video/123…, and short links like vm.tiktok.com/xxxxx/.",
+    "q4": "Is this affiliated with TikTok?",
+    "a4": "No. SlickTok is an independent, unaffiliated open-source project. It is not made, endorsed, or supported by TikTok or ByteDance Ltd.",
+    "q5": "Can I run my own copy?",
+    "a5": "Yes — that's the point. The full source and a deployment guide are in the repository linked in the footer.",
+    "q6": "Am I allowed to download any video I want?",
+    "a6": "Only download videos you own, have permission to save, or that you're viewing for personal, non-infringing use. See the Terms for details."
+  },
+  "notice": {
+    "text": "SlickTok is not affiliated with, endorsed by, or connected to TikTok or ByteDance Ltd. Please only download content you have the right to save. See the Terms and Privacy Policy.",
+    "terms": "Terms",
+    "privacy": "Privacy Policy"
+  },
+  "result": {
+    "views": "views",
+    "comments": "comments",
+    "shares": "shares",
+    "untitled": "Untitled",
+    "download": "Download (no watermark)",
+    "downloadHd": "Download HD (no watermark)",
+    "downloadAudio": "Download audio",
+    "zip": "Download all (ZIP)",
+    "another": "Download another video"
+  },
+  "errors": {
+    "empty": "Paste a TikTok link first.",
+    "generic": "Something went wrong.",
+    "network": "Network error. Try again."
+  }
+}

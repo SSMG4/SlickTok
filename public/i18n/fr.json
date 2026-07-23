@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — Téléchargeur de vidéos TikTok, sans filigrane, sans pub" },
+  "hero": {
+    "eyebrow": "Gratuit · Open source · Sans pub, jamais",
+    "title": "Téléchargez des vidéos TikTok, sans le filigrane.",
+    "subtitle": "Collez un lien, récupérez un fichier HD sans filigrane. Pas de compte, pas de traçage, rien à installer.",
+    "inputLabel": "Lien de la vidéo TikTok",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Coller",
+    "submit": "Télécharger"
+  },
+  "how": {
+    "title": "Trois étapes, sans détour",
+    "step1Title": "Copiez le lien",
+    "step1Body": "Dans l'application TikTok, appuyez sur Partager, puis Copier le lien.",
+    "step2Title": "Collez-le ci-dessus",
+    "step2Body": "Fonctionne avec les liens tiktok.com complets et les liens courts vm.tiktok.com.",
+    "step3Title": "Enregistrez le fichier propre",
+    "step3Body": "Téléchargez la vidéo sans filigrane directement sur votre appareil."
+  },
+  "features": {
+    "title": "Ce que fait SlickTok",
+    "f1Title": "Sans filigrane",
+    "f1Body": "Les téléchargements utilisent le fichier de lecture propre de TikTok — rien n'est ajouté par-dessus.",
+    "f2Title": "Sans pub, toujours",
+    "f2Body": "Pas d'emplacements publicitaires, pas de popups, pas de « regardez une pub pour la HD ». Juste l'outil.",
+    "f3Title": "Open source",
+    "f3Body": "Chaque ligne de code est publique. Lisez-la, forkez-la, hébergez votre propre copie.",
+    "f4Title": "Sans compte",
+    "f4Body": "Rien à créer. La limite s'applique par IP, pas par connexion.",
+    "f5Title": "HD quand disponible",
+    "f5Body": "Si TikTok propose une version en plus haute résolution, SlickTok la propose aussi.",
+    "f6Title": "Photos et diaporamas",
+    "f6Body": "Les publications photo sont prises en charge au mieux, musique de fond incluse."
+  },
+  "faq": {
+    "title": "Questions",
+    "q1": "SlickTok ajoute-t-il son propre filigrane ?",
+    "a1": "Non. Le fichier obtenu est celui que l'application TikTok lit en interne, avant l'ajout d'un filigrane pour le partage.",
+    "q2": "Ai-je besoin d'un compte ?",
+    "a2": "Non. Il n'y a aucune connexion sur ce site. L'usage est limité par adresse IP à la place, pour garder le serveur disponible pour tout le monde.",
+    "q3": "Quels liens sont pris en charge ?",
+    "a3": "Les liens complets comme tiktok.com/@user/video/123…, et les liens courts comme vm.tiktok.com/xxxxx/.",
+    "q4": "Ce site est-il affilié à TikTok ?",
+    "a4": "Non. SlickTok est un projet open source indépendant, non affilié. Il n'est ni créé, ni approuvé, ni soutenu par TikTok ou ByteDance Ltd.",
+    "q5": "Puis-je héberger ma propre copie ?",
+    "a5": "Oui, c'est justement le but. Le code source complet et un guide de déploiement se trouvent dans le dépôt lié en pied de page.",
+    "q6": "Ai-je le droit de télécharger n'importe quelle vidéo ?",
+    "a6": "Ne téléchargez que des vidéos que vous possédez, que vous avez le droit d'enregistrer, ou que vous regardez à des fins personnelles et légales. Voir les Conditions d'utilisation."
+  },
+  "notice": {
+    "text": "SlickTok n'est ni affilié, ni approuvé, ni lié à TikTok ou ByteDance Ltd. Merci de ne télécharger que du contenu que vous avez le droit d'enregistrer. Voir les Conditions d'utilisation et la Politique de confidentialité.",
+    "terms": "Conditions",
+    "privacy": "Confidentialité"
+  },
+  "result": {
+    "views": "vues",
+    "comments": "commentaires",
+    "shares": "partages",
+    "untitled": "Sans titre",
+    "download": "Télécharger (sans filigrane)",
+    "downloadHd": "Télécharger en HD (sans filigrane)",
+    "downloadAudio": "Télécharger l'audio",
+    "zip": "Tout télécharger (ZIP)",
+    "another": "Télécharger une autre vidéo"
+  },
+  "errors": {
+    "empty": "Collez d'abord un lien TikTok.",
+    "generic": "Une erreur s'est produite.",
+    "network": "Erreur réseau. Réessayez."
+  }
+}

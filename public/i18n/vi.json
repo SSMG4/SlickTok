@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — Tải video TikTok, không watermark, không quảng cáo" },
+  "hero": {
+    "eyebrow": "Miễn phí · Mã nguồn mở · Không quảng cáo, mãi mãi",
+    "title": "Tải video TikTok, không watermark.",
+    "subtitle": "Dán liên kết, nhận file HD không watermark. Không tài khoản, không theo dõi, không cài đặt.",
+    "inputLabel": "Liên kết video TikTok",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Dán",
+    "submit": "Tải xuống"
+  },
+  "how": {
+    "title": "Ba bước, không vòng vo",
+    "step1Title": "Sao chép liên kết",
+    "step1Body": "Trong ứng dụng TikTok, chạm Chia sẻ, rồi Sao chép liên kết.",
+    "step2Title": "Dán vào ô phía trên",
+    "step2Body": "Hoạt động với cả liên kết đầy đủ tiktok.com và liên kết rút gọn vm.tiktok.com.",
+    "step3Title": "Lưu file sạch",
+    "step3Body": "Tải video không watermark trực tiếp về thiết bị của bạn."
+  },
+  "features": {
+    "title": "SlickTok làm được gì",
+    "f1Title": "Không watermark",
+    "f1Body": "Bản tải xuống dùng file phát gốc của TikTok — không có gì được dán đè lên.",
+    "f2Title": "Luôn không quảng cáo",
+    "f2Body": "Không ô quảng cáo, không popup, không \"xem quảng cáo để có HD\". Chỉ có công cụ.",
+    "f3Title": "Mã nguồn mở",
+    "f3Body": "Mọi dòng code đều công khai. Đọc, fork, và tự host bản sao của riêng bạn.",
+    "f4Title": "Không tài khoản",
+    "f4Body": "Không cần đăng ký. Giới hạn áp dụng theo IP, không theo tài khoản.",
+    "f5Title": "HD khi có sẵn",
+    "f5Body": "Nếu TikTok cung cấp bản độ phân giải cao hơn, SlickTok cũng sẽ cung cấp.",
+    "f6Title": "Ảnh & slideshow",
+    "f6Body": "Bài đăng dạng ảnh được hỗ trợ ở mức tốt nhất có thể, bao gồm cả nhạc nền."
+  },
+  "faq": {
+    "title": "Câu hỏi",
+    "q1": "SlickTok có thêm watermark riêng không?",
+    "a1": "Không. File bạn nhận được giống hệt file mà ứng dụng TikTok phát nội bộ, trước khi watermark được thêm vào để chia sẻ.",
+    "q2": "Tôi có cần tài khoản không?",
+    "a2": "Không. Trang này không có đăng nhập. Thay vào đó, mức sử dụng được giới hạn theo địa chỉ IP để giữ máy chủ hoạt động cho mọi người.",
+    "q3": "Những liên kết nào được hỗ trợ?",
+    "a3": "Liên kết đầy đủ như tiktok.com/@user/video/123…, và liên kết rút gọn như vm.tiktok.com/xxxxx/.",
+    "q4": "Trang này có liên kết với TikTok không?",
+    "a4": "Không. SlickTok là dự án mã nguồn mở độc lập, không liên kết. Nó không được tạo ra, chứng thực hay hỗ trợ bởi TikTok hay ByteDance Ltd.",
+    "q5": "Tôi có thể tự chạy bản sao của mình không?",
+    "a5": "Có — đó chính là mục đích. Mã nguồn đầy đủ và hướng dẫn triển khai nằm trong kho lưu trữ được liên kết ở chân trang.",
+    "q6": "Tôi có được phép tải bất kỳ video nào không?",
+    "a6": "Chỉ tải các video bạn sở hữu, được phép lưu, hoặc đang xem cho mục đích cá nhân, hợp pháp. Xem Điều khoản để biết chi tiết."
+  },
+  "notice": {
+    "text": "SlickTok không liên kết, không được chứng thực và không có quan hệ với TikTok hay ByteDance Ltd. Vui lòng chỉ tải nội dung mà bạn có quyền lưu. Xem Điều khoản và Chính sách quyền riêng tư.",
+    "terms": "Điều khoản",
+    "privacy": "Quyền riêng tư"
+  },
+  "result": {
+    "views": "lượt xem",
+    "comments": "bình luận",
+    "shares": "lượt chia sẻ",
+    "untitled": "Không có tiêu đề",
+    "download": "Tải xuống (không watermark)",
+    "downloadHd": "Tải HD (không watermark)",
+    "downloadAudio": "Tải âm thanh",
+    "zip": "Tải tất cả (ZIP)",
+    "another": "Tải video khác"
+  },
+  "errors": {
+    "empty": "Hãy dán liên kết TikTok trước.",
+    "generic": "Đã xảy ra lỗi.",
+    "network": "Lỗi mạng. Vui lòng thử lại."
+  }
+}

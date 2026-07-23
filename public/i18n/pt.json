@@ -1,0 +1,72 @@
+{
+  "meta": { "title": "SlickTok — Downloader de vídeos do TikTok, sem marca d'água, sem anúncios" },
+  "hero": {
+    "eyebrow": "Grátis · Código aberto · Sem anúncios, nunca",
+    "title": "Baixe vídeos do TikTok, sem a marca d'água.",
+    "subtitle": "Cole um link e receba um arquivo em HD sem marca d'água. Sem conta, sem rastreamento, nada para instalar.",
+    "inputLabel": "Link do vídeo do TikTok",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "Colar",
+    "submit": "Baixar"
+  },
+  "how": {
+    "title": "Três passos, sem desvios",
+    "step1Title": "Copie o link",
+    "step1Body": "No app do TikTok, toque em Compartilhar e depois em Copiar link.",
+    "step2Title": "Cole aqui em cima",
+    "step2Body": "Funciona com links completos do tiktok.com e links curtos vm.tiktok.com.",
+    "step3Title": "Salve o arquivo limpo",
+    "step3Body": "Baixe o vídeo sem marca d'água direto no seu dispositivo."
+  },
+  "features": {
+    "title": "O que o SlickTok faz",
+    "f1Title": "Sem marca d'água",
+    "f1Body": "Os downloads usam o arquivo de reprodução original do TikTok — nada é sobreposto.",
+    "f2Title": "Sempre sem anúncios",
+    "f2Body": "Sem espaços publicitários, sem pop-ups, sem \"assista a um anúncio para HD\". Só a ferramenta.",
+    "f3Title": "Código aberto",
+    "f3Body": "Todo o código é público. Leia, faça um fork, hospede sua própria cópia.",
+    "f4Title": "Sem conta",
+    "f4Body": "Nada para cadastrar. O limite é por IP, não por login.",
+    "f5Title": "HD quando disponível",
+    "f5Body": "Se o TikTok oferecer uma versão em resolução maior, o SlickTok também a disponibiliza.",
+    "f6Title": "Fotos e carrosséis",
+    "f6Body": "Publicações de fotos são suportadas de forma limitada, incluindo a música de fundo."
+  },
+  "faq": {
+    "title": "Perguntas",
+    "q1": "O SlickTok adiciona sua própria marca d'água?",
+    "a1": "Não. O arquivo obtido é o mesmo que o app do TikTok reproduz internamente, antes de qualquer marca d'água ser adicionada para compartilhamento.",
+    "q2": "Preciso de uma conta?",
+    "a2": "Não. Não há login neste site. O uso é limitado por endereço IP, para manter o servidor disponível para todos.",
+    "q3": "Quais links são suportados?",
+    "a3": "Links completos como tiktok.com/@user/video/123… e links curtos como vm.tiktok.com/xxxxx/.",
+    "q4": "Isso é afiliado ao TikTok?",
+    "a4": "Não. O SlickTok é um projeto de código aberto independente e não afiliado. Não é criado, endossado ou apoiado pelo TikTok ou pela ByteDance Ltd.",
+    "q5": "Posso hospedar minha própria cópia?",
+    "a5": "Sim, esse é o objetivo. O código-fonte completo e um guia de implantação estão no repositório vinculado no rodapé.",
+    "q6": "Posso baixar qualquer vídeo que eu quiser?",
+    "a6": "Baixe apenas vídeos que você possui, tem permissão para salvar, ou que está assistindo para uso pessoal e legal. Veja os Termos."
+  },
+  "notice": {
+    "text": "O SlickTok não é afiliado, endossado ou conectado ao TikTok ou à ByteDance Ltd. Baixe apenas conteúdo que você tem o direito de salvar. Veja os Termos e a Política de Privacidade.",
+    "terms": "Termos",
+    "privacy": "Privacidade"
+  },
+  "result": {
+    "views": "visualizações",
+    "comments": "comentários",
+    "shares": "compartilhamentos",
+    "untitled": "Sem título",
+    "download": "Baixar (sem marca d'água)",
+    "downloadHd": "Baixar em HD (sem marca d'água)",
+    "downloadAudio": "Baixar áudio",
+    "zip": "Baixar tudo (ZIP)",
+    "another": "Baixar outro vídeo"
+  },
+  "errors": {
+    "empty": "Cole um link do TikTok primeiro.",
+    "generic": "Algo deu errado.",
+    "network": "Erro de rede. Tente novamente."
+  }
+}

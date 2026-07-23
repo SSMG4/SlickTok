@@ -1,0 +1,28 @@
+{
+  "name": "slicktok",
+  "version": "1.0.0",
+  "description": "Free, open-source, ad-free TikTok video downloader",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0"
+  }
+}

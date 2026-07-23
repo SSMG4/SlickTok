@@ -1,0 +1,12 @@
+{
+  "name": "SlickTok",
+  "short_name": "SlickTok",
+  "description": "Free, open-source, ad-free TikTok video downloader",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef1f6",
+  "theme_color": "#14161f",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
