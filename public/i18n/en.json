@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — TikTok video downloader, no watermark, no ads" },
+  "meta": { "title": "SlickTok. TikTok video downloader, no watermark, no ads" },
+  "nav": { "how": "How it works", "faq": "FAQ", "source": "Source" },
+  "header": { "themeToggle": "Toggle dark mode" },
   "hero": {
-    "eyebrow": "Free · Open source · No ads, ever",
+    "eyebrow": "Free, open source, no ads. Ever.",
     "title": "Download TikTok videos, minus the watermark.",
     "subtitle": "Paste a link, get an HD, watermark-free file back. No account, no tracking, nothing installed.",
     "inputLabel": "TikTok video link",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Paste",
-    "submit": "Download"
+    "submit": "Download",
+    "submitLoading": "Working..."
   },
   "how": {
     "title": "Three steps, no detours",
@@ -21,7 +24,7 @@
   "features": {
     "title": "What SlickTok does",
     "f1Title": "No watermark",
-    "f1Body": "Downloads use TikTok's own clean playback file — nothing stamped on top.",
+    "f1Body": "Downloads use TikTok's own clean playback file, nothing stamped on top.",
     "f2Title": "Ad-free, always",
     "f2Body": "No ad slots, no popups, no \"watch an ad for HD.\" It's just the tool.",
     "f3Title": "Open source",
@@ -37,14 +40,20 @@
     "title": "Questions",
     "q1": "Does SlickTok add a watermark of its own?",
     "a1": "No. The file you get is the same one TikTok's own app plays back internally, before any watermark is added for sharing.",
+    "qSafe": "Is SlickTok safe to use?",
+    "aSafe": "Yes. Nothing is installed on your device, there's no login to compromise, and the code is fully open source, so anyone can check exactly what it does.",
     "q2": "Do I need an account?",
     "a2": "No. There's no login anywhere on this site. Usage is limited per IP address instead, to keep the server available for everyone.",
     "q3": "What links are supported?",
-    "a3": "Full links like tiktok.com/@user/video/123…, and short links like vm.tiktok.com/xxxxx/.",
+    "a3": "Full links like tiktok.com/@user/video/123, and short links like vm.tiktok.com/xxxxx/.",
     "q4": "Is this affiliated with TikTok?",
     "a4": "No. SlickTok is an independent, unaffiliated open-source project. It is not made, endorsed, or supported by TikTok or ByteDance Ltd.",
+    "qFail": "Why does a download sometimes fail?",
+    "aFail": "Usually because the video is private, deleted, region-locked, or TikTok changed something on their end. Try again in a bit, or check for a newer yt-dlp release if you're self-hosting.",
+    "qCreator": "Does downloading a video affect the creator?",
+    "aCreator": "SlickTok doesn't like, follow, comment, or notify anyone. The creator isn't told that their video was downloaded. Please still credit and support creators whose content you save.",
     "q5": "Can I run my own copy?",
-    "a5": "Yes — that's the point. The full source and a deployment guide are in the repository linked in the footer.",
+    "a5": "Yes, that's the point. The full source and a deployment guide are in the repository linked in the footer.",
     "q6": "Am I allowed to download any video I want?",
     "a6": "Only download videos you own, have permission to save, or that you're viewing for personal, non-infringing use. See the Terms for details."
   },
@@ -54,19 +63,24 @@
     "privacy": "Privacy Policy"
   },
   "result": {
+    "likes": "likes",
     "views": "views",
     "comments": "comments",
     "shares": "shares",
     "untitled": "Untitled",
-    "download": "Download (no watermark)",
-    "downloadHd": "Download HD (no watermark)",
+    "preview": "Preview video",
+    "download": "Download",
+    "downloadHd": "Download HD",
     "downloadAudio": "Download audio",
     "zip": "Download all (ZIP)",
+    "convertVideo": "Convert to video (MP4)",
+    "converting": "Converting...",
     "another": "Download another video"
   },
   "errors": {
     "empty": "Paste a TikTok link first.",
     "generic": "Something went wrong.",
-    "network": "Network error. Try again."
+    "network": "Network error. Try again.",
+    "conversionFailed": "Could not convert this slideshow to video."
   }
 }

@@ -10,7 +10,7 @@ people.
 - Give and accept constructive feedback gracefully.
 - Stay on topic in issues and pull requests.
 - Respect that this is a small, personal open-source project
-  maintained in someone's spare time — response times will vary.
+  maintained in someone's spare time, response times will vary.
 
 ## Unacceptable behavior
 
@@ -20,14 +20,14 @@ people.
 - Using project spaces to promote unrelated products, services, or
   content.
 - Submitting contributions intended to reintroduce ads, trackers,
-  telemetry, or account/login requirements — that runs against the
+  telemetry, or account/login requirements, that runs against the
   project's stated goals (see [CONTRIBUTING.md](CONTRIBUTING.md)) and
   will be closed regardless of code quality.
 
 ## Scope
 
-This applies to all project spaces — issues, pull requests,
-discussions, and any other official communication channel — and to
+This applies to all project spaces, issues, pull requests,
+discussions, and any other official communication channel, and to
 anyone representing the project in public.
 
 ## Enforcement

@@ -1,0 +1,86 @@
+{
+  "meta": { "title": "SlickTok。TikTok 视频下载器，无水印，无广告" },
+  "nav": { "how": "使用方法", "faq": "常见问题", "source": "源代码" },
+  "header": { "themeToggle": "切换深色模式" },
+  "hero": {
+    "eyebrow": "免费，开源，永远没有广告。",
+    "title": "下载 TikTok 视频，去除水印。",
+    "subtitle": "粘贴链接，获取无水印的高清文件。无需账号，无追踪，无需安装任何东西。",
+    "inputLabel": "TikTok 视频链接",
+    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "paste": "粘贴",
+    "submit": "下载",
+    "submitLoading": "处理中..."
+  },
+  "how": {
+    "title": "三个步骤，直截了当",
+    "step1Title": "复制链接",
+    "step1Body": "在 TikTok 应用中，点击分享，然后复制链接。",
+    "step2Title": "粘贴到上面",
+    "step2Body": "支持完整的 tiktok.com 链接和短链接 vm.tiktok.com。",
+    "step3Title": "保存干净的文件",
+    "step3Body": "直接将无水印的视频下载到你的设备。"
+  },
+  "features": {
+    "title": "SlickTok 能做什么",
+    "f1Title": "无水印",
+    "f1Body": "下载使用的是 TikTok 自身的原始播放文件，没有额外叠加任何内容。",
+    "f2Title": "始终无广告",
+    "f2Body": "没有广告位，没有弹窗，没有\"看广告解锁高清\"。只有这个工具本身。",
+    "f3Title": "开源",
+    "f3Body": "每一行代码都是公开的。阅读、fork、自行搭建你自己的实例。",
+    "f4Title": "无需账号",
+    "f4Body": "无需注册任何东西。限制按 IP 计算，而不是按登录账号。",
+    "f5Title": "有高清就提供高清",
+    "f5Body": "如果 TikTok 提供了更高分辨率的版本，SlickTok 也会提供。",
+    "f6Title": "图片与幻灯片",
+    "f6Body": "图片帖子会尽力支持，包括背景音乐。"
+  },
+  "faq": {
+    "title": "常见问题",
+    "q1": "SlickTok 会自己添加水印吗？",
+    "a1": "不会。你获得的文件与 TikTok 应用内部播放的文件相同，是在添加分享水印之前的版本。",
+    "qSafe": "使用 SlickTok 安全吗？",
+    "aSafe": "安全。你的设备上不会安装任何东西，没有登录信息可能被盗，而且代码完全开源，任何人都可以准确检查它做了什么。",
+    "q2": "我需要账号吗？",
+    "a2": "不需要。这个网站没有任何登录功能。使用限制改为按 IP 地址计算，以便让服务器对所有人保持可用。",
+    "q3": "支持哪些链接？",
+    "a3": "完整链接如 tiktok.com/@user/video/123，以及短链接如 vm.tiktok.com/xxxxx/。",
+    "q4": "这个网站与 TikTok 有关联吗？",
+    "a4": "没有。SlickTok 是一个独立的、无关联的开源项目。它不是由 TikTok 或 ByteDance Ltd. 制作、认可或支持的。",
+    "qFail": "为什么下载有时会失败？",
+    "aFail": "通常是因为视频是私密的、已被删除、受地区限制，或者 TikTok 那边改动了什么。稍后再试一次，如果是自行搭建的实例，可以检查是否有更新版本的 yt-dlp。",
+    "qCreator": "下载视频会影响到创作者吗？",
+    "aCreator": "SlickTok 不会点赞、关注、评论，也不会通知任何人。创作者不会被告知视频被下载过。不过，请仍然为你保存内容的创作者署名并支持他们。",
+    "q5": "我可以自己搭建一份吗？",
+    "a5": "可以，这正是它存在的意义。完整源代码和部署指南都在页脚链接的仓库中。",
+    "q6": "我可以随意下载任何视频吗？",
+    "a6": "只下载你拥有、获得许可保存，或用于个人合法用途的视频。详情见服务条款。"
+  },
+  "notice": {
+    "text": "SlickTok 与 TikTok 或 ByteDance Ltd. 没有任何关联、认可或联系。请仅下载你有权保存的内容。详见服务条款和隐私政策。",
+    "terms": "服务条款",
+    "privacy": "隐私政策"
+  },
+  "result": {
+    "likes": "点赞",
+    "views": "观看",
+    "comments": "评论",
+    "shares": "分享",
+    "untitled": "无标题",
+    "preview": "预览视频",
+    "download": "下载",
+    "downloadHd": "下载高清版",
+    "downloadAudio": "下载音频",
+    "zip": "全部下载 (ZIP)",
+    "convertVideo": "转换为视频 (MP4)",
+    "converting": "转换中...",
+    "another": "下载另一个视频"
+  },
+  "errors": {
+    "empty": "请先粘贴一个 TikTok 链接。",
+    "generic": "出了点问题。",
+    "network": "网络错误，请重试。",
+    "conversionFailed": "无法将此幻灯片转换为视频。"
+  }
+}

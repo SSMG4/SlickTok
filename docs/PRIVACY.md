@@ -29,14 +29,14 @@ only for the purpose described below.
 - No analytics, no tracking pixels, no third-party scripts
 - No advertising, and therefore no ad-tech data sharing
 - No cookies. The only thing stored in your browser is your language
-  choice, saved locally via `localStorage` — it never leaves your
+  choice, saved locally via `localStorage`, it never leaves your
   device.
 
 ## Third parties involved
 
 To do its job, SlickTok's server necessarily talks to TikTok's own
 infrastructure (to resolve a link and to fetch the underlying video or
-image files). Your browser never talks to TikTok directly — TikTok
+image files). Your browser never talks to TikTok directly, TikTok
 sees the server's IP address, not yours.
 
 ## Logs
@@ -44,7 +44,7 @@ sees the server's IP address, not yours.
 The application does not log the URLs you submit or the videos you
 download. Whoever operates a given instance may still have
 process-level logs (for example, PM2's stdout/stderr logs, or the
-`logs/deploy.log` file used for auto-deploys) — those contain
+`logs/deploy.log` file used for auto-deploys), those contain
 operational output, not visitor activity, by default.
 
 ## Children's privacy
@@ -67,6 +67,6 @@ questions.
 ---
 
 *This is a plain-language description of how the software behaves,
-written by the project maintainer — it isn't legal advice, and
+written by the project maintainer, it isn't legal advice, and
 self-hosters distributing this software to others should review it
 against their own jurisdiction's requirements.*

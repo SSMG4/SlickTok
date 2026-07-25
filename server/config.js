@@ -6,11 +6,11 @@ function int(value, fallback) {
 }
 
 export const config = {
-  port: int(process.env.PORT, 3000),
-  publicUrl: process.env.PUBLIC_URL || `http://localhost:${int(process.env.PORT, 3000)}`,
+  port: int(process.env.PORT, 3005),
+  publicUrl: process.env.PUBLIC_URL || `http://localhost:${int(process.env.PORT, 3005)}`,
   ytdlpPath: process.env.YTDLP_PATH || 'yt-dlp',
   deployWebhookSecret: process.env.DEPLOY_WEBHOOK_SECRET || '',
-  deployBranch: process.env.DEPLOY_BRANCH || 'main',
+  deployBranch: process.env.DEPLOY_BRANCH || 'master',
   rateLimitPerHour: int(process.env.RATE_LIMIT_PER_HOUR, 50),
   rateLimitPerDay: int(process.env.RATE_LIMIT_PER_DAY, 1000),
 };

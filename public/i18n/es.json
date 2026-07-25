@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — Descargador de vídeos de TikTok, sin marca de agua, sin anuncios" },
+  "meta": { "title": "SlickTok. Descargador de vídeos de TikTok, sin marca de agua, sin anuncios" },
+  "nav": { "how": "Cómo funciona", "faq": "Preguntas", "source": "Código fuente" },
+  "header": { "themeToggle": "Cambiar modo oscuro" },
   "hero": {
-    "eyebrow": "Gratis · Código abierto · Sin anuncios, nunca",
+    "eyebrow": "Gratis, código abierto, sin anuncios. Nunca.",
     "title": "Descarga vídeos de TikTok, sin la marca de agua.",
     "subtitle": "Pega un enlace y recibe un archivo en HD sin marca de agua. Sin cuenta, sin rastreo, sin instalar nada.",
     "inputLabel": "Enlace del vídeo de TikTok",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Pegar",
-    "submit": "Descargar"
+    "submit": "Descargar",
+    "submitLoading": "Procesando..."
   },
   "how": {
     "title": "Tres pasos, sin rodeos",
@@ -37,12 +40,18 @@
     "title": "Preguntas",
     "q1": "¿SlickTok añade su propia marca de agua?",
     "a1": "No. El archivo que obtienes es el mismo que reproduce internamente la app de TikTok, antes de añadir cualquier marca de agua para compartir.",
+    "qSafe": "¿Es seguro usar SlickTok?",
+    "aSafe": "Sí. No se instala nada en tu dispositivo, no hay ninguna sesión que puedan comprometer, y el código es totalmente abierto, así que cualquiera puede comprobar exactamente qué hace.",
     "q2": "¿Necesito una cuenta?",
     "a2": "No. No hay inicio de sesión en este sitio. En su lugar, el uso se limita por dirección IP, para mantener el servidor disponible para todos.",
     "q3": "¿Qué enlaces son compatibles?",
-    "a3": "Enlaces completos como tiktok.com/@user/video/123…, y enlaces cortos como vm.tiktok.com/xxxxx/.",
+    "a3": "Enlaces completos como tiktok.com/@user/video/123, y enlaces cortos como vm.tiktok.com/xxxxx/.",
     "q4": "¿Está afiliado a TikTok?",
     "a4": "No. SlickTok es un proyecto de código abierto independiente y no afiliado. No está creado, respaldado ni apoyado por TikTok o ByteDance Ltd.",
+    "qFail": "¿Por qué falla a veces una descarga?",
+    "aFail": "Normalmente porque el vídeo es privado, fue eliminado, está bloqueado en tu región, o TikTok cambió algo de su lado. Inténtalo de nuevo en un rato, o comprueba si hay una versión más reciente de yt-dlp si estás autoalojando el servicio.",
+    "qCreator": "¿Descargar un vídeo afecta al creador?",
+    "aCreator": "SlickTok no da like, no sigue, no comenta ni notifica a nadie. Al creador no se le informa de que su vídeo fue descargado. Aun así, por favor da crédito y apoya a los creadores cuyo contenido guardes.",
     "q5": "¿Puedo alojar mi propia copia?",
     "a5": "Sí, esa es la idea. El código fuente completo y una guía de despliegue están en el repositorio enlazado en el pie de página.",
     "q6": "¿Puedo descargar cualquier vídeo que quiera?",
@@ -54,19 +63,24 @@
     "privacy": "Privacidad"
   },
   "result": {
+    "likes": "me gusta",
     "views": "reproducciones",
     "comments": "comentarios",
     "shares": "compartidos",
     "untitled": "Sin título",
-    "download": "Descargar (sin marca de agua)",
-    "downloadHd": "Descargar en HD (sin marca de agua)",
+    "preview": "Vista previa del vídeo",
+    "download": "Descargar",
+    "downloadHd": "Descargar en HD",
     "downloadAudio": "Descargar audio",
     "zip": "Descargar todo (ZIP)",
+    "convertVideo": "Convertir a vídeo (MP4)",
+    "converting": "Convirtiendo...",
     "another": "Descargar otro vídeo"
   },
   "errors": {
     "empty": "Pega primero un enlace de TikTok.",
     "generic": "Algo salió mal.",
-    "network": "Error de red. Inténtalo de nuevo."
+    "network": "Error de red. Inténtalo de nuevo.",
+    "conversionFailed": "No se pudo convertir este carrusel a vídeo."
   }
 }

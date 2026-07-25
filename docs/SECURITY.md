@@ -2,9 +2,9 @@
 
 ## Supported versions
 
-SlickTok is a single rolling branch (`main`). There are no maintained
-release branches — the latest commit on `main` is the supported version.
-If you're self-hosting, keep your deployment up to date with `main`.
+SlickTok is a single rolling branch (`master`). There are no maintained
+release branches, the latest commit on `master` is the supported version.
+If you're self-hosting, keep your deployment up to date with `master`.
 
 ## Reporting a vulnerability
 
@@ -14,7 +14,7 @@ Instead, use GitHub's private reporting:
 **Repository → Security → Report a vulnerability**.
 
 If that isn't available, open a regular issue asking for a private
-contact channel — don't include exploit details in it.
+contact channel, don't include exploit details in it.
 
 Include, where possible:
 
@@ -24,7 +24,7 @@ Include, where possible:
 
 Expect an initial response within a few days. This is a personal
 open-source project maintained outside of working hours, not a
-company with an SLA — thank you for your patience.
+company with an SLA, thank you for your patience.
 
 ## Scope
 
@@ -40,7 +40,7 @@ Things that are explicitly out of scope:
 - TikTok's own platform, apps, or infrastructure
 - Vulnerabilities in `yt-dlp` itself (report those to the
   [yt-dlp project](https://github.com/yt-dlp/yt-dlp) directly)
-- Denial of service via raw traffic volume — that's what the rate
+- Denial of service via raw traffic volume, that's what the rate
   limiter and Cloudflare are for, not something a report is needed for
 
 ## Existing safeguards worth knowing about

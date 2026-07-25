@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — Téléchargeur de vidéos TikTok, sans filigrane, sans pub" },
+  "meta": { "title": "SlickTok. Téléchargeur de vidéos TikTok, sans filigrane, sans pub" },
+  "nav": { "how": "Comment ça marche", "faq": "FAQ", "source": "Code source" },
+  "header": { "themeToggle": "Basculer le mode sombre" },
   "hero": {
-    "eyebrow": "Gratuit · Open source · Sans pub, jamais",
+    "eyebrow": "Gratuit, open source, sans pub. Jamais.",
     "title": "Téléchargez des vidéos TikTok, sans le filigrane.",
     "subtitle": "Collez un lien, récupérez un fichier HD sans filigrane. Pas de compte, pas de traçage, rien à installer.",
     "inputLabel": "Lien de la vidéo TikTok",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Coller",
-    "submit": "Télécharger"
+    "submit": "Télécharger",
+    "submitLoading": "En cours..."
   },
   "how": {
     "title": "Trois étapes, sans détour",
@@ -21,7 +24,7 @@
   "features": {
     "title": "Ce que fait SlickTok",
     "f1Title": "Sans filigrane",
-    "f1Body": "Les téléchargements utilisent le fichier de lecture propre de TikTok — rien n'est ajouté par-dessus.",
+    "f1Body": "Les téléchargements utilisent le fichier de lecture propre de TikTok, rien n'est ajouté par-dessus.",
     "f2Title": "Sans pub, toujours",
     "f2Body": "Pas d'emplacements publicitaires, pas de popups, pas de « regardez une pub pour la HD ». Juste l'outil.",
     "f3Title": "Open source",
@@ -37,12 +40,18 @@
     "title": "Questions",
     "q1": "SlickTok ajoute-t-il son propre filigrane ?",
     "a1": "Non. Le fichier obtenu est celui que l'application TikTok lit en interne, avant l'ajout d'un filigrane pour le partage.",
+    "qSafe": "SlickTok est-il sûr à utiliser ?",
+    "aSafe": "Oui. Rien n'est installé sur votre appareil, il n'y a aucune connexion à compromettre, et le code est entièrement open source, donc n'importe qui peut vérifier exactement ce qu'il fait.",
     "q2": "Ai-je besoin d'un compte ?",
     "a2": "Non. Il n'y a aucune connexion sur ce site. L'usage est limité par adresse IP à la place, pour garder le serveur disponible pour tout le monde.",
     "q3": "Quels liens sont pris en charge ?",
-    "a3": "Les liens complets comme tiktok.com/@user/video/123…, et les liens courts comme vm.tiktok.com/xxxxx/.",
+    "a3": "Les liens complets comme tiktok.com/@user/video/123, et les liens courts comme vm.tiktok.com/xxxxx/.",
     "q4": "Ce site est-il affilié à TikTok ?",
     "a4": "Non. SlickTok est un projet open source indépendant, non affilié. Il n'est ni créé, ni approuvé, ni soutenu par TikTok ou ByteDance Ltd.",
+    "qFail": "Pourquoi un téléchargement échoue-t-il parfois ?",
+    "aFail": "Généralement parce que la vidéo est privée, supprimée, bloquée dans votre région, ou que TikTok a changé quelque chose de son côté. Réessayez un peu plus tard, ou vérifiez s'il existe une version plus récente de yt-dlp si vous hébergez votre propre instance.",
+    "qCreator": "Le téléchargement d'une vidéo affecte-t-il le créateur ?",
+    "aCreator": "SlickTok ne like, ne suit, ne commente et ne notifie personne. Le créateur n'est pas informé que sa vidéo a été téléchargée. Merci de tout de même créditer et soutenir les créateurs dont vous enregistrez le contenu.",
     "q5": "Puis-je héberger ma propre copie ?",
     "a5": "Oui, c'est justement le but. Le code source complet et un guide de déploiement se trouvent dans le dépôt lié en pied de page.",
     "q6": "Ai-je le droit de télécharger n'importe quelle vidéo ?",
@@ -54,19 +63,24 @@
     "privacy": "Confidentialité"
   },
   "result": {
+    "likes": "j'aime",
     "views": "vues",
     "comments": "commentaires",
     "shares": "partages",
     "untitled": "Sans titre",
-    "download": "Télécharger (sans filigrane)",
-    "downloadHd": "Télécharger en HD (sans filigrane)",
+    "preview": "Aperçu de la vidéo",
+    "download": "Télécharger",
+    "downloadHd": "Télécharger en HD",
     "downloadAudio": "Télécharger l'audio",
     "zip": "Tout télécharger (ZIP)",
+    "convertVideo": "Convertir en vidéo (MP4)",
+    "converting": "Conversion en cours...",
     "another": "Télécharger une autre vidéo"
   },
   "errors": {
     "empty": "Collez d'abord un lien TikTok.",
     "generic": "Une erreur s'est produite.",
-    "network": "Erreur réseau. Réessayez."
+    "network": "Erreur réseau. Réessayez.",
+    "conversionFailed": "Impossible de convertir ce diaporama en vidéo."
   }
 }

@@ -4,27 +4,31 @@
 
 SlickTok is a single Node.js process (Express) that serves a static
 frontend and a small JSON API. There is no database, no queue, no
-build step for the frontend, and no separate reverse proxy — Cloudflare
+build step for the frontend, and no separate reverse proxy, Cloudflare
 Tunnel connects directly to the Node process.
 
 ```mermaid
 flowchart LR
     Browser -->|HTTPS| CF[Cloudflare edge]
     CF -->|Tunnel| CFD[cloudflared]
-    CFD -->|http://localhost:3000| Express
+    CFD -->|http://localhost:3005| Express
 
     subgraph Server [Node process]
         Express -->|static files| Public[public/]
         Express -->|POST /api/resolve| Resolve[services/tiktok.js]
         Express -->|GET /api/download| Proxy[download proxy]
         Express -->|POST /api/download-zip| Zip[archiver]
+        Express -->|POST /api/slideshow-video| Convert[services/slideshowVideo.js]
         Express -->|POST /api/_deploy| Webhook[webhook.js]
     end
 
     Resolve -->|spawns| YtDlp[yt-dlp]
+    Resolve -->|best-effort fetch| WebApi[TikTok web API]
     YtDlp -->|resolves| TikTok[(TikTok)]
+    WebApi -->|resolves| TikTok
     Proxy -->|fetch, allowlisted| TikTok
     Zip -->|fetch, allowlisted| TikTok
+    Convert -->|fetch + ffmpeg| TikTok
     Webhook -->|spawns| Deploy[scripts/deploy.sh]
     Deploy -->|git pull, npm ci, pm2 reload| Server
 ```
@@ -51,12 +55,25 @@ compatibility with no changes to this repository at all.
    present, falling back to `req.ip`).
 3. `server/services/tiktok.js` validates the URL's hostname ends in
    `tiktok.com`, then runs `yt-dlp -j <url>` and parses the JSON
-   info-dict it returns.
+   info-dict it returns. This is the reliable path and covers both
+   full `tiktok.com/@user/video/ID` links and short `vm.tiktok.com`
+   / `vt.tiktok.com` redirect links, yt-dlp resolves the redirect
+   itself.
 4. Formats are filtered to exclude anything yt-dlp marked
    `format_note: "watermarked"`, deduplicated by resolution, and the
    top one or two are exposed as `sd`/`hd` download URLs.
-5. The normalized result (title, author, stats, thumbnail, download
-   URLs) is returned to the client — nothing is persisted.
+5. Separately, `fetchWebEnrichment()` makes a **best-effort** call to
+   TikTok's undocumented `item_detail` web endpoint to try to get the
+   author's avatar image and, for photo posts, the individual image
+   URLs, neither of which `yt-dlp` exposes. If this call fails for any
+   reason (blocked, rate-limited, schema changed), the function
+   returns `null` and the rest of the response is unaffected, the
+   avatar falls back to an initial letter, and a slideshow's images
+   stay empty with an explanatory `warning`. This call is genuinely
+   fragile since it depends on an unofficial endpoint; treat it as a
+   bonus, not a guarantee.
+6. The normalized result (title, author, stats, thumbnail, download
+   URLs, images) is returned to the client, nothing is persisted.
 
 ## Request flow: downloading a file
 
@@ -66,23 +83,54 @@ directly as final download links. Instead, the client requests
 server:
 
 1. Validates that `src`'s hostname matches a fixed allowlist of known
-   TikTok CDN domains (`server/services/tiktok.js`,
-   `isAllowedCdnUrl`). Anything else is rejected before any outbound
-   request is made — this is the SSRF guard mentioned in
+   TikTok/CDN domains (`server/services/tiktok.js`,
+   `isAllowedCdnUrl`, this includes plain `tiktok.com` itself, since
+   TikTok often serves video directly from subdomains like
+   `v16-webapp-prime.tiktok.com` rather than a dedicated CDN
+   hostname). Anything else is rejected before any outbound request
+   is made, this is the SSRF guard mentioned in
    [SECURITY.md](SECURITY.md).
 2. Fetches `src` with a browser-like `User-Agent` and a `Referer` of
    `https://www.tiktok.com/`, since TikTok's CDN checks both.
-3. Streams the response body straight through to the client with a
-   `Content-Disposition: attachment` header. Nothing touches disk.
+3. Streams the response body straight through to the client. By
+   default this sends `Content-Disposition: attachment` to force a
+   download; passing `?inline=1` (used by the in-page video preview)
+   sends `Content-Disposition: inline` instead so the browser can
+   play it directly in a `<video>` tag. Nothing touches disk either
+   way.
 
-Photo slideshows use the same allowlist for each image, and
+Photo slideshows use the same allowlist for each image.
 `/api/download-zip` streams them into a zip archive on the fly via
-`archiver`, again without buffering the whole thing on disk.
+`archiver`, and `/api/slideshow-video` (see below) downloads them to a
+temp directory for `ffmpeg` to process, neither buffers the whole set
+in memory at once.
+
+## Slideshow-to-video conversion
+
+`server/services/slideshowVideo.js` turns a photo slideshow into an
+MP4, timed to its background audio:
+
+1. Downloads every image and the audio track into a fresh temp
+   directory (`fs.mkdtemp`).
+2. Runs `ffprobe` on the audio to get its duration, then divides that
+   evenly across the images to get a per-image display time.
+3. Builds an `ffmpeg concat` demuxer script (hard cuts between
+   images, no crossfade, simple and predictable) and runs a single
+   `ffmpeg` pass that scales/pads everything to a 1080x1920 portrait
+   canvas, encodes H.264 + AAC, and muxes in the audio.
+4. Streams the resulting file back and deletes the temp directory
+   once the response finishes.
+
+This only works when both images and an audio track were available
+from the resolve step, so it inherits the same best-effort limitation
+as image extraction above. It's also rate-limited separately
+(`conversionLimiter` in `server/middleware/rateLimiter.js`) since
+it's meaningfully more CPU-intensive than a plain download.
 
 ## Auto-deploy
 
 `server/routes/webhook.js` is mounted before the JSON body parser
-specifically so it can read the raw request body — GitHub's
+specifically so it can read the raw request body, GitHub's
 `X-Hub-Signature-256` HMAC is computed over the exact bytes sent, and
 re-serializing parsed JSON would break the signature check. On a
 verified push to the configured branch, it spawns
@@ -93,15 +141,14 @@ setup.
 
 ## Known limitations
 
-- **Photo slideshow images aren't extracted.** yt-dlp's TikTok
-  extractor currently exposes the audio track for slideshow posts but
-  not the individual images. `data.images` is always `null` for now;
-  the frontend and API shape already support it so this can be filled
-  in later without a breaking change.
+- **Avatar and slideshow images are best-effort.** Both depend on an
+  undocumented TikTok web endpoint that isn't guaranteed to keep
+  working (see step 5 above). When it fails, the UI degrades
+  gracefully rather than breaking.
 - **yt-dlp's info-dict shape is a moving target.** The field mapping
   in `server/services/tiktok.js` was written against yt-dlp
   `2026.07.04`. If TikTok changes its API, a newer yt-dlp release
-  will usually keep working without any changes here — but if
+  will usually keep working without any changes here, but if
   downloads start failing, run `yt-dlp -j <url>` directly on the
   server to see the current shape before assuming this repo's code is
   the problem.
@@ -112,7 +159,11 @@ setup.
   in-memory store.
 - **No audio extraction for ordinary videos.** Only slideshow posts
   expose a separate audio-only stream from yt-dlp; a regular video's
-  audio is muxed into the video file. Offering a standalone MP3 for
-  ordinary videos would require running `ffmpeg` server-side to
-  extract it — not implemented here to keep the server's job simple
-  (download and proxy, not transcode).
+  audio is muxed into the video file. A standalone MP3 for ordinary
+  videos would need `ffmpeg` to extract it server-side, not
+  implemented for plain videos (only for the slideshow converter
+  above, which already shells out to `ffmpeg` for a different
+  reason).
+- **Slideshow-to-video is hard cuts only.** No crossfade or
+  Ken-Burns-style pan/zoom between images. Doable later with a more
+  elaborate `ffmpeg` filter graph, kept simple for now.

@@ -7,6 +7,7 @@ const execFileAsync = promisify(execFile);
 const TIKTOK_HOST_RE = /(^|\.)tiktok\.com$/i;
 
 const CDN_HOST_SUFFIXES = [
+  'tiktok.com',
   'tiktokcdn.com',
   'tiktokcdn-us.com',
   'tiktokcdn-eu.com',
@@ -81,6 +82,43 @@ function pickThumbnail(info) {
   return [...thumbs].sort((a, b) => (b.preference ?? -1) - (a.preference ?? -1))[0]?.url || null;
 }
 
+const ENRICHMENT_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+  Referer: 'https://www.tiktok.com/',
+};
+
+// Best-effort only: TikTok's web item_detail endpoint is undocumented and
+// unofficial. If it changes shape, rate-limits us, or is unreachable, we
+// simply fall back to what yt-dlp already gave us (no avatar, no slideshow
+// images) rather than failing the whole request. See ARCHITECTURE.md.
+async function fetchWebEnrichment(id) {
+  if (!id) return null;
+  try {
+    const res = await fetch(`https://www.tiktok.com/api/item_detail/?itemId=${encodeURIComponent(id)}`, {
+      headers: ENRICHMENT_HEADERS,
+      signal: AbortSignal.timeout(8_000),
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const item = data?.itemInfo?.itemStruct;
+    if (!item) return null;
+
+    const avatar = item.author?.avatarThumb?.urlList?.[0]
+      || item.author?.avatarMedium?.urlList?.[0]
+      || null;
+
+    const images = Array.isArray(item.imagePost?.images)
+      ? item.imagePost.images
+        .map((img) => img?.imageURL?.urlList?.[0])
+        .filter((url) => typeof url === 'string' && isAllowedCdnUrl(url))
+      : null;
+
+    return { avatar, images: images && images.length ? images : null };
+  } catch {
+    return null;
+  }
+}
+
 export async function resolveTikTok(rawUrl) {
   if (!isSupportedTikTokUrl(rawUrl)) {
     throw new ResolveError('That does not look like a TikTok link.', 400);
@@ -111,6 +149,8 @@ export async function resolveTikTok(rawUrl) {
   const downloads = isSlideshow ? {} : pickDownloads(formats);
   if (audioOnly) downloads.audio = audioOnly.url;
 
+  const enrichment = await fetchWebEnrichment(info.id);
+
   return {
     id: String(info.id || ''),
     type: isSlideshow ? 'slideshow' : 'video',
@@ -118,6 +158,7 @@ export async function resolveTikTok(rawUrl) {
     author: {
       username: info.uploader || '',
       nickname: info.channel || info.uploader || '',
+      avatar: enrichment?.avatar || null,
     },
     stats: {
       views: info.view_count ?? null,
@@ -128,9 +169,9 @@ export async function resolveTikTok(rawUrl) {
     thumbnail: pickThumbnail(info),
     duration: info.duration ?? null,
     downloads,
-    images: null,
-    warning: isSlideshow
-      ? 'This looks like a photo slideshow. Only the background audio could be extracted — image extraction is not implemented yet.'
+    images: isSlideshow ? (enrichment?.images || null) : null,
+    warning: isSlideshow && !enrichment?.images
+      ? 'This looks like a photo slideshow. Only the background audio could be extracted; image extraction did not succeed for this post.'
       : null,
   };
 }

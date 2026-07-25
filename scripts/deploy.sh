@@ -7,8 +7,8 @@ mkdir -p logs
 {
   echo "[$(date -u +%FT%TZ)] deploy start"
 
-  git fetch --quiet origin main
-  git reset --hard origin/main
+  git fetch --quiet origin master
+  git reset --hard origin/master
 
   npm ci --omit=dev
 

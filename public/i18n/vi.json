@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — Tải video TikTok, không watermark, không quảng cáo" },
+  "meta": { "title": "SlickTok. Tải video TikTok, không watermark, không quảng cáo" },
+  "nav": { "how": "Cách sử dụng", "faq": "Câu hỏi", "source": "Mã nguồn" },
+  "header": { "themeToggle": "Chuyển chế độ tối" },
   "hero": {
-    "eyebrow": "Miễn phí · Mã nguồn mở · Không quảng cáo, mãi mãi",
+    "eyebrow": "Miễn phí, mã nguồn mở, không quảng cáo. Mãi mãi.",
     "title": "Tải video TikTok, không watermark.",
     "subtitle": "Dán liên kết, nhận file HD không watermark. Không tài khoản, không theo dõi, không cài đặt.",
     "inputLabel": "Liên kết video TikTok",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Dán",
-    "submit": "Tải xuống"
+    "submit": "Tải xuống",
+    "submitLoading": "Đang xử lý..."
   },
   "how": {
     "title": "Ba bước, không vòng vo",
@@ -21,7 +24,7 @@
   "features": {
     "title": "SlickTok làm được gì",
     "f1Title": "Không watermark",
-    "f1Body": "Bản tải xuống dùng file phát gốc của TikTok — không có gì được dán đè lên.",
+    "f1Body": "Bản tải xuống dùng file phát gốc của TikTok, không có gì được dán đè lên.",
     "f2Title": "Luôn không quảng cáo",
     "f2Body": "Không ô quảng cáo, không popup, không \"xem quảng cáo để có HD\". Chỉ có công cụ.",
     "f3Title": "Mã nguồn mở",
@@ -37,14 +40,20 @@
     "title": "Câu hỏi",
     "q1": "SlickTok có thêm watermark riêng không?",
     "a1": "Không. File bạn nhận được giống hệt file mà ứng dụng TikTok phát nội bộ, trước khi watermark được thêm vào để chia sẻ.",
+    "qSafe": "SlickTok có an toàn để sử dụng không?",
+    "aSafe": "Có. Không có gì được cài lên thiết bị của bạn, không có đăng nhập nào để bị lộ, và mã nguồn hoàn toàn mở, nên bất kỳ ai cũng có thể kiểm tra chính xác nó làm gì.",
     "q2": "Tôi có cần tài khoản không?",
     "a2": "Không. Trang này không có đăng nhập. Thay vào đó, mức sử dụng được giới hạn theo địa chỉ IP để giữ máy chủ hoạt động cho mọi người.",
     "q3": "Những liên kết nào được hỗ trợ?",
-    "a3": "Liên kết đầy đủ như tiktok.com/@user/video/123…, và liên kết rút gọn như vm.tiktok.com/xxxxx/.",
+    "a3": "Liên kết đầy đủ như tiktok.com/@user/video/123, và liên kết rút gọn như vm.tiktok.com/xxxxx/.",
     "q4": "Trang này có liên kết với TikTok không?",
     "a4": "Không. SlickTok là dự án mã nguồn mở độc lập, không liên kết. Nó không được tạo ra, chứng thực hay hỗ trợ bởi TikTok hay ByteDance Ltd.",
+    "qFail": "Vì sao tải xuống đôi khi thất bại?",
+    "aFail": "Thường là do video ở chế độ riêng tư, đã bị xóa, bị chặn theo khu vực, hoặc TikTok đã thay đổi điều gì đó ở phía họ. Hãy thử lại sau một chút, hoặc kiểm tra xem có bản yt-dlp mới hơn không nếu bạn đang tự lưu trữ.",
+    "qCreator": "Việc tải video có ảnh hưởng đến người tạo không?",
+    "aCreator": "SlickTok không thích, theo dõi, bình luận hay thông báo cho ai cả. Người tạo không được biết video của họ đã bị tải xuống. Hãy vẫn ghi công và hỗ trợ những người tạo mà bạn lưu nội dung của họ.",
     "q5": "Tôi có thể tự chạy bản sao của mình không?",
-    "a5": "Có — đó chính là mục đích. Mã nguồn đầy đủ và hướng dẫn triển khai nằm trong kho lưu trữ được liên kết ở chân trang.",
+    "a5": "Có, đó chính là mục đích. Mã nguồn đầy đủ và hướng dẫn triển khai nằm trong kho lưu trữ được liên kết ở chân trang.",
     "q6": "Tôi có được phép tải bất kỳ video nào không?",
     "a6": "Chỉ tải các video bạn sở hữu, được phép lưu, hoặc đang xem cho mục đích cá nhân, hợp pháp. Xem Điều khoản để biết chi tiết."
   },
@@ -54,19 +63,24 @@
     "privacy": "Quyền riêng tư"
   },
   "result": {
+    "likes": "lượt thích",
     "views": "lượt xem",
     "comments": "bình luận",
     "shares": "lượt chia sẻ",
     "untitled": "Không có tiêu đề",
-    "download": "Tải xuống (không watermark)",
-    "downloadHd": "Tải HD (không watermark)",
+    "preview": "Xem trước video",
+    "download": "Tải xuống",
+    "downloadHd": "Tải HD",
     "downloadAudio": "Tải âm thanh",
     "zip": "Tải tất cả (ZIP)",
+    "convertVideo": "Chuyển thành video (MP4)",
+    "converting": "Đang chuyển đổi...",
     "another": "Tải video khác"
   },
   "errors": {
     "empty": "Hãy dán liên kết TikTok trước.",
     "generic": "Đã xảy ra lỗi.",
-    "network": "Lỗi mạng. Vui lòng thử lại."
+    "network": "Lỗi mạng. Vui lòng thử lại.",
+    "conversionFailed": "Không thể chuyển đổi slideshow này thành video."
   }
 }

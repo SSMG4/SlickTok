@@ -7,7 +7,7 @@ By using SlickTok, you agree to the following.
 SlickTok is a tool that, given a public TikTok link, retrieves the
 underlying video (or photo slideshow) file and returns it to you
 without the watermark TikTok normally overlays for shared copies. It
-does not host, index, or archive any TikTok content of its own — it
+does not host, index, or archive any TikTok content of its own, it
 fetches on request, on your behalf, and discards the result
 afterward.
 
@@ -59,7 +59,7 @@ user or IP address at their discretion.
 ## No warranty
 
 SlickTok is provided "as is," with no warranty of any kind, express
-or implied — including no guarantee that it will be available,
+or implied, including no guarantee that it will be available,
 error-free, or continue to work as TikTok changes its platform. To
 the fullest extent permitted by law, the project's authors and any
 instance operator disclaim liability for damages arising from its
@@ -88,7 +88,7 @@ after a change constitutes acceptance of the revised terms.
 ---
 
 *This document was written by the project maintainer to set clear
-expectations for users of an open-source tool — it is not legal
+expectations for users of an open-source tool, it is not legal
 advice. Anyone deploying this software for others, especially at
 scale or commercially, should have these terms reviewed by a lawyer
 for their jurisdiction.*

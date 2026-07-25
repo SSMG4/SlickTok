@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — Downloader de vídeos do TikTok, sem marca d'água, sem anúncios" },
+  "meta": { "title": "SlickTok. Downloader de vídeos do TikTok, sem marca d'água, sem anúncios" },
+  "nav": { "how": "Como funciona", "faq": "Perguntas", "source": "Código-fonte" },
+  "header": { "themeToggle": "Alternar modo escuro" },
   "hero": {
-    "eyebrow": "Grátis · Código aberto · Sem anúncios, nunca",
+    "eyebrow": "Grátis, código aberto, sem anúncios. Para sempre.",
     "title": "Baixe vídeos do TikTok, sem a marca d'água.",
     "subtitle": "Cole um link e receba um arquivo em HD sem marca d'água. Sem conta, sem rastreamento, nada para instalar.",
     "inputLabel": "Link do vídeo do TikTok",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Colar",
-    "submit": "Baixar"
+    "submit": "Baixar",
+    "submitLoading": "Processando..."
   },
   "how": {
     "title": "Três passos, sem desvios",
@@ -21,7 +24,7 @@
   "features": {
     "title": "O que o SlickTok faz",
     "f1Title": "Sem marca d'água",
-    "f1Body": "Os downloads usam o arquivo de reprodução original do TikTok — nada é sobreposto.",
+    "f1Body": "Os downloads usam o arquivo de reprodução original do TikTok, nada é sobreposto.",
     "f2Title": "Sempre sem anúncios",
     "f2Body": "Sem espaços publicitários, sem pop-ups, sem \"assista a um anúncio para HD\". Só a ferramenta.",
     "f3Title": "Código aberto",
@@ -37,12 +40,18 @@
     "title": "Perguntas",
     "q1": "O SlickTok adiciona sua própria marca d'água?",
     "a1": "Não. O arquivo obtido é o mesmo que o app do TikTok reproduz internamente, antes de qualquer marca d'água ser adicionada para compartilhamento.",
+    "qSafe": "É seguro usar o SlickTok?",
+    "aSafe": "Sim. Nada é instalado no seu dispositivo, não há login para ser comprometido, e o código é totalmente aberto, então qualquer pessoa pode verificar exatamente o que ele faz.",
     "q2": "Preciso de uma conta?",
     "a2": "Não. Não há login neste site. O uso é limitado por endereço IP, para manter o servidor disponível para todos.",
     "q3": "Quais links são suportados?",
-    "a3": "Links completos como tiktok.com/@user/video/123… e links curtos como vm.tiktok.com/xxxxx/.",
+    "a3": "Links completos como tiktok.com/@user/video/123, e links curtos como vm.tiktok.com/xxxxx/.",
     "q4": "Isso é afiliado ao TikTok?",
     "a4": "Não. O SlickTok é um projeto de código aberto independente e não afiliado. Não é criado, endossado ou apoiado pelo TikTok ou pela ByteDance Ltd.",
+    "qFail": "Por que um download às vezes falha?",
+    "aFail": "Geralmente porque o vídeo é privado, foi excluído, está bloqueado na sua região, ou o TikTok mudou algo do lado deles. Tente novamente daqui a pouco, ou verifique se há uma versão mais recente do yt-dlp se você estiver hospedando por conta própria.",
+    "qCreator": "Baixar um vídeo afeta o criador?",
+    "aCreator": "O SlickTok não curte, não segue, não comenta nem notifica ninguém. O criador não é informado de que o vídeo foi baixado. Ainda assim, dê crédito e apoie os criadores cujo conteúdo você salvar.",
     "q5": "Posso hospedar minha própria cópia?",
     "a5": "Sim, esse é o objetivo. O código-fonte completo e um guia de implantação estão no repositório vinculado no rodapé.",
     "q6": "Posso baixar qualquer vídeo que eu quiser?",
@@ -54,19 +63,24 @@
     "privacy": "Privacidade"
   },
   "result": {
+    "likes": "curtidas",
     "views": "visualizações",
     "comments": "comentários",
     "shares": "compartilhamentos",
     "untitled": "Sem título",
-    "download": "Baixar (sem marca d'água)",
-    "downloadHd": "Baixar em HD (sem marca d'água)",
+    "preview": "Pré-visualizar vídeo",
+    "download": "Baixar",
+    "downloadHd": "Baixar em HD",
     "downloadAudio": "Baixar áudio",
     "zip": "Baixar tudo (ZIP)",
+    "convertVideo": "Converter em vídeo (MP4)",
+    "converting": "Convertendo...",
     "another": "Baixar outro vídeo"
   },
   "errors": {
     "empty": "Cole um link do TikTok primeiro.",
     "generic": "Algo deu errado.",
-    "network": "Erro de rede. Tente novamente."
+    "network": "Erro de rede. Tente novamente.",
+    "conversionFailed": "Não foi possível converter este carrossel em vídeo."
   }
 }

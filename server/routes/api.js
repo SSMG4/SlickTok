@@ -1,8 +1,11 @@
 import { Router } from 'express';
 import { Readable } from 'node:stream';
+import { createReadStream } from 'node:fs';
+import { stat } from 'node:fs/promises';
 import archiver from 'archiver';
 import { resolveTikTok, isAllowedCdnUrl, ResolveError } from '../services/tiktok.js';
-import { hourlyLimiter, dailyLimiter } from '../middleware/rateLimiter.js';
+import { buildSlideshowVideo } from '../services/slideshowVideo.js';
+import { hourlyLimiter, dailyLimiter, conversionLimiter } from '../middleware/rateLimiter.js';
 
 const router = Router();
 
@@ -51,8 +54,10 @@ router.get('/download', async (req, res) => {
       return;
     }
 
-    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    const disposition = req.query.inline === '1' ? 'inline' : `attachment; filename="${filename}"`;
+    res.setHeader('Content-Disposition', disposition);
     res.setHeader('Content-Type', upstream.headers.get('content-type') || 'application/octet-stream');
+    res.setHeader('Accept-Ranges', 'bytes');
     const length = upstream.headers.get('content-length');
     if (length) res.setHeader('Content-Length', length);
 
@@ -93,6 +98,40 @@ router.post('/download-zip', async (req, res) => {
   }
 
   await archive.finalize();
+});
+
+router.post('/slideshow-video', conversionLimiter, async (req, res) => {
+  const { images, audio } = req.body || {};
+  if (!Array.isArray(images) || images.length === 0) {
+    res.status(400).json({ error: 'No images to convert.' });
+    return;
+  }
+  if (typeof audio !== 'string') {
+    res.status(400).json({ error: 'No audio track to sync to.' });
+    return;
+  }
+
+  let result;
+  try {
+    result = await buildSlideshowVideo(images, audio);
+  } catch {
+    res.status(502).json({ error: 'Could not build a video from this slideshow.' });
+    return;
+  }
+
+  try {
+    const { size } = await stat(result.path);
+    res.setHeader('Content-Type', 'video/mp4');
+    res.setHeader('Content-Length', size);
+    res.setHeader('Content-Disposition', 'attachment; filename="slicktok-slideshow.mp4"');
+    const stream = createReadStream(result.path);
+    stream.pipe(res);
+    stream.on('close', result.cleanup);
+    stream.on('error', result.cleanup);
+  } catch {
+    await result.cleanup();
+    res.status(500).json({ error: 'Could not read the converted video.' });
+  }
 });
 
 export default router;

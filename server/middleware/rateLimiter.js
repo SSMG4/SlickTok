@@ -22,3 +22,14 @@ export const dailyLimiter = rateLimit({
   keyGenerator: clientKey,
   message: { error: `Daily limit of ${config.rateLimitPerDay} videos reached. Try again tomorrow.` },
 });
+
+// ffmpeg conversion is CPU-heavy, so it gets its own tighter limit on top of
+// the regular resolve limits above.
+export const conversionLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: clientKey,
+  message: { error: 'Hourly limit for video conversion reached. Try again later.' },
+});

@@ -3,7 +3,7 @@
 ## What it does
 
 Paste a public TikTok video link, get back the same file TikTok's own
-app plays internally — no watermark, no ads, no account.
+app plays internally, no watermark, no ads, no account.
 
 ## Supported links
 
@@ -21,15 +21,28 @@ Paste either one into the box on the homepage and submit.
 ## What you get back
 
 - **Video posts**: a "Download" button, and a "Download HD" button
-  when TikTok served a distinct higher-resolution rendition.
+  when TikTok served a distinct higher-resolution rendition. Tap the
+  thumbnail's play button to preview the video before downloading it.
 - **Photo slideshows**: shown on a best-effort basis. The background
-  audio track downloads reliably; the individual photos are not
-  currently extracted (see [ARCHITECTURE.md](ARCHITECTURE.md) for
-  why, and if you'd like to help fix that).
+  audio track downloads reliably; the individual photos and a
+  "Convert to video (MP4)" option appear when SlickTok could extract
+  them (see [ARCHITECTURE.md](ARCHITECTURE.md) for when that isn't
+  possible).
 
-All downloads are watermark-free — SlickTok pulls the same clean
+Along with the file, you'll see the creator's username, like/view/
+comment/share counts, and their profile picture when it could be
+fetched (otherwise a plain initial in its place).
+
+All downloads are watermark-free, SlickTok pulls the same clean
 rendition TikTok's own app uses for in-app playback, not the
 watermarked copy TikTok generates for external sharing.
+
+## Dark mode and language
+
+The moon/sun icon in the header switches between light and dark
+themes; your choice is remembered on your device. The language
+switcher next to it covers 10 languages so far, see
+[CONTRIBUTING.md](CONTRIBUTING.md) if you'd like to add another.
 
 ## Rate limits
 
@@ -39,12 +52,12 @@ Because there's no login, limits are applied per IP address instead:
 - **1,000 videos per day**
 
 These exist to keep a shared instance available for everyone. If
-you're self-hosting, you control these values — see
+you're self-hosting, you control these values, see
 [DEPLOY.md](DEPLOY.md).
 
 ## What SlickTok is not
 
-- Not a bulk downloader — one link at a time, by design.
+- Not a bulk downloader, one link at a time, by design.
 - Not a way to download private, deleted, or region-locked videos.
 - Not affiliated with TikTok or ByteDance.
 

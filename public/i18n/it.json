@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — Downloader di video TikTok, senza filigrana, senza pubblicità" },
+  "meta": { "title": "SlickTok. Downloader di video TikTok, senza filigrana, senza pubblicità" },
+  "nav": { "how": "Come funziona", "faq": "FAQ", "source": "Codice sorgente" },
+  "header": { "themeToggle": "Attiva modalità scura" },
   "hero": {
-    "eyebrow": "Gratis · Open source · Senza pubblicità, mai",
+    "eyebrow": "Gratis, open source, senza pubblicità. Mai.",
     "title": "Scarica video TikTok, senza filigrana.",
     "subtitle": "Incolla un link, ricevi un file HD senza filigrana. Niente account, nessun tracciamento, nulla da installare.",
     "inputLabel": "Link del video TikTok",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Incolla",
-    "submit": "Scarica"
+    "submit": "Scarica",
+    "submitLoading": "In corso..."
   },
   "how": {
     "title": "Tre passaggi, senza deviazioni",
@@ -37,12 +40,18 @@
     "title": "Domande",
     "q1": "SlickTok aggiunge una propria filigrana?",
     "a1": "No. Il file ottenuto è lo stesso riprodotto internamente dall'app TikTok, prima che venga aggiunta una filigrana per la condivisione.",
+    "qSafe": "È sicuro usare SlickTok?",
+    "aSafe": "Sì. Non viene installato nulla sul tuo dispositivo, non c'è alcun accesso da compromettere, e il codice è interamente open source, quindi chiunque può verificare esattamente cosa fa.",
     "q2": "Serve un account?",
     "a2": "No. Non c'è alcun accesso su questo sito. L'utilizzo è invece limitato per indirizzo IP, per mantenere il server disponibile per tutti.",
     "q3": "Quali link sono supportati?",
-    "a3": "Link completi come tiktok.com/@user/video/123… e link brevi come vm.tiktok.com/xxxxx/.",
+    "a3": "Link completi come tiktok.com/@user/video/123 e link brevi come vm.tiktok.com/xxxxx/.",
     "q4": "È affiliato a TikTok?",
     "a4": "No. SlickTok è un progetto open source indipendente e non affiliato. Non è creato, approvato o supportato da TikTok o ByteDance Ltd.",
+    "qFail": "Perché a volte un download fallisce?",
+    "aFail": "Di solito perché il video è privato, eliminato, bloccato nella tua regione, oppure TikTok ha cambiato qualcosa dal suo lato. Riprova tra un po', oppure controlla se esiste una versione più recente di yt-dlp se stai facendo self-hosting.",
+    "qCreator": "Scaricare un video influisce sul creatore?",
+    "aCreator": "SlickTok non mette like, non segue, non commenta e non notifica nessuno. Il creatore non viene informato che il suo video è stato scaricato. Ricorda comunque di accreditare e sostenere i creatori di cui salvi i contenuti.",
     "q5": "Posso ospitare una mia copia?",
     "a5": "Sì, è proprio questo lo scopo. Il codice sorgente completo e una guida al deployment si trovano nel repository collegato nel footer.",
     "q6": "Posso scaricare qualsiasi video?",
@@ -54,19 +63,24 @@
     "privacy": "Privacy"
   },
   "result": {
+    "likes": "mi piace",
     "views": "visualizzazioni",
     "comments": "commenti",
     "shares": "condivisioni",
     "untitled": "Senza titolo",
-    "download": "Scarica (senza filigrana)",
-    "downloadHd": "Scarica in HD (senza filigrana)",
+    "preview": "Anteprima video",
+    "download": "Scarica",
+    "downloadHd": "Scarica in HD",
     "downloadAudio": "Scarica audio",
     "zip": "Scarica tutto (ZIP)",
+    "convertVideo": "Converti in video (MP4)",
+    "converting": "Conversione in corso...",
     "another": "Scarica un altro video"
   },
   "errors": {
     "empty": "Incolla prima un link TikTok.",
     "generic": "Qualcosa è andato storto.",
-    "network": "Errore di rete. Riprova."
+    "network": "Errore di rete. Riprova.",
+    "conversionFailed": "Impossibile convertire questo slideshow in video."
   }
 }

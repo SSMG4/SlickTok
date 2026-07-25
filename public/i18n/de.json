@@ -1,13 +1,16 @@
 {
-  "meta": { "title": "SlickTok — TikTok-Video-Downloader, ohne Wasserzeichen, ohne Werbung" },
+  "meta": { "title": "SlickTok. TikTok-Video-Downloader, ohne Wasserzeichen, ohne Werbung" },
+  "nav": { "how": "So funktioniert's", "faq": "FAQ", "source": "Quellcode" },
+  "header": { "themeToggle": "Dunkelmodus umschalten" },
   "hero": {
-    "eyebrow": "Kostenlos · Open Source · Ohne Werbung, immer",
+    "eyebrow": "Kostenlos, Open Source, ohne Werbung. Für immer.",
     "title": "TikTok-Videos herunterladen, ohne Wasserzeichen.",
     "subtitle": "Link einfügen, HD-Datei ohne Wasserzeichen erhalten. Kein Konto, kein Tracking, keine Installation.",
     "inputLabel": "TikTok-Videolink",
     "placeholder": "https://www.tiktok.com/@user/video/…",
     "paste": "Einfügen",
-    "submit": "Herunterladen"
+    "submit": "Herunterladen",
+    "submitLoading": "Wird bearbeitet..."
   },
   "how": {
     "title": "Drei Schritte, kein Umweg",
@@ -21,7 +24,7 @@
   "features": {
     "title": "Was SlickTok macht",
     "f1Title": "Ohne Wasserzeichen",
-    "f1Body": "Downloads nutzen TikToks eigene saubere Wiedergabedatei — nichts wird darübergelegt.",
+    "f1Body": "Downloads nutzen TikToks eigene saubere Wiedergabedatei, nichts wird darübergelegt.",
     "f2Title": "Immer werbefrei",
     "f2Body": "Keine Werbeflächen, keine Popups, kein \"Werbung ansehen für HD\". Nur das Werkzeug.",
     "f3Title": "Open Source",
@@ -37,12 +40,18 @@
     "title": "Fragen",
     "q1": "Fügt SlickTok ein eigenes Wasserzeichen hinzu?",
     "a1": "Nein. Die Datei ist dieselbe, die TikToks eigene App intern abspielt, bevor beim Teilen ein Wasserzeichen hinzugefügt wird.",
+    "qSafe": "Ist SlickTok sicher zu benutzen?",
+    "aSafe": "Ja. Auf deinem Gerät wird nichts installiert, es gibt keinen Login, der kompromittiert werden könnte, und der Code ist vollständig quelloffen, sodass jeder genau prüfen kann, was er tut.",
     "q2": "Brauche ich ein Konto?",
     "a2": "Nein. Es gibt keinen Login auf dieser Seite. Stattdessen wird die Nutzung pro IP-Adresse begrenzt, damit der Server für alle verfügbar bleibt.",
     "q3": "Welche Links werden unterstützt?",
-    "a3": "Vollständige Links wie tiktok.com/@user/video/123… und Kurzlinks wie vm.tiktok.com/xxxxx/.",
+    "a3": "Vollständige Links wie tiktok.com/@user/video/123 und Kurzlinks wie vm.tiktok.com/xxxxx/.",
     "q4": "Ist das mit TikTok verbunden?",
     "a4": "Nein. SlickTok ist ein unabhängiges Open-Source-Projekt ohne Zugehörigkeit. Es wird nicht von TikTok oder ByteDance Ltd. erstellt, unterstützt oder gefördert.",
+    "qFail": "Warum schlägt ein Download manchmal fehl?",
+    "aFail": "Meist weil das Video privat, gelöscht oder regional gesperrt ist, oder weil TikTok etwas auf seiner Seite geändert hat. Versuch es später erneut, oder prüfe beim Selbst-Hosting, ob es eine neuere yt-dlp-Version gibt.",
+    "qCreator": "Wirkt sich das Herunterladen eines Videos auf den Ersteller aus?",
+    "aCreator": "SlickTok liked, folgt, kommentiert oder benachrichtigt niemanden. Der Ersteller erfährt nicht, dass sein Video heruntergeladen wurde. Bitte gib trotzdem Kreditierung und Unterstützung für Ersteller, deren Inhalte du speicherst.",
     "q5": "Kann ich eine eigene Kopie betreiben?",
     "a5": "Ja, genau darum geht es. Der vollständige Quellcode und eine Anleitung zum Selbst-Hosten stehen im Repository, das in der Fußzeile verlinkt ist.",
     "q6": "Darf ich jedes beliebige Video herunterladen?",
@@ -54,19 +63,24 @@
     "privacy": "Datenschutz"
   },
   "result": {
+    "likes": "Gefällt mir",
     "views": "Aufrufe",
     "comments": "Kommentare",
     "shares": "Geteilt",
     "untitled": "Ohne Titel",
-    "download": "Herunterladen (ohne Wasserzeichen)",
-    "downloadHd": "In HD herunterladen (ohne Wasserzeichen)",
+    "preview": "Videovorschau",
+    "download": "Herunterladen",
+    "downloadHd": "In HD herunterladen",
     "downloadAudio": "Audio herunterladen",
     "zip": "Alles herunterladen (ZIP)",
+    "convertVideo": "In Video umwandeln (MP4)",
+    "converting": "Wird umgewandelt...",
     "another": "Weiteres Video herunterladen"
   },
   "errors": {
     "empty": "Füge zuerst einen TikTok-Link ein.",
     "generic": "Etwas ist schiefgelaufen.",
-    "network": "Netzwerkfehler. Bitte erneut versuchen."
+    "network": "Netzwerkfehler. Bitte erneut versuchen.",
+    "conversionFailed": "Diese Diashow konnte nicht in ein Video umgewandelt werden."
   }
 }
