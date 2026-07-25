@@ -2,10 +2,16 @@ import { Router } from 'express';
 import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
+import { execSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import archiver from 'archiver';
 import { resolveTikTok, isAllowedCdnUrl, ResolveError } from '../services/tiktok.js';
 import { buildSlideshowVideo } from '../services/slideshowVideo.js';
 import { hourlyLimiter, dailyLimiter, conversionLimiter } from '../middleware/rateLimiter.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.join(__dirname, '..', '..');
 
 const router = Router();
 
@@ -15,7 +21,13 @@ const UPSTREAM_HEADERS = {
 };
 
 router.get('/health', (req, res) => {
-  res.json({ ok: true });
+  let commit = 'unknown';
+  try {
+    commit = execSync('git rev-parse --short HEAD', { cwd: repoRoot }).toString().trim();
+  } catch {
+    // leave as 'unknown', e.g. if this isn't a git checkout
+  }
+  res.json({ ok: true, commit });
 });
 
 router.post('/resolve', hourlyLimiter, dailyLimiter, async (req, res) => {

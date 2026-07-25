@@ -1,6 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { config } from './config.js';
 import webhookRoutes from './routes/webhook.js';
@@ -8,6 +9,15 @@ import apiRoutes from './routes/api.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, '..', 'public');
+const repoRoot = path.join(__dirname, '..');
+
+function currentCommit() {
+  try {
+    return execSync('git rev-parse --short HEAD', { cwd: repoRoot }).toString().trim();
+  } catch {
+    return 'unknown';
+  }
+}
 
 const app = express();
 
@@ -54,5 +64,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(config.port, () => {
-  console.log(`SlickTok listening on http://localhost:${config.port}`);
+  console.log(`SlickTok listening on http://localhost:${config.port} (commit ${currentCommit()})`);
 });

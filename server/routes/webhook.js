@@ -25,11 +25,13 @@ function verifyGithubSignature(secret, payload, signatureHeader) {
 // parse or re-serialize the body before this middleware sees it.
 router.post('/_deploy', express.raw({ type: 'application/json', limit: '1mb' }), (req, res) => {
   if (!config.deployWebhookSecret || config.deployWebhookSecret === 'change-me') {
+    console.warn('[webhook] rejected: DEPLOY_WEBHOOK_SECRET is not configured');
     return res.status(503).json({ error: 'Auto-deploy is not configured on this server.' });
   }
 
   const signature = req.headers['x-hub-signature-256'];
   if (!verifyGithubSignature(config.deployWebhookSecret, req.body, signature)) {
+    console.warn('[webhook] rejected: signature check failed');
     return res.status(401).json({ error: 'Signature check failed.' });
   }
 
@@ -37,20 +39,27 @@ router.post('/_deploy', express.raw({ type: 'application/json', limit: '1mb' }),
   try {
     payload = JSON.parse(req.body.toString('utf8'));
   } catch {
+    console.warn('[webhook] rejected: could not parse payload');
     return res.status(400).json({ error: 'Could not parse payload.' });
   }
 
   const expectedRef = `refs/heads/${config.deployBranch}`;
   if (payload.ref !== expectedRef) {
+    console.log(`[webhook] skipped: got ref "${payload.ref}", expected "${expectedRef}"`);
     return res.status(200).json({ skipped: true, reason: `${payload.ref} is not ${expectedRef}` });
   }
 
+  console.log(`[webhook] accepted push to ${expectedRef}, spawning deploy.sh`);
   res.status(202).json({ accepted: true });
 
-  const child = spawn('bash', [path.join(repoRoot, 'scripts', 'deploy.sh')], {
+  const scriptPath = path.join(repoRoot, 'scripts', 'deploy.sh');
+  const child = spawn('bash', [scriptPath], {
     detached: true,
     stdio: 'ignore',
     cwd: repoRoot,
+  });
+  child.on('error', (err) => {
+    console.error('[webhook] failed to spawn deploy.sh:', err.message);
   });
   child.unref();
 });
