@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok。TikTok 视频下载器，无水印，无广告" },
-  "nav": { "how": "使用方法", "faq": "常见问题", "source": "源代码" },
-  "header": { "themeToggle": "切换深色模式" },
+  "meta": {
+    "title": "SlickTok。TikTok 视频下载器，无水印，无广告"
+  },
+  "nav": {
+    "how": "使用方法",
+    "faq": "常见问题",
+    "source": "源代码"
+  },
+  "header": {
+    "themeToggle": "切换深色模式"
+  },
   "hero": {
     "eyebrow": "免费，开源，永远没有广告。",
     "title": "下载 TikTok 视频，去除水印。",
     "subtitle": "粘贴链接，获取无水印的高清文件。无需账号，无追踪，无需安装任何东西。",
     "inputLabel": "TikTok 视频链接",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "在此粘贴 TikTok 视频链接...",
     "paste": "粘贴",
     "submit": "下载",
     "submitLoading": "处理中..."

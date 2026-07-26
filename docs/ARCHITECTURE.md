@@ -77,29 +77,45 @@ compatibility with no changes to this repository at all.
 
 ## Request flow: downloading a file
 
-The URLs returned by `/api/resolve` are not exposed to the browser
-directly as final download links. Instead, the client requests
-`GET /api/download?src=<tiktok-cdn-url>&filename=<name>`, and the
-server:
+Earlier versions of this proxy took the raw signed CDN URL yt-dlp
+returned at resolve time, stored it client-side, and fetched it
+directly with a hand-picked `User-Agent`/`Referer` when the user
+clicked download. That turned out to be unreliable: TikTok's CDN is
+choosier than its metadata API about what it serves to a bare
+`fetch()`, and the signed URLs are short-lived, so a download minutes
+after resolving could 502 even with correct headers.
 
-1. Validates that `src`'s hostname matches a fixed allowlist of known
-   TikTok/CDN domains (`server/services/tiktok.js`,
-   `isAllowedCdnUrl`, this includes plain `tiktok.com` itself, since
-   TikTok often serves video directly from subdomains like
-   `v16-webapp-prime.tiktok.com` rather than a dedicated CDN
-   hostname). Anything else is rejected before any outbound request
-   is made, this is the SSRF guard mentioned in
-   [SECURITY.md](SECURITY.md).
-2. Fetches `src` with a browser-like `User-Agent` and a `Referer` of
-   `https://www.tiktok.com/`, since TikTok's CDN checks both.
-3. Streams the response body straight through to the client. By
-   default this sends `Content-Disposition: attachment` to force a
-   download; passing `?inline=1` (used by the in-page video preview)
-   sends `Content-Disposition: inline` instead so the browser can
-   play it directly in a `<video>` tag. Nothing touches disk either
-   way.
+Downloads now go through `yt-dlp` itself instead, the same way
+resolving does:
 
-Photo slideshows use the same allowlist for each image.
+1. The client requests `GET /api/download?url=<original-tiktok-url>&quality=sd|hd|audio&filename=<name>`,
+   passing the *source* TikTok page URL, not a CDN URL.
+2. The server validates `url` is a supported TikTok link and `quality`
+   is one of `sd`/`hd`/`audio`, then calls
+   `getFormatIdForQuality()` in `server/services/tiktok.js`, which
+   runs `yt-dlp -j` fresh (so the result can't have expired) and
+   applies the same no-watermark/height ranking logic used at resolve
+   time to pick a `format_id`.
+3. `yt-dlp <url> -f <format_id> -o -` is spawned and its stdout is
+   piped directly into the HTTP response, `yt-dlp` handles the
+   actual CDN request, with whatever headers/retries it already knows
+   TikTok needs, rather than this codebase guessing at them.
+4. By default the response sends `Content-Disposition: attachment` to
+   force a download; passing `?inline=1` (used by the in-page video
+   preview) sends `inline` instead so the browser can play it
+   directly in a `<video>` tag.
+
+One tradeoff: since the response is a live piped stream, there's no
+`Content-Length` and no `Accept-Ranges` support, so the preview
+player can't seek to an arbitrary byte offset mid-stream. Acceptable
+for short TikTok clips; would need buffering to a temp file first if
+seeking ever becomes a real requirement.
+
+The slideshow-to-video converter (below) uses the same
+`getFormatIdForQuality()` path to fetch its audio track, for the same
+reason. Photo slideshow *images* still go through a plain `fetch()`
+with the allowlist, since they come from the separate web-enrichment
+call and yt-dlp has no format entry for them at all.
 `/api/download-zip` streams them into a zip archive on the fly via
 `archiver`, and `/api/slideshow-video` (see below) downloads them to a
 temp directory for `ffmpeg` to process, neither buffers the whole set

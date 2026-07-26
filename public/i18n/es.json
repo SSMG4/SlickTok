@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. Descargador de vídeos de TikTok, sin marca de agua, sin anuncios" },
-  "nav": { "how": "Cómo funciona", "faq": "Preguntas", "source": "Código fuente" },
-  "header": { "themeToggle": "Cambiar modo oscuro" },
+  "meta": {
+    "title": "SlickTok. Descargador de vídeos de TikTok, sin marca de agua, sin anuncios"
+  },
+  "nav": {
+    "how": "Cómo funciona",
+    "faq": "Preguntas",
+    "source": "Código fuente"
+  },
+  "header": {
+    "themeToggle": "Cambiar modo oscuro"
+  },
   "hero": {
     "eyebrow": "Gratis, código abierto, sin anuncios. Nunca.",
     "title": "Descarga vídeos de TikTok, sin la marca de agua.",
     "subtitle": "Pega un enlace y recibe un archivo en HD sin marca de agua. Sin cuenta, sin rastreo, sin instalar nada.",
     "inputLabel": "Enlace del vídeo de TikTok",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "Pega el enlace del vídeo de TikTok aquí...",
     "paste": "Pegar",
     "submit": "Descargar",
     "submitLoading": "Procesando..."

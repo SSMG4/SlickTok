@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. Downloader di video TikTok, senza filigrana, senza pubblicità" },
-  "nav": { "how": "Come funziona", "faq": "FAQ", "source": "Codice sorgente" },
-  "header": { "themeToggle": "Attiva modalità scura" },
+  "meta": {
+    "title": "SlickTok. Downloader di video TikTok, senza filigrana, senza pubblicità"
+  },
+  "nav": {
+    "how": "Come funziona",
+    "faq": "FAQ",
+    "source": "Codice sorgente"
+  },
+  "header": {
+    "themeToggle": "Attiva modalità scura"
+  },
   "hero": {
     "eyebrow": "Gratis, open source, senza pubblicità. Mai.",
     "title": "Scarica video TikTok, senza filigrana.",
     "subtitle": "Incolla un link, ricevi un file HD senza filigrana. Niente account, nessun tracciamento, nulla da installare.",
     "inputLabel": "Link del video TikTok",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "Incolla qui il link del video TikTok...",
     "paste": "Incolla",
     "submit": "Scarica",
     "submitLoading": "In corso..."

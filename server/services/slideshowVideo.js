@@ -2,7 +2,8 @@ import { spawn } from 'node:child_process';
 import { mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { isAllowedCdnUrl } from './tiktok.js';
+import { isAllowedCdnUrl, isSupportedTikTokUrl, getFormatIdForQuality } from './tiktok.js';
+import { config } from '../config.js';
 
 const UPSTREAM_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
@@ -47,7 +48,7 @@ async function probeDurationSeconds(filePath) {
   });
 }
 
-async function downloadTo(url, destPath) {
+async function downloadImageTo(url, destPath) {
   const res = await fetch(url, { headers: UPSTREAM_HEADERS });
   if (!res.ok) throw new Error(`Failed to fetch ${url}`);
   const buffer = Buffer.from(await res.arrayBuffer());
@@ -61,7 +62,7 @@ async function downloadTo(url, destPath) {
  * the finished file and a cleanup() to remove the whole working directory;
  * callers must call cleanup() once they're done streaming the result.
  */
-export async function buildSlideshowVideo(images, audioUrl) {
+export async function buildSlideshowVideo(images, sourceUrl) {
   if (!Array.isArray(images) || images.length === 0) {
     throw new Error('No images provided');
   }
@@ -71,8 +72,8 @@ export async function buildSlideshowVideo(images, audioUrl) {
   if (!images.every((url) => typeof url === 'string' && isAllowedCdnUrl(url))) {
     throw new Error('Invalid image URL');
   }
-  if (typeof audioUrl !== 'string' || !isAllowedCdnUrl(audioUrl)) {
-    throw new Error('Invalid audio URL');
+  if (typeof sourceUrl !== 'string' || !isSupportedTikTokUrl(sourceUrl)) {
+    throw new Error('Invalid source URL');
   }
 
   const dir = await mkdtemp(path.join(tmpdir(), 'slicktok-'));
@@ -81,12 +82,16 @@ export async function buildSlideshowVideo(images, audioUrl) {
     const imagePaths = [];
     for (let i = 0; i < images.length; i += 1) {
       const imgPath = path.join(dir, `img-${String(i).padStart(3, '0')}.jpg`);
-      await downloadTo(images[i], imgPath);
+      await downloadImageTo(images[i], imgPath);
       imagePaths.push(imgPath);
     }
 
+    // Fetched via yt-dlp rather than a raw fetch, for the same reason the
+    // /api/download route does: it's the tool that reliably talks to
+    // TikTok's CDN, re-resolved fresh so the link can't have expired.
+    const audioFormatId = await getFormatIdForQuality(sourceUrl, 'audio');
     const audioPath = path.join(dir, 'audio.m4a');
-    await downloadTo(audioUrl, audioPath);
+    await run(config.ytdlpPath, [sourceUrl, '-f', audioFormatId, '-o', audioPath, '--no-warnings', '--quiet']);
 
     const audioDuration = (await probeDurationSeconds(audioPath)) || images.length * 3;
     const perImageSeconds = Math.max(1, audioDuration / images.length);

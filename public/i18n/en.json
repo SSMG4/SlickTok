@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. TikTok video downloader, no watermark, no ads" },
-  "nav": { "how": "How it works", "faq": "FAQ", "source": "Source" },
-  "header": { "themeToggle": "Toggle dark mode" },
+  "meta": {
+    "title": "SlickTok. TikTok video downloader, no watermark, no ads"
+  },
+  "nav": {
+    "how": "How it works",
+    "faq": "FAQ",
+    "source": "Source"
+  },
+  "header": {
+    "themeToggle": "Toggle dark mode"
+  },
   "hero": {
     "eyebrow": "Free, open source, no ads. Ever.",
     "title": "Download TikTok videos, minus the watermark.",
     "subtitle": "Paste a link, get an HD, watermark-free file back. No account, no tracking, nothing installed.",
     "inputLabel": "TikTok video link",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "Paste TikTok video link here...",
     "paste": "Paste",
     "submit": "Download",
     "submitLoading": "Working..."

@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. Tải video TikTok, không watermark, không quảng cáo" },
-  "nav": { "how": "Cách sử dụng", "faq": "Câu hỏi", "source": "Mã nguồn" },
-  "header": { "themeToggle": "Chuyển chế độ tối" },
+  "meta": {
+    "title": "SlickTok. Tải video TikTok, không watermark, không quảng cáo"
+  },
+  "nav": {
+    "how": "Cách sử dụng",
+    "faq": "Câu hỏi",
+    "source": "Mã nguồn"
+  },
+  "header": {
+    "themeToggle": "Chuyển chế độ tối"
+  },
   "hero": {
     "eyebrow": "Miễn phí, mã nguồn mở, không quảng cáo. Mãi mãi.",
     "title": "Tải video TikTok, không watermark.",
     "subtitle": "Dán liên kết, nhận file HD không watermark. Không tài khoản, không theo dõi, không cài đặt.",
     "inputLabel": "Liên kết video TikTok",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "Dán liên kết video TikTok vào đây...",
     "paste": "Dán",
     "submit": "Tải xuống",
     "submitLoading": "Đang xử lý..."

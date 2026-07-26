@@ -61,19 +61,28 @@ function dedupeByHeight(formats) {
   return [...byHeight.values()].sort((a, b) => (b.height || 0) - (a.height || 0));
 }
 
-function pickDownloads(formats) {
+// Shared by resolveTikTok (to report what's available) and getFormatId
+// (to re-derive the same pick freshly at download time, see below on why
+// downloads are re-resolved rather than reusing the URL from resolve).
+export function classifyFormats(info) {
+  const formats = Array.isArray(info.formats) ? info.formats : [];
+  const audioOnly = formats.find((f) => f.vcodec === 'none') || null;
+  const isSlideshow = formats.length > 0 && formats.every((f) => f.vcodec === 'none') && !!audioOnly;
+
   const withVideo = formats.filter((f) => f.vcodec && f.vcodec !== 'none');
   const noWatermark = withVideo.filter((f) => f.format_note !== 'watermarked');
   const ranked = dedupeByHeight(noWatermark.length ? noWatermark : withVideo);
 
-  const downloads = {};
-  if (ranked.length === 1) {
-    downloads.sd = ranked[0].url;
-  } else if (ranked.length > 1) {
-    downloads.hd = ranked[0].url;
-    downloads.sd = ranked[1].url;
-  }
-  return downloads;
+  return { isSlideshow, audioOnly, ranked };
+}
+
+function formatIdForQuality(classified, quality) {
+  const { isSlideshow, audioOnly, ranked } = classified;
+  if (quality === 'audio') return audioOnly?.format_id || null;
+  if (isSlideshow) return null;
+  if (!ranked.length) return null;
+  if (quality === 'hd') return ranked[0].format_id;
+  return (ranked[1] || ranked[0]).format_id;
 }
 
 function pickThumbnail(info) {
@@ -119,11 +128,7 @@ async function fetchWebEnrichment(id) {
   }
 }
 
-export async function resolveTikTok(rawUrl) {
-  if (!isSupportedTikTokUrl(rawUrl)) {
-    throw new ResolveError('That does not look like a TikTok link.', 400);
-  }
-
+async function runYtDlpJson(rawUrl) {
   let stdout;
   try {
     ({ stdout } = await execFileAsync(
@@ -134,25 +139,37 @@ export async function resolveTikTok(rawUrl) {
   } catch {
     throw new ResolveError('Could not read that video. It may be private, deleted, or region-locked.', 502);
   }
-
-  let info;
   try {
-    info = JSON.parse(stdout);
+    return JSON.parse(stdout);
   } catch {
     throw new ResolveError('Unexpected response while reading that video.', 502);
   }
+}
 
-  const formats = Array.isArray(info.formats) ? info.formats : [];
-  const audioOnly = formats.find((f) => f.vcodec === 'none');
-  const isSlideshow = formats.every((f) => f.vcodec === 'none') && !!audioOnly;
+export async function resolveTikTok(rawUrl) {
+  if (!isSupportedTikTokUrl(rawUrl)) {
+    throw new ResolveError('That does not look like a TikTok link.', 400);
+  }
 
-  const downloads = isSlideshow ? {} : pickDownloads(formats);
-  if (audioOnly) downloads.audio = audioOnly.url;
+  const info = await runYtDlpJson(rawUrl);
+  const classified = classifyFormats(info);
+  const { isSlideshow, audioOnly, ranked } = classified;
+
+  const downloads = {};
+  if (!isSlideshow) {
+    if (ranked.length === 1) downloads.sd = true;
+    else if (ranked.length > 1) {
+      downloads.hd = true;
+      downloads.sd = true;
+    }
+  }
+  if (audioOnly) downloads.audio = true;
 
   const enrichment = await fetchWebEnrichment(info.id);
 
   return {
     id: String(info.id || ''),
+    sourceUrl: rawUrl,
     type: isSlideshow ? 'slideshow' : 'video',
     title: info.description || info.title || '',
     author: {
@@ -174,4 +191,23 @@ export async function resolveTikTok(rawUrl) {
       ? 'This looks like a photo slideshow. Only the background audio could be extracted; image extraction did not succeed for this post.'
       : null,
   };
+}
+
+// Downloads are re-resolved from scratch here rather than reusing the URL
+// yt-dlp handed back at resolve time, on purpose: TikTok's CDN links are
+// short-lived signed URLs, and fetching them ourselves with hand-picked
+// headers has proven unreliable (TikTok's CDN is choosier than its metadata
+// API about what it'll serve to). Letting yt-dlp itself do the actual
+// download reuses the same logic that already works for resolving, instead
+// of a second, weaker reimplementation of it.
+export async function getFormatIdForQuality(rawUrl, quality) {
+  if (!isSupportedTikTokUrl(rawUrl)) {
+    throw new ResolveError('That does not look like a TikTok link.', 400);
+  }
+  const info = await runYtDlpJson(rawUrl);
+  const formatId = formatIdForQuality(classifyFormats(info), quality);
+  if (!formatId) {
+    throw new ResolveError('That quality is not available for this video anymore.', 404);
+  }
+  return formatId;
 }

@@ -48,10 +48,16 @@ Things that are explicitly out of scope:
 If you're auditing this project or self-hosting it, these are the
 mitigations already in place:
 
-- **Download proxy SSRF allowlist**: `/api/download` and
-  `/api/download-zip` only ever fetch URLs whose hostname matches a
-  fixed list of known TikTok CDN domains. Arbitrary URLs are rejected
-  before any outbound request is made.
+- **No client-controlled fetch target for video/audio**: `/api/download`
+  takes a TikTok page URL (validated against a `tiktok.com` hostname
+  check) and a `quality` enum, never a raw CDN URL. The actual CDN
+  target is resolved server-side by `yt-dlp`, the client has no way
+  to make the server fetch an arbitrary address this way.
+- **CDN allowlist for images**: `/api/download-zip` and the
+  slideshow-to-video converter fetch photo-slideshow images directly
+  (yt-dlp has no format entry for these), so those URLs are still
+  checked against a fixed list of known TikTok CDN hostnames before
+  any outbound request is made.
 - **Webhook signature verification**: the `/api/_deploy` route
   verifies GitHub's `X-Hub-Signature-256` HMAC using a constant-time
   comparison before running anything, and refuses to run at all if no

@@ -109,17 +109,17 @@
   }
 
   function openLangList() {
-    langList.hidden = false;
+    langList.classList.add('is-open');
     langButton.setAttribute('aria-expanded', 'true');
   }
 
   function closeLangList() {
-    langList.hidden = true;
+    langList.classList.remove('is-open');
     langButton.setAttribute('aria-expanded', 'false');
   }
 
   langButton.addEventListener('click', () => {
-    if (langList.hidden) openLangList();
+    if (!langList.classList.contains('is-open')) openLangList();
     else closeLangList();
   });
 
@@ -142,26 +142,17 @@
   initLang();
 
   // --- Theme toggle -------------------------------------------------------
+  // Initial theme is already applied by theme-init.js (before this script
+  // even loads, to avoid a flash of the wrong theme) - this just handles
+  // flipping it and remembering the choice.
 
   const themeToggle = document.getElementById('theme-toggle');
 
-  function applyTheme(theme) {
-    document.documentElement.dataset.theme = theme;
-  }
-
-  function initTheme() {
-    const stored = localStorage.getItem('slicktok:theme');
-    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    applyTheme(stored || preferred);
-  }
-
   themeToggle.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
+    document.documentElement.dataset.theme = next;
     localStorage.setItem('slicktok:theme', next);
   });
-
-  initTheme();
 
   // --- Mobile nav -----------------------------------------------------
 
@@ -181,6 +172,45 @@
   siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeNav();
+  });
+
+  // --- FAQ accordion animation -----------------------------------------
+
+  document.querySelectorAll('.faq__list details').forEach((details) => {
+    const summary = details.querySelector('summary');
+    const content = details.querySelector('p');
+    let animation = null;
+
+    summary.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (animation) animation.cancel();
+
+      if (details.hasAttribute('open')) {
+        const startHeight = content.offsetHeight;
+        details.style.overflow = 'hidden';
+        animation = content.animate(
+          [{ height: `${startHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
+          { duration: 200, easing: 'ease' },
+        );
+        animation.onfinish = () => {
+          details.removeAttribute('open');
+          details.style.overflow = '';
+          content.style.height = '';
+        };
+      } else {
+        details.setAttribute('open', '');
+        const endHeight = content.offsetHeight;
+        details.style.overflow = 'hidden';
+        animation = content.animate(
+          [{ height: '0px', opacity: 0 }, { height: `${endHeight}px`, opacity: 1 }],
+          { duration: 220, easing: 'ease' },
+        );
+        animation.onfinish = () => {
+          details.style.overflow = '';
+          content.style.height = '';
+        };
+      }
+    });
   });
 
   // --- Scroll reveal -------------------------------------------------
@@ -281,8 +311,8 @@
     return node;
   }
 
-  function downloadUrl(src, filename, inline) {
-    const params = new URLSearchParams({ src, filename });
+  function downloadUrl(sourceUrl, quality, filename, inline) {
+    const params = new URLSearchParams({ url: sourceUrl, quality, filename });
     if (inline) params.set('inline', '1');
     return `/api/download?${params.toString()}`;
   }
@@ -290,8 +320,8 @@
   function renderStats(stats) {
     const row = el('div', { class: 'result-card__stats' });
     const items = [
-      ['likes', stats.likes],
       ['views', stats.views],
+      ['likes', stats.likes],
       ['comments', stats.comments],
       ['shares', stats.shares],
     ];
@@ -325,18 +355,18 @@
   function renderResult(data) {
     resultCard.innerHTML = '';
 
-    const previewSrc = data.downloads?.hd || data.downloads?.sd;
+    const previewQuality = data.downloads?.hd ? 'hd' : (data.downloads?.sd ? 'sd' : null);
 
     const top = el('div', { class: 'result-card__top' });
     const thumb = el('button', { type: 'button', class: 'result-card__thumb', 'aria-label': t('result.preview', 'Preview video') });
     if (data.thumbnail) {
       thumb.appendChild(el('img', { src: data.thumbnail, alt: '', loading: 'lazy' }));
     }
-    if (previewSrc && data.type === 'video') {
+    if (previewQuality && data.type === 'video') {
       const play = el('span', { class: 'result-card__play' });
       play.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
       thumb.appendChild(play);
-      thumb.addEventListener('click', () => openPreview(downloadUrl(previewSrc, 'preview.mp4', true)));
+      thumb.addEventListener('click', () => openPreview(downloadUrl(data.sourceUrl, previewQuality, 'preview.mp4', true)));
     } else {
       thumb.disabled = true;
     }
@@ -375,21 +405,21 @@
     if (data.downloads?.sd) {
       downloads.appendChild(el('a', {
         class: `dl-btn ${hasBoth ? 'dl-btn--light' : 'dl-btn--dark'}`,
-        href: downloadUrl(data.downloads.sd, `${safeName}.mp4`),
+        href: downloadUrl(data.sourceUrl, 'sd', `${safeName}.mp4`),
         text: t('result.download', 'Download'),
       }));
     }
     if (data.downloads?.hd) {
       downloads.appendChild(el('a', {
         class: 'dl-btn dl-btn--dark',
-        href: downloadUrl(data.downloads.hd, `${safeName}-hd.mp4`),
+        href: downloadUrl(data.sourceUrl, 'hd', `${safeName}-hd.mp4`),
         text: t('result.downloadHd', 'Download HD'),
       }));
     }
     if (data.downloads?.audio) {
       downloads.appendChild(el('a', {
         class: 'dl-btn dl-btn--light',
-        href: downloadUrl(data.downloads.audio, `${safeName}.mp3`),
+        href: downloadUrl(data.sourceUrl, 'audio', `${safeName}.m4a`),
         text: t('result.downloadAudio', 'Download audio'),
       }));
     }
@@ -404,7 +434,7 @@
           videoBtn.disabled = true;
           const original = videoBtn.textContent;
           videoBtn.textContent = t('result.converting', 'Converting...');
-          const ok = await triggerBlobDownload('/api/slideshow-video', { images: data.images, audio: data.downloads.audio }, 'slicktok-slideshow.mp4');
+          const ok = await triggerBlobDownload('/api/slideshow-video', { images: data.images, sourceUrl: data.sourceUrl }, 'slicktok-slideshow.mp4');
           videoBtn.disabled = false;
           videoBtn.textContent = original;
           if (!ok) showError(t('errors.conversionFailed', 'Could not convert this slideshow to video.'));

@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. Pengunduh video TikTok, tanpa watermark, tanpa iklan" },
-  "nav": { "how": "Cara kerja", "faq": "FAQ", "source": "Kode sumber" },
-  "header": { "themeToggle": "Alihkan mode gelap" },
+  "meta": {
+    "title": "SlickTok. Pengunduh video TikTok, tanpa watermark, tanpa iklan"
+  },
+  "nav": {
+    "how": "Cara kerja",
+    "faq": "FAQ",
+    "source": "Kode sumber"
+  },
+  "header": {
+    "themeToggle": "Alihkan mode gelap"
+  },
   "hero": {
     "eyebrow": "Gratis, open source, tanpa iklan. Selamanya.",
     "title": "Unduh video TikTok, tanpa watermark.",
     "subtitle": "Tempel tautan, dapatkan file HD tanpa watermark. Tanpa akun, tanpa pelacakan, tanpa instalasi.",
     "inputLabel": "Tautan video TikTok",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "Tempel tautan video TikTok di sini...",
     "paste": "Tempel",
     "submit": "Unduh",
     "submitLoading": "Memproses..."

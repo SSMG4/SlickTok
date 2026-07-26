@@ -1,13 +1,21 @@
 {
-  "meta": { "title": "SlickTok. TikTok-Video-Downloader, ohne Wasserzeichen, ohne Werbung" },
-  "nav": { "how": "So funktioniert's", "faq": "FAQ", "source": "Quellcode" },
-  "header": { "themeToggle": "Dunkelmodus umschalten" },
+  "meta": {
+    "title": "SlickTok. TikTok-Video-Downloader, ohne Wasserzeichen, ohne Werbung"
+  },
+  "nav": {
+    "how": "So funktioniert's",
+    "faq": "FAQ",
+    "source": "Quellcode"
+  },
+  "header": {
+    "themeToggle": "Dunkelmodus umschalten"
+  },
   "hero": {
     "eyebrow": "Kostenlos, Open Source, ohne Werbung. Für immer.",
     "title": "TikTok-Videos herunterladen, ohne Wasserzeichen.",
     "subtitle": "Link einfügen, HD-Datei ohne Wasserzeichen erhalten. Kein Konto, kein Tracking, keine Installation.",
     "inputLabel": "TikTok-Videolink",
-    "placeholder": "https://www.tiktok.com/@user/video/…",
+    "placeholder": "TikTok-Videolink hier einfügen...",
     "paste": "Einfügen",
     "submit": "Herunterladen",
     "submitLoading": "Wird bearbeitet..."

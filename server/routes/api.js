@@ -1,14 +1,16 @@
 import { Router } from 'express';
-import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
-import { execSync } from 'node:child_process';
+import { execSync, spawn } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import archiver from 'archiver';
-import { resolveTikTok, isAllowedCdnUrl, ResolveError } from '../services/tiktok.js';
+import {
+  resolveTikTok, isAllowedCdnUrl, isSupportedTikTokUrl, getFormatIdForQuality, ResolveError,
+} from '../services/tiktok.js';
 import { buildSlideshowVideo } from '../services/slideshowVideo.js';
 import { hourlyLimiter, dailyLimiter, conversionLimiter } from '../middleware/rateLimiter.js';
+import { config } from '../config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(__dirname, '..', '..');
@@ -19,6 +21,8 @@ const UPSTREAM_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
   Referer: 'https://www.tiktok.com/',
 };
+
+const QUALITIES = new Set(['sd', 'hd', 'audio']);
 
 router.get('/health', (req, res) => {
   let commit = 'unknown';
@@ -50,33 +54,56 @@ router.post('/resolve', hourlyLimiter, dailyLimiter, async (req, res) => {
 });
 
 router.get('/download', async (req, res) => {
-  const src = req.query.src;
-  if (typeof src !== 'string' || !isAllowedCdnUrl(src)) {
-    res.status(400).json({ error: 'Invalid or expired download link.' });
+  const { url, quality } = req.query;
+  if (typeof url !== 'string' || !isSupportedTikTokUrl(url)) {
+    res.status(400).json({ error: 'Invalid video link.' });
+    return;
+  }
+  if (typeof quality !== 'string' || !QUALITIES.has(quality)) {
+    res.status(400).json({ error: 'Invalid quality.' });
     return;
   }
 
   const safeName = (typeof req.query.filename === 'string' && req.query.filename.replace(/[^\w.-]/g, '')) || '';
-  const filename = safeName || 'slicktok-video.mp4';
+  const extension = quality === 'audio' ? 'm4a' : 'mp4';
+  const filename = safeName || `slicktok-video.${extension}`;
 
+  let formatId;
   try {
-    const upstream = await fetch(src, { headers: UPSTREAM_HEADERS });
-    if (!upstream.ok || !upstream.body) {
-      res.status(502).json({ error: 'That link is no longer available. Paste the video link again.' });
-      return;
-    }
-
-    const disposition = req.query.inline === '1' ? 'inline' : `attachment; filename="${filename}"`;
-    res.setHeader('Content-Disposition', disposition);
-    res.setHeader('Content-Type', upstream.headers.get('content-type') || 'application/octet-stream');
-    res.setHeader('Accept-Ranges', 'bytes');
-    const length = upstream.headers.get('content-length');
-    if (length) res.setHeader('Content-Length', length);
-
-    Readable.fromWeb(upstream.body).pipe(res);
-  } catch {
-    res.status(502).json({ error: 'Download failed. Paste the video link again.' });
+    formatId = await getFormatIdForQuality(url, quality);
+  } catch (err) {
+    const status = err instanceof ResolveError ? err.status : 502;
+    res.status(status).json({ error: err.message || 'Could not prepare that download.' });
+    return;
   }
+
+  const disposition = req.query.inline === '1' ? 'inline' : `attachment; filename="${filename}"`;
+  res.setHeader('Content-Disposition', disposition);
+  res.setHeader('Content-Type', quality === 'audio' ? 'audio/mp4' : 'video/mp4');
+
+  const child = spawn(config.ytdlpPath, [url, '-f', formatId, '-o', '-', '--no-warnings', '--quiet'], {
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+
+  let stderr = '';
+  child.stderr.on('data', (chunk) => {
+    stderr += chunk;
+  });
+  child.on('error', () => {
+    if (!res.headersSent) res.status(502).json({ error: 'Download failed to start.' });
+  });
+  child.on('close', (code) => {
+    if (code !== 0 && !res.headersSent) {
+      console.error(`[download] yt-dlp exited ${code}: ${stderr.slice(-500)}`);
+      res.status(502).json({ error: 'Download failed. Paste the video link again.' });
+    }
+  });
+
+  req.on('close', () => {
+    if (!child.killed) child.kill();
+  });
+
+  child.stdout.pipe(res);
 });
 
 router.post('/download-zip', async (req, res) => {
@@ -113,19 +140,19 @@ router.post('/download-zip', async (req, res) => {
 });
 
 router.post('/slideshow-video', conversionLimiter, async (req, res) => {
-  const { images, audio } = req.body || {};
+  const { images, sourceUrl } = req.body || {};
   if (!Array.isArray(images) || images.length === 0) {
     res.status(400).json({ error: 'No images to convert.' });
     return;
   }
-  if (typeof audio !== 'string') {
-    res.status(400).json({ error: 'No audio track to sync to.' });
+  if (typeof sourceUrl !== 'string' || !isSupportedTikTokUrl(sourceUrl)) {
+    res.status(400).json({ error: 'Missing or invalid source link.' });
     return;
   }
 
   let result;
   try {
-    result = await buildSlideshowVideo(images, audio);
+    result = await buildSlideshowVideo(images, sourceUrl);
   } catch {
     res.status(502).json({ error: 'Could not build a video from this slideshow.' });
     return;

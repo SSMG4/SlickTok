@@ -201,11 +201,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  height: 38px;
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
   border-radius: var(--radius-sm);
-  padding: 7px 10px;
+  padding: 0 10px;
   cursor: pointer;
   font-size: 0.82rem;
   font-weight: 600;
@@ -214,6 +215,18 @@ button {
 
 .lang-switch__button:hover {
   border-color: var(--accent);
+}
+
+.lang-switch__chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.lang-switch__button[aria-expanded="true"] .lang-switch__chevron {
+  transform: rotate(180deg);
 }
 
 .lang-switch__flag {
@@ -244,6 +257,19 @@ button {
   max-height: 340px;
   overflow-y: auto;
   z-index: 70;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top right;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+}
+
+.lang-switch__list.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
 }
 
 .lang-switch__option {
@@ -275,6 +301,7 @@ button {
 /* Theme toggle */
 
 .theme-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -285,24 +312,30 @@ button {
   color: var(--ink);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: border-color 0.15s ease;
 }
 
 .theme-toggle svg {
+  position: absolute;
   width: 18px;
   height: 18px;
   fill: currentColor;
+  transition: opacity 0.25s ease, transform 0.35s ease;
 }
 
 .theme-toggle__moon {
-  display: none;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
 }
 
 :root[data-theme="dark"] .theme-toggle__sun {
-  display: none;
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
 }
 
 :root[data-theme="dark"] .theme-toggle__moon {
-  display: block;
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 .theme-toggle:hover {
@@ -369,24 +402,33 @@ button {
 .input-row {
   display: flex;
   gap: 8px;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 56px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 6px;
+  padding-inline: 6px;
   box-shadow: var(--shadow);
   transition: border-color 0.15s ease;
 }
 
-.input-row:focus-within {
+.input-field:focus-within {
   border-color: var(--accent);
 }
 
 #url-input {
   flex: 1;
   min-width: 0;
+  height: 100%;
   border: none;
   background: transparent;
-  padding: 12px 10px;
+  padding-inline: 10px;
   font: 1rem/1.4 var(--font-mono);
   color: var(--ink);
 }
@@ -425,14 +467,16 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  height: 56px;
   border: none;
   background: var(--accent);
   color: var(--accent-contrast);
   font: inherit;
   font-weight: 600;
-  padding: 0 22px;
+  padding: 0 24px;
   min-width: 140px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
@@ -488,10 +532,10 @@ button {
 
 .progress-bar {
   height: 100%;
-  width: 40%;
+  width: 30%;
   background: var(--accent);
   border-radius: 3px;
-  animation: indeterminate 1.1s ease-in-out infinite;
+  animation: indeterminate 1.8s ease-in-out infinite;
 }
 
 @keyframes indeterminate {
@@ -557,6 +601,11 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.result-card__thumb:hover img {
+  transform: scale(1.05);
 }
 
 .result-card__play {
@@ -799,7 +848,14 @@ button {
 }
 
 .features__grid article {
-  padding: 4px;
+  padding: 16px;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.features__grid article:hover {
+  transform: translateY(-3px);
+  background: var(--paper);
 }
 
 .features__grid h3 {
@@ -860,7 +916,6 @@ button {
 .faq__list details p {
   margin: 0 0 16px 1em;
   color: var(--muted);
-  animation: fade-in 0.25s ease;
 }
 
 @keyframes fade-in {
@@ -1013,12 +1068,23 @@ button {
 
 @media (max-width: 860px) {
   .hero__grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .hero__copy {
+    text-align: center;
+  }
+
+  .hero__sub {
+    margin-inline: auto;
   }
 
   .hero__signature {
     order: -1;
     max-width: 220px;
+    width: 100%;
     margin-inline: auto;
   }
 
@@ -1069,22 +1135,18 @@ button {
   }
 
   .lang-switch__button {
-    padding: 7px;
+    padding: 0 8px;
+    gap: 4px;
   }
 }
 
 @media (max-width: 520px) {
   .input-row {
-    flex-wrap: wrap;
-  }
-
-  #url-input {
-    flex-basis: 100%;
+    flex-direction: column;
   }
 
   #submit-btn {
-    flex: 1;
-    height: 46px;
+    width: 100%;
   }
 
   .header-controls {
@@ -1107,7 +1169,18 @@ button {
 
   * {
     animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .progress-bar {
+    animation: none !important;
+    width: 100% !important;
+    opacity: 0.5;
+  }
+
+  #submit-btn .spinner {
+    animation: none !important;
   }
 
   .reveal {

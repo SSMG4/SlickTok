@@ -12,6 +12,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#285ebd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0c0e14" media="(prefers-color-scheme: dark)">
+<script src="/js/theme-init.js"></script>
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -35,8 +36,9 @@
         <button type="button" class="lang-switch__button" id="lang-button" aria-haspopup="listbox" aria-expanded="false">
           <span class="lang-switch__flag" id="lang-button-flag" aria-hidden="true"></span>
           <span class="lang-switch__code" id="lang-button-code">EN</span>
+          <svg class="lang-switch__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
         </button>
-        <ul class="lang-switch__list" id="lang-list" role="listbox" aria-label="Language" hidden></ul>
+        <ul class="lang-switch__list" id="lang-list" role="listbox" aria-label="Language"></ul>
       </div>
 
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" data-i18n-label="header.themeToggle">
@@ -61,22 +63,24 @@
 
         <form id="download-form" novalidate>
           <div class="input-row">
-            <label class="sr-only" for="url-input" data-i18n="hero.inputLabel">TikTok video link</label>
-            <input
-              id="url-input"
-              name="url"
-              type="text"
-              inputmode="url"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              data-i18n-placeholder="hero.placeholder"
-              placeholder="https://www.tiktok.com/@user/video/…"
-              required
-            >
-            <button type="button" id="paste-btn" class="icon-btn" data-i18n-label="hero.paste" aria-label="Paste">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6a1 1 0 0 1 1 1V5h1.5A1.5 1.5 0 0 1 19 6.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 7 19.5v-13A1.5 1.5 0 0 1 8.5 5H10v-.5a1 1 0 0 1 1-1Zm-.5 3v12h9v-12h-9Z"/></svg>
-            </button>
+            <div class="input-field">
+              <label class="sr-only" for="url-input" data-i18n="hero.inputLabel">TikTok video link</label>
+              <input
+                id="url-input"
+                name="url"
+                type="text"
+                inputmode="url"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                data-i18n-placeholder="hero.placeholder"
+                placeholder="Paste TikTok video link here..."
+                required
+              >
+              <button type="button" id="paste-btn" class="icon-btn" data-i18n-label="hero.paste" aria-label="Paste">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6a1 1 0 0 1 1 1V5h1.5A1.5 1.5 0 0 1 19 6.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 7 19.5v-13A1.5 1.5 0 0 1 8.5 5H10v-.5a1 1 0 0 1 1-1Zm-.5 3v12h9v-12h-9Z"/></svg>
+              </button>
+            </div>
             <button type="submit" id="submit-btn">
               <span class="btn-label" data-i18n="hero.submit">Download</span>
               <span class="btn-label btn-label--loading" data-i18n="hero.submitLoading">Working...</span>
@@ -87,6 +91,7 @@
           <p id="form-error" class="form-error" role="alert" hidden></p>
         </form>
       </div>
+
 
       <div class="hero__signature reveal" aria-hidden="true">
         <svg viewBox="0 0 320 240" class="peel-art">
