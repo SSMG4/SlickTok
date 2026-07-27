@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok videóletöltő, vízjel nélkül, hirdetések nélkül"
+  },
+  "nav": {
+    "how": "Hogyan működik",
+    "faq": "Gyakori kérdések",
+    "source": "Forráskód"
+  },
+  "header": {
+    "themeToggle": "Sötét mód váltása"
+  },
+  "hero": {
+    "eyebrow": "Ingyenes, nyílt forráskódú, hirdetésmentes. Örökre.",
+    "title": "Töltsön le TikTok videókat, vízjel nélkül.",
+    "subtitle": "Illesszen be egy linket, és kapjon vissza egy HD, vízjel nélküli fájlt. Nincs fiók, nincs követés, nincs mit telepíteni.",
+    "inputLabel": "TikTok videó linkje",
+    "placeholder": "Illessze be a TikTok videó linkjét itt...",
+    "paste": "Beillesztés",
+    "submit": "Letöltés",
+    "submitLoading": "Feldolgozás..."
+  },
+  "how": {
+    "title": "Három lépés, kerülőutak nélkül",
+    "step1Title": "Másolja ki a linket",
+    "step1Body": "A TikTok appban koppintson a Megosztásra, majd a Link másolására.",
+    "step2Title": "Illessze be fent",
+    "step2Body": "Működik teljes tiktok.com linkekkel és rövid vm.tiktok.com linkekkel is.",
+    "step3Title": "Mentse el a tiszta fájlt",
+    "step3Body": "Töltse le a vízjel nélküli videót közvetlenül az eszközére."
+  },
+  "features": {
+    "title": "Mit csinál a SlickTok",
+    "f1Title": "Vízjel nélkül",
+    "f1Body": "A letöltések a TikTok saját, tiszta lejátszási fájlját használják, semmi nincs rátéve.",
+    "f2Title": "Mindig hirdetésmentes",
+    "f2Body": "Nincsenek hirdetési helyek, felugró ablakok, nincs \"nézz meg egy hirdetést a HD-ért\". Csak az eszköz.",
+    "f3Title": "Nyílt forráskód",
+    "f3Body": "Minden kódsor nyilvános. Olvassa el, forkolja, üzemeltesse a saját másolatát.",
+    "f4Title": "Nincs fiók",
+    "f4Body": "Nincs mire regisztrálni. A korlátozás IP-cím alapú, nem bejelentkezés alapú.",
+    "f5Title": "HD, ha elérhető",
+    "f5Body": "Ha a TikTok magasabb felbontású verziót kínált, a SlickTok is felkínálja azt.",
+    "f6Title": "Fotók és diavetítések",
+    "f6Body": "A fotós bejegyzések a lehető legjobb erőfeszítéssel támogatottak, háttérzenével együtt."
+  },
+  "faq": {
+    "title": "Kérdések",
+    "q1": "A SlickTok hozzáad saját vízjelet?",
+    "a1": "Nem. A kapott fájl ugyanaz, amit a TikTok saját appja belsőleg lejátszik, mielőtt vízjelet adnának hozzá a megosztáshoz.",
+    "qSafe": "Biztonságos a SlickTok használata?",
+    "aSafe": "Igen. Semmi nem települ az eszközére, nincs bejelentkezés, amit fel lehetne törni, és a kód teljesen nyílt, így bárki pontosan ellenőrizheti, mit csinál.",
+    "q2": "Kell fiók?",
+    "a2": "Nem. Ezen az oldalon sehol nincs bejelentkezés. A használatot helyette IP-cím alapján korlátozzák, hogy a szerver mindenki számára elérhető maradjon.",
+    "q3": "Milyen linkek támogatottak?",
+    "a3": "Teljes linkek, mint a tiktok.com/@user/video/123, és rövid linkek, mint a vm.tiktok.com/xxxxx/.",
+    "q4": "Ez kapcsolatban áll a TikTokkal?",
+    "a4": "Nem. A SlickTok egy független, nem kapcsolódó nyílt forráskódú projekt. Nem a TikTok vagy a ByteDance Ltd. készítette, hagyta jóvá vagy támogatja.",
+    "qFail": "Miért sikertelen néha egy letöltés?",
+    "aFail": "Általában azért, mert a videó privát, törölt, régiós korlátozás alatt áll, vagy a TikTok változtatott valamit a saját oldalán. Próbálja újra egy kicsit később, vagy ellenőrizze, van-e újabb yt-dlp verzió, ha saját maga üzemelteti.",
+    "qCreator": "Befolyásolja a videó letöltése az alkotót?",
+    "aCreator": "A SlickTok senkit nem lájkol, nem követ, nem kommentál és nem értesít. Az alkotó nem tudja meg, hogy letöltötték a videóját. Kérjük, mindenképpen adjon elismerést és támogassa azokat az alkotókat, akiknek a tartalmát elmenti.",
+    "q5": "Üzemeltethetem a saját másolatomat?",
+    "a5": "Igen, pontosan ez a lényeg. A teljes forráskód és egy telepítési útmutató megtalálható a lábjegyzetben linkelt tárolóban.",
+    "q6": "Bármilyen videót letölthetek, amit akarok?",
+    "a6": "Csak olyan videókat töltsön le, amelyek az Ön tulajdonában vannak, amelyeket engedélyezett menteni, vagy amelyeket személyes, jogszerű célra néz. Részletek a Felhasználási feltételekben."
+  },
+  "notice": {
+    "text": "A SlickTok nem kapcsolódik, nincs jóváhagyva és nincs összefüggésben a TikTokkal vagy a ByteDance Ltd.-vel. Kérjük, csak olyan tartalmat töltsön le, amelyet jogosan menthet. Lásd a Felhasználási feltételeket és az Adatvédelmi szabályzatot.",
+    "terms": "Feltételek",
+    "privacy": "Adatvédelem"
+  },
+  "result": {
+    "likes": "kedvelés",
+    "views": "megtekintés",
+    "comments": "hozzászólás",
+    "shares": "megosztás",
+    "untitled": "Cím nélkül",
+    "preview": "Videó előnézete",
+    "download": "Letöltés",
+    "downloadHd": "Letöltés HD-ben",
+    "downloadAudio": "Hang letöltése",
+    "zip": "Mindent letölt (ZIP)",
+    "convertVideo": "Videóvá konvertálás (MP4)",
+    "converting": "Konvertálás...",
+    "another": "Másik videó letöltése"
+  },
+  "errors": {
+    "empty": "Először illesszen be egy TikTok linket.",
+    "generic": "Valami hiba történt.",
+    "network": "Hálózati hiba. Próbálja újra.",
+    "conversionFailed": "Nem sikerült videóvá konvertálni ezt a diavetítést."
+  }
+}

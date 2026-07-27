@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok-videodownloader, uden vandmærke, uden reklamer"
+  },
+  "nav": {
+    "how": "Sådan fungerer det",
+    "faq": "Ofte stillede spørgsmål",
+    "source": "Kildekode"
+  },
+  "header": {
+    "themeToggle": "Skift mørk tilstand"
+  },
+  "hero": {
+    "eyebrow": "Gratis, open source, ingen reklamer. Nogensinde.",
+    "title": "Download TikTok-videoer, uden vandmærket.",
+    "subtitle": "Indsæt et link, få en HD-fil uden vandmærke tilbage. Ingen konto, ingen sporing, intet at installere.",
+    "inputLabel": "Link til TikTok-video",
+    "placeholder": "Indsæt TikTok-videolink her...",
+    "paste": "Indsæt",
+    "submit": "Download",
+    "submitLoading": "Behandler..."
+  },
+  "how": {
+    "title": "Tre trin, ingen omveje",
+    "step1Title": "Kopiér linket",
+    "step1Body": "I TikTok-appen, tryk på Del, og derefter Kopiér link.",
+    "step2Title": "Indsæt det ovenfor",
+    "step2Body": "Virker med både fulde tiktok.com-links og korte vm.tiktok.com-links.",
+    "step3Title": "Gem den rene fil",
+    "step3Body": "Download videoen uden vandmærke direkte til din enhed."
+  },
+  "features": {
+    "title": "Hvad SlickTok gør",
+    "f1Title": "Uden vandmærke",
+    "f1Body": "Downloads bruger TikToks egen rene afspilningsfil, intet er lagt oven på.",
+    "f2Title": "Altid reklamefri",
+    "f2Body": "Ingen reklamepladser, ingen pop op-vinduer, intet \"se en reklame for HD\". Kun værktøjet.",
+    "f3Title": "Open source",
+    "f3Body": "Hver linje kode er offentlig. Læs den, fork den, host din egen kopi.",
+    "f4Title": "Ingen konto",
+    "f4Body": "Intet at oprette. Grænsen gælder pr. IP, ikke pr. login.",
+    "f5Title": "HD når tilgængeligt",
+    "f5Body": "Hvis TikTok tilbød en version i højere opløsning, tilbyder SlickTok den også.",
+    "f6Title": "Fotos og diasshow",
+    "f6Body": "Fotoopslag understøttes efter bedste evne, med baggrundsmusik inkluderet."
+  },
+  "faq": {
+    "title": "Spørgsmål",
+    "q1": "Tilføjer SlickTok sit eget vandmærke?",
+    "a1": "Nej. Filen du får, er den samme, som TikToks egen app afspiller internt, før et vandmærke tilføjes til deling.",
+    "qSafe": "Er det sikkert at bruge SlickTok?",
+    "aSafe": "Ja. Der installeres intet på din enhed, der er intet login, der kan kompromitteres, og koden er helt åben, så alle kan tjekke præcis hvad den gør.",
+    "q2": "Har jeg brug for en konto?",
+    "a2": "Nej. Der er intet login nogen steder på denne side. Brugen er i stedet begrænset pr. IP-adresse, for at holde serveren tilgængelig for alle.",
+    "q3": "Hvilke links understøttes?",
+    "a3": "Fulde links som tiktok.com/@user/video/123, og korte links som vm.tiktok.com/xxxxx/.",
+    "q4": "Er dette tilknyttet TikTok?",
+    "a4": "Nej. SlickTok er et uafhængigt, ikke-tilknyttet open source-projekt. Det er hverken lavet, godkendt eller understøttet af TikTok eller ByteDance Ltd.",
+    "qFail": "Hvorfor mislykkes en download nogle gange?",
+    "aFail": "Normalt fordi videoen er privat, slettet, regionsspærret, eller fordi TikTok har ændret noget i deres ende. Prøv igen om lidt, eller tjek om der er en nyere yt-dlp-version, hvis du selv hoster.",
+    "qCreator": "Påvirker download af en video skaberen?",
+    "aCreator": "SlickTok liker, følger, kommenterer eller giver ingen besked. Skaberen får ikke at vide, at deres video blev downloadet. Krediter og støt alligevel de skabere, hvis indhold du gemmer.",
+    "q5": "Kan jeg køre min egen kopi?",
+    "a5": "Ja, det er hele pointen. Den fulde kildekode og en installationsvejledning findes i repoet linket i bunden af siden.",
+    "q6": "Må jeg downloade enhver video, jeg vil?",
+    "a6": "Download kun videoer, du ejer, har tilladelse til at gemme, eller som du ser til personlig, lovlig brug. Se vilkårene for detaljer."
+  },
+  "notice": {
+    "text": "SlickTok er ikke tilknyttet, godkendt af eller forbundet med TikTok eller ByteDance Ltd. Download kun indhold, du har ret til at gemme. Se vilkårene og privatlivspolitikken.",
+    "terms": "Vilkår",
+    "privacy": "Privatliv"
+  },
+  "result": {
+    "likes": "likes",
+    "views": "visninger",
+    "comments": "kommentarer",
+    "shares": "delinger",
+    "untitled": "Uden titel",
+    "preview": "Forhåndsvis video",
+    "download": "Download",
+    "downloadHd": "Download i HD",
+    "downloadAudio": "Download lyd",
+    "zip": "Download alt (ZIP)",
+    "convertVideo": "Konverter til video (MP4)",
+    "converting": "Konverterer...",
+    "another": "Download en anden video"
+  },
+  "errors": {
+    "empty": "Indsæt et TikTok-link først.",
+    "generic": "Noget gik galt.",
+    "network": "Netværksfejl. Prøv igen.",
+    "conversionFailed": "Kunne ikke konvertere dette diasshow til video."
+  }
+}

@@ -41,7 +41,7 @@ watermarked copy TikTok generates for external sharing.
 
 The moon/sun icon in the header switches between light and dark
 themes; your choice is remembered on your device. The language
-switcher next to it covers 10 languages so far, see
+switcher next to it covers 23 languages so far, see
 [CONTRIBUTING.md](CONTRIBUTING.md) if you'd like to add another.
 
 ## Rate limits

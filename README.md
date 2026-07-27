@@ -12,7 +12,7 @@ Live instance: [slicktok.ssmg4.dpdns.org](https://slicktok.ssmg4.dpdns.org)
 - Photo/slideshow posts on a best-effort basis
 - No account, no login, rate-limited by IP instead
 - No ads, no analytics, no third-party scripts
-- Multi-language UI (10 languages, more welcome, see
+- Multi-language UI (23 languages, more welcome, see
   [CONTRIBUTING.md](docs/CONTRIBUTING.md))
 - Fully open source, AGPL-3.0-or-later
 

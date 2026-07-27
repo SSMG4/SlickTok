@@ -71,18 +71,30 @@ export function classifyFormats(info) {
 
   const withVideo = formats.filter((f) => f.vcodec && f.vcodec !== 'none');
   const noWatermark = withVideo.filter((f) => f.format_note !== 'watermarked');
-  const ranked = dedupeByHeight(noWatermark.length ? noWatermark : withVideo);
+  const candidates = noWatermark.length ? noWatermark : withVideo;
 
-  return { isSlideshow, audioOnly, ranked };
+  // TikTok sometimes exposes a higher-resolution video-only stream
+  // alongside the normal combined (video+audio) file. Ranking by height
+  // alone can pick that video-only stream over the combined one, which
+  // downloads fine but plays back with no sound. Prefer formats that
+  // already carry audio; only fall back to a video-only pick (merged with
+  // the best available audio track via ffmpeg) if nothing combined exists.
+  const combined = candidates.filter((f) => f.acodec && f.acodec !== 'none');
+  const usable = combined.length ? combined : candidates;
+  const needsAudioMerge = combined.length === 0 && candidates.length > 0;
+
+  const ranked = dedupeByHeight(usable);
+
+  return { isSlideshow, audioOnly, ranked, needsAudioMerge };
 }
 
 function formatIdForQuality(classified, quality) {
-  const { isSlideshow, audioOnly, ranked } = classified;
+  const { isSlideshow, audioOnly, ranked, needsAudioMerge } = classified;
   if (quality === 'audio') return audioOnly?.format_id || null;
-  if (isSlideshow) return null;
-  if (!ranked.length) return null;
-  if (quality === 'hd') return ranked[0].format_id;
-  return (ranked[1] || ranked[0]).format_id;
+  if (isSlideshow || !ranked.length) return null;
+  const picked = quality === 'hd' ? ranked[0] : (ranked[1] || ranked[0]);
+  if (!picked) return null;
+  return needsAudioMerge ? `${picked.format_id}+bestaudio` : picked.format_id;
 }
 
 function pickThumbnail(info) {
@@ -146,6 +158,33 @@ async function runYtDlpJson(rawUrl) {
   }
 }
 
+// Downloading re-resolves from scratch by default (see getFormatIdForQuality
+// below), which costs a few seconds. To keep the common case, click download
+// right after resolving, fast, the classification from resolve is cached
+// briefly and reused if the download request lands within the window.
+// Anything older re-resolves for real, since the CDN URLs yt-dlp gets back
+// are short-lived and a stale pick would just fail anyway.
+const FORMAT_CACHE_TTL_MS = 3 * 60 * 1000;
+const FORMAT_CACHE_MAX_ENTRIES = 200;
+const formatCache = new Map();
+
+function cacheClassified(rawUrl, classified) {
+  if (formatCache.size >= FORMAT_CACHE_MAX_ENTRIES) {
+    formatCache.delete(formatCache.keys().next().value);
+  }
+  formatCache.set(rawUrl, { classified, expires: Date.now() + FORMAT_CACHE_TTL_MS });
+}
+
+function getCachedClassified(rawUrl) {
+  const entry = formatCache.get(rawUrl);
+  if (!entry) return null;
+  if (entry.expires < Date.now()) {
+    formatCache.delete(rawUrl);
+    return null;
+  }
+  return entry.classified;
+}
+
 export async function resolveTikTok(rawUrl) {
   if (!isSupportedTikTokUrl(rawUrl)) {
     throw new ResolveError('That does not look like a TikTok link.', 400);
@@ -154,6 +193,7 @@ export async function resolveTikTok(rawUrl) {
   const info = await runYtDlpJson(rawUrl);
   const classified = classifyFormats(info);
   const { isSlideshow, audioOnly, ranked } = classified;
+  cacheClassified(rawUrl, classified);
 
   const downloads = {};
   if (!isSlideshow) {
@@ -204,8 +244,13 @@ export async function getFormatIdForQuality(rawUrl, quality) {
   if (!isSupportedTikTokUrl(rawUrl)) {
     throw new ResolveError('That does not look like a TikTok link.', 400);
   }
-  const info = await runYtDlpJson(rawUrl);
-  const formatId = formatIdForQuality(classifyFormats(info), quality);
+  let classified = getCachedClassified(rawUrl);
+  if (!classified) {
+    const info = await runYtDlpJson(rawUrl);
+    classified = classifyFormats(info);
+    cacheClassified(rawUrl, classified);
+  }
+  const formatId = formatIdForQuality(classified, quality);
   if (!formatId) {
     throw new ResolveError('That quality is not available for this video anymore.', 404);
   }

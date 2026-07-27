@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok-videodownloader, zonder watermerk, zonder advertenties"
+  },
+  "nav": {
+    "how": "Hoe het werkt",
+    "faq": "Veelgestelde vragen",
+    "source": "Broncode"
+  },
+  "header": {
+    "themeToggle": "Donkere modus wisselen"
+  },
+  "hero": {
+    "eyebrow": "Gratis, open source, geen advertenties. Ooit.",
+    "title": "Download TikTok-video's, zonder het watermerk.",
+    "subtitle": "Plak een link, krijg een HD-bestand zonder watermerk terug. Geen account, geen tracking, niets te installeren.",
+    "inputLabel": "Link naar TikTok-video",
+    "placeholder": "Plak hier de TikTok-videolink...",
+    "paste": "Plakken",
+    "submit": "Downloaden",
+    "submitLoading": "Bezig..."
+  },
+  "how": {
+    "title": "Drie stappen, geen omwegen",
+    "step1Title": "Kopieer de link",
+    "step1Body": "Tik in de TikTok-app op Delen en vervolgens op Link kopiëren.",
+    "step2Title": "Plak hem hierboven",
+    "step2Body": "Werkt met volledige tiktok.com-links en korte vm.tiktok.com-links.",
+    "step3Title": "Sla het schone bestand op",
+    "step3Body": "Download de video zonder watermerk rechtstreeks naar je apparaat."
+  },
+  "features": {
+    "title": "Wat SlickTok doet",
+    "f1Title": "Zonder watermerk",
+    "f1Body": "Downloads gebruiken TikToks eigen schone afspeelbestand, er is niets overheen geplakt.",
+    "f2Title": "Altijd advertentievrij",
+    "f2Body": "Geen advertentieruimtes, geen pop-ups, geen \"bekijk een advertentie voor HD\". Alleen de tool.",
+    "f3Title": "Open source",
+    "f3Body": "Elke regel code is openbaar. Lees het, fork het, host je eigen kopie.",
+    "f4Title": "Geen account",
+    "f4Body": "Niets om je voor aan te melden. De limiet geldt per IP, niet per login.",
+    "f5Title": "HD indien beschikbaar",
+    "f5Body": "Als TikTok een versie met hogere resolutie aanbood, biedt SlickTok die ook aan.",
+    "f6Title": "Foto's en diavoorstellingen",
+    "f6Body": "Fotoberichten worden zo goed mogelijk ondersteund, inclusief achtergrondmuziek."
+  },
+  "faq": {
+    "title": "Vragen",
+    "q1": "Voegt SlickTok een eigen watermerk toe?",
+    "a1": "Nee. Het bestand dat je krijgt is hetzelfde bestand dat TikToks eigen app intern afspeelt, voordat er een watermerk wordt toegevoegd voor delen.",
+    "qSafe": "Is het veilig om SlickTok te gebruiken?",
+    "aSafe": "Ja. Er wordt niets op je apparaat geïnstalleerd, er is geen login die gecompromitteerd kan worden, en de code is volledig open source, dus iedereen kan precies controleren wat het doet.",
+    "q2": "Heb ik een account nodig?",
+    "a2": "Nee. Er is nergens op deze site een login. Het gebruik wordt in plaats daarvan per IP-adres beperkt, om de server voor iedereen beschikbaar te houden.",
+    "q3": "Welke links worden ondersteund?",
+    "a3": "Volledige links zoals tiktok.com/@user/video/123, en korte links zoals vm.tiktok.com/xxxxx/.",
+    "q4": "Is dit gelieerd aan TikTok?",
+    "a4": "Nee. SlickTok is een onafhankelijk, niet-gelieerd open source-project. Het wordt niet gemaakt, goedgekeurd of ondersteund door TikTok of ByteDance Ltd.",
+    "qFail": "Waarom mislukt een download soms?",
+    "aFail": "Meestal omdat de video privé, verwijderd, regionaal geblokkeerd is, of omdat TikTok iets aan hun kant heeft veranderd. Probeer het later nog eens, of controleer of er een nieuwere yt-dlp-versie is als je zelf host.",
+    "qCreator": "Heeft het downloaden van een video invloed op de maker?",
+    "aCreator": "SlickTok liket, volgt, becommentarieert of informeert niemand. De maker krijgt niet te horen dat hun video is gedownload. Geef toch credit aan en steun de makers wiens inhoud je opslaat.",
+    "q5": "Kan ik mijn eigen kopie hosten?",
+    "a5": "Ja, dat is precies het punt. De volledige broncode en een implementatiegids staan in de repository die in de footer is gelinkt.",
+    "q6": "Mag ik elke video downloaden die ik wil?",
+    "a6": "Download alleen video's die je bezit, mag opslaan, of die je bekijkt voor persoonlijk, niet-inbreukmakend gebruik. Zie de Voorwaarden voor details."
+  },
+  "notice": {
+    "text": "SlickTok is niet gelieerd aan, goedgekeurd door of verbonden met TikTok of ByteDance Ltd. Download alleen inhoud die je het recht hebt om op te slaan. Zie de Voorwaarden en het Privacybeleid.",
+    "terms": "Voorwaarden",
+    "privacy": "Privacy"
+  },
+  "result": {
+    "likes": "likes",
+    "views": "weergaven",
+    "comments": "reacties",
+    "shares": "keer gedeeld",
+    "untitled": "Zonder titel",
+    "preview": "Video bekijken",
+    "download": "Downloaden",
+    "downloadHd": "Downloaden in HD",
+    "downloadAudio": "Audio downloaden",
+    "zip": "Alles downloaden (ZIP)",
+    "convertVideo": "Converteren naar video (MP4)",
+    "converting": "Bezig met converteren...",
+    "another": "Nog een video downloaden"
+  },
+  "errors": {
+    "empty": "Plak eerst een TikTok-link.",
+    "generic": "Er is iets misgegaan.",
+    "network": "Netwerkfout. Probeer opnieuw.",
+    "conversionFailed": "Kon deze diavoorstelling niet naar video converteren."
+  }
+}

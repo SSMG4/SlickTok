@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. Muat turun video TikTok, tanpa tera air, tanpa iklan"
+  },
+  "nav": {
+    "how": "Cara ia berfungsi",
+    "faq": "Soalan lazim",
+    "source": "Kod sumber"
+  },
+  "header": {
+    "themeToggle": "Tukar mod gelap"
+  },
+  "hero": {
+    "eyebrow": "Percuma, sumber terbuka, tiada iklan. Selamanya.",
+    "title": "Muat turun video TikTok, tanpa tera air.",
+    "subtitle": "Tampal pautan, dapatkan fail HD tanpa tera air. Tiada akaun, tiada penjejakan, tiada apa untuk dipasang.",
+    "inputLabel": "Pautan video TikTok",
+    "placeholder": "Tampal pautan video TikTok di sini...",
+    "paste": "Tampal",
+    "submit": "Muat turun",
+    "submitLoading": "Memproses..."
+  },
+  "how": {
+    "title": "Tiga langkah, tanpa selekoh",
+    "step1Title": "Salin pautan",
+    "step1Body": "Dalam aplikasi TikTok, ketik Kongsi, kemudian Salin pautan.",
+    "step2Title": "Tampal di atas",
+    "step2Body": "Berfungsi dengan pautan penuh tiktok.com dan pautan pendek vm.tiktok.com.",
+    "step3Title": "Simpan fail yang bersih",
+    "step3Body": "Muat turun video tanpa tera air terus ke peranti anda."
+  },
+  "features": {
+    "title": "Apa yang SlickTok lakukan",
+    "f1Title": "Tanpa tera air",
+    "f1Body": "Muat turun menggunakan fail main balik asal TikTok sendiri, tiada apa-apa ditampal di atasnya.",
+    "f2Title": "Sentiasa tanpa iklan",
+    "f2Body": "Tiada slot iklan, tiada tetingkap pop-up, tiada \"tonton iklan untuk HD\". Hanya alat itu sahaja.",
+    "f3Title": "Sumber terbuka",
+    "f3Body": "Setiap baris kod adalah awam. Baca, fork, dan hos salinan anda sendiri.",
+    "f4Title": "Tiada akaun",
+    "f4Body": "Tiada apa untuk didaftarkan. Had dikenakan mengikut IP, bukan log masuk.",
+    "f5Title": "HD apabila tersedia",
+    "f5Body": "Jika TikTok menyediakan versi resolusi lebih tinggi, SlickTok turut menawarkannya.",
+    "f6Title": "Foto dan tayangan slaid",
+    "f6Body": "Kiriman foto disokong secara usaha terbaik, termasuk muzik latar."
+  },
+  "faq": {
+    "title": "Soalan",
+    "q1": "Adakah SlickTok menambah tera airnya sendiri?",
+    "a1": "Tidak. Fail yang anda dapat adalah sama seperti yang dimainkan secara dalaman oleh aplikasi TikTok sendiri, sebelum sebarang tera air ditambah untuk perkongsian.",
+    "qSafe": "Adakah selamat menggunakan SlickTok?",
+    "aSafe": "Ya. Tiada apa-apa dipasang pada peranti anda, tiada log masuk yang boleh dikompromi, dan kodnya adalah sumber terbuka sepenuhnya, jadi sesiapa sahaja boleh menyemak dengan tepat apa yang ia lakukan.",
+    "q2": "Perlukah saya akaun?",
+    "a2": "Tidak. Tiada log masuk di mana-mana di laman ini. Penggunaan dihadkan mengikut alamat IP sebaliknya, untuk memastikan pelayan tersedia untuk semua orang.",
+    "q3": "Pautan apa yang disokong?",
+    "a3": "Pautan penuh seperti tiktok.com/@user/video/123, dan pautan pendek seperti vm.tiktok.com/xxxxx/.",
+    "q4": "Adakah ini berkaitan dengan TikTok?",
+    "a4": "Tidak. SlickTok adalah projek sumber terbuka bebas dan tidak berkaitan. Ia tidak dibuat, disokong, atau diendorskan oleh TikTok atau ByteDance Ltd.",
+    "qFail": "Mengapa muat turun kadangkala gagal?",
+    "aFail": "Biasanya kerana video itu peribadi, dipadam, disekat mengikut rantau, atau TikTok telah menukar sesuatu di pihak mereka. Cuba lagi sebentar, atau semak jika ada versi yt-dlp yang lebih baharu jika anda mengehos sendiri.",
+    "qCreator": "Adakah memuat turun video menjejaskan pencipta?",
+    "aCreator": "SlickTok tidak menyukai, mengikuti, mengulas atau memberitahu sesiapa. Pencipta tidak diberitahu bahawa video mereka telah dimuat turun. Sila tetap memberi kredit dan menyokong pencipta yang kandungannya anda simpan.",
+    "q5": "Bolehkah saya menjalankan salinan saya sendiri?",
+    "a5": "Boleh, itulah intinya. Kod sumber penuh dan panduan penggunaan terdapat dalam repositori yang dipautkan di footer.",
+    "q6": "Bolehkah saya memuat turun video apa sahaja yang saya mahu?",
+    "a6": "Muat turun hanya video yang anda miliki, mempunyai kebenaran untuk disimpan, atau yang anda tonton untuk penggunaan peribadi yang sah. Lihat Terma untuk maklumat lanjut."
+  },
+  "notice": {
+    "text": "SlickTok tidak berkaitan, disokong, atau bersambung dengan TikTok atau ByteDance Ltd. Sila hanya muat turun kandungan yang anda mempunyai hak untuk disimpan. Lihat Terma dan Dasar Privasi.",
+    "terms": "Terma",
+    "privacy": "Privasi"
+  },
+  "result": {
+    "likes": "suka",
+    "views": "tontonan",
+    "comments": "komen",
+    "shares": "perkongsian",
+    "untitled": "Tanpa tajuk",
+    "preview": "Pratonton video",
+    "download": "Muat turun",
+    "downloadHd": "Muat turun HD",
+    "downloadAudio": "Muat turun audio",
+    "zip": "Muat turun semua (ZIP)",
+    "convertVideo": "Tukar kepada video (MP4)",
+    "converting": "Menukar...",
+    "another": "Muat turun video lain"
+  },
+  "errors": {
+    "empty": "Tampal pautan TikTok dahulu.",
+    "generic": "Sesuatu telah tidak kena.",
+    "network": "Ralat rangkaian. Cuba lagi.",
+    "conversionFailed": "Tidak dapat menukar tayangan slaid ini kepada video."
+  }
+}

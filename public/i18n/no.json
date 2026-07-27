@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok-videonedlaster, uten vannmerke, uten reklame"
+  },
+  "nav": {
+    "how": "Slik fungerer det",
+    "faq": "Ofte stilte spørsmål",
+    "source": "Kildekode"
+  },
+  "header": {
+    "themeToggle": "Bytt mørk modus"
+  },
+  "hero": {
+    "eyebrow": "Gratis, åpen kildekode, ingen reklame. Aldri.",
+    "title": "Last ned TikTok-videoer, uten vannmerket.",
+    "subtitle": "Lim inn en lenke, få en HD-fil uten vannmerke tilbake. Ingen konto, ingen sporing, ingenting å installere.",
+    "inputLabel": "Lenke til TikTok-video",
+    "placeholder": "Lim inn TikTok-videolenke her...",
+    "paste": "Lim inn",
+    "submit": "Last ned",
+    "submitLoading": "Behandler..."
+  },
+  "how": {
+    "title": "Tre steg, ingen omveier",
+    "step1Title": "Kopier lenken",
+    "step1Body": "I TikTok-appen, trykk på Del, og deretter Kopier lenke.",
+    "step2Title": "Lim den inn ovenfor",
+    "step2Body": "Fungerer med både fullstendige tiktok.com-lenker og korte vm.tiktok.com-lenker.",
+    "step3Title": "Lagre den rene filen",
+    "step3Body": "Last ned videoen uten vannmerke direkte til enheten din."
+  },
+  "features": {
+    "title": "Hva SlickTok gjør",
+    "f1Title": "Uten vannmerke",
+    "f1Body": "Nedlastinger bruker TikToks egen rene avspillingsfil, ingenting er lagt oppå.",
+    "f2Title": "Alltid reklamefritt",
+    "f2Body": "Ingen annonseplasser, ingen popup-vinduer, ikke noe \"se en annonse for HD\". Bare verktøyet.",
+    "f3Title": "Åpen kildekode",
+    "f3Body": "Hver kodelinje er offentlig. Les den, fork den, drift din egen kopi.",
+    "f4Title": "Ingen konto",
+    "f4Body": "Ingenting å registrere. Grensen gjelder per IP, ikke per innlogging.",
+    "f5Title": "HD når tilgjengelig",
+    "f5Body": "Hvis TikTok tilbød en versjon med høyere oppløsning, tilbyr SlickTok den også.",
+    "f6Title": "Bilder og lysbildeserier",
+    "f6Body": "Bildeinnlegg støttes etter beste evne, med bakgrunnsmusikk inkludert."
+  },
+  "faq": {
+    "title": "Spørsmål",
+    "q1": "Legger SlickTok til sitt eget vannmerke?",
+    "a1": "Nei. Filen du får er den samme som TikToks egen app spiller av internt, før et vannmerke legges til for deling.",
+    "qSafe": "Er det trygt å bruke SlickTok?",
+    "aSafe": "Ja. Ingenting installeres på enheten din, det er ingen innlogging som kan kompromitteres, og koden er helt åpen, så alle kan sjekke nøyaktig hva den gjør.",
+    "q2": "Trenger jeg en konto?",
+    "a2": "Nei. Det er ingen innlogging noe sted på dette nettstedet. Bruken er i stedet begrenset per IP-adresse, for å holde serveren tilgjengelig for alle.",
+    "q3": "Hvilke lenker støttes?",
+    "a3": "Fullstendige lenker som tiktok.com/@user/video/123, og korte lenker som vm.tiktok.com/xxxxx/.",
+    "q4": "Er dette tilknyttet TikTok?",
+    "a4": "Nei. SlickTok er et uavhengig, ikke-tilknyttet åpen kildekode-prosjekt. Det er ikke laget, godkjent eller støttet av TikTok eller ByteDance Ltd.",
+    "qFail": "Hvorfor mislykkes en nedlasting noen ganger?",
+    "aFail": "Vanligvis fordi videoen er privat, slettet, regionssperret, eller at TikTok har endret noe på sin side. Prøv igjen om litt, eller sjekk om det finnes en nyere yt-dlp-versjon hvis du drifter din egen instans.",
+    "qCreator": "Påvirker nedlasting av en video skaperen?",
+    "aCreator": "SlickTok liker, følger, kommenterer eller varsler ingen. Skaperen får ikke vite at videoen ble lastet ned. Krediter og støtt likevel skaperne hvis innhold du lagrer.",
+    "q5": "Kan jeg drifte min egen kopi?",
+    "a5": "Ja, det er hele poenget. Full kildekode og en distribusjonsveiledning finnes i repoet lenket i bunnteksten.",
+    "q6": "Får jeg lov til å laste ned hvilken som helst video?",
+    "a6": "Last bare ned videoer du eier, har tillatelse til å lagre, eller som du ser på for personlig, lovlig bruk. Se vilkårene for detaljer."
+  },
+  "notice": {
+    "text": "SlickTok er ikke tilknyttet, godkjent av eller forbundet med TikTok eller ByteDance Ltd. Last kun ned innhold du har rett til å lagre. Se vilkårene og personvernerklæringen.",
+    "terms": "Vilkår",
+    "privacy": "Personvern"
+  },
+  "result": {
+    "likes": "liker",
+    "views": "visninger",
+    "comments": "kommentarer",
+    "shares": "delinger",
+    "untitled": "Uten tittel",
+    "preview": "Forhåndsvis video",
+    "download": "Last ned",
+    "downloadHd": "Last ned i HD",
+    "downloadAudio": "Last ned lyd",
+    "zip": "Last ned alt (ZIP)",
+    "convertVideo": "Konverter til video (MP4)",
+    "converting": "Konverterer...",
+    "another": "Last ned en annen video"
+  },
+  "errors": {
+    "empty": "Lim inn en TikTok-lenke først.",
+    "generic": "Noe gikk galt.",
+    "network": "Nettverksfeil. Prøv igjen.",
+    "conversionFailed": "Kunne ikke konvertere denne lysbildeserien til video."
+  }
+}

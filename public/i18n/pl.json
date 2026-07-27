@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. Downloader wideo z TikToka, bez znaku wodnego, bez reklam"
+  },
+  "nav": {
+    "how": "Jak to działa",
+    "faq": "FAQ",
+    "source": "Kod źródłowy"
+  },
+  "header": {
+    "themeToggle": "Przełącz tryb ciemny"
+  },
+  "hero": {
+    "eyebrow": "Darmowe, open source, bez reklam. Zawsze.",
+    "title": "Pobieraj filmy z TikToka, bez znaku wodnego.",
+    "subtitle": "Wklej link, otrzymaj plik HD bez znaku wodnego. Bez konta, bez śledzenia, bez instalowania czegokolwiek.",
+    "inputLabel": "Link do filmu z TikToka",
+    "placeholder": "Wklej tutaj link do filmu z TikToka...",
+    "paste": "Wklej",
+    "submit": "Pobierz",
+    "submitLoading": "Przetwarzanie..."
+  },
+  "how": {
+    "title": "Trzy kroki, bez zbędnych okrężnych dróg",
+    "step1Title": "Skopiuj link",
+    "step1Body": "W aplikacji TikTok stuknij Udostępnij, a następnie Kopiuj link.",
+    "step2Title": "Wklej go powyżej",
+    "step2Body": "Działa zarówno z pełnymi linkami tiktok.com, jak i krótkimi vm.tiktok.com.",
+    "step3Title": "Zapisz czysty plik",
+    "step3Body": "Pobierz film bez znaku wodnego bezpośrednio na swoje urządzenie."
+  },
+  "features": {
+    "title": "Co robi SlickTok",
+    "f1Title": "Bez znaku wodnego",
+    "f1Body": "Pobrane pliki korzystają z oryginalnego pliku odtwarzania TikToka, bez niczego nałożonego na wierzchu.",
+    "f2Title": "Zawsze bez reklam",
+    "f2Body": "Bez miejsc na reklamy, bez wyskakujących okienek, bez \"obejrzyj reklamę, aby odblokować HD\". Tylko narzędzie.",
+    "f3Title": "Open source",
+    "f3Body": "Każda linia kodu jest publiczna. Przeczytaj ją, zrób forka, hostuj własną kopię.",
+    "f4Title": "Bez konta",
+    "f4Body": "Nic do zakładania. Limit dotyczy adresu IP, a nie logowania.",
+    "f5Title": "HD, gdy dostępne",
+    "f5Body": "Jeśli TikTok udostępnia wersję w wyższej rozdzielczości, SlickTok również ją oferuje.",
+    "f6Title": "Zdjęcia i pokazy slajdów",
+    "f6Body": "Posty ze zdjęciami są obsługiwane w miarę możliwości, wraz z muzyką w tle."
+  },
+  "faq": {
+    "title": "Pytania",
+    "q1": "Czy SlickTok dodaje własny znak wodny?",
+    "a1": "Nie. Otrzymany plik jest tym samym, który odtwarza wewnętrznie aplikacja TikTok, zanim zostanie dodany znak wodny do udostępniania.",
+    "qSafe": "Czy korzystanie ze SlickTok jest bezpieczne?",
+    "aSafe": "Tak. Na twoim urządzeniu nic nie jest instalowane, nie ma logowania, które mogłoby zostać przejęte, a kod jest w pełni otwarty, więc każdy może dokładnie sprawdzić, co robi.",
+    "q2": "Czy potrzebuję konta?",
+    "a2": "Nie. Na tej stronie nie ma logowania. Zamiast tego korzystanie jest ograniczone według adresu IP, aby serwer pozostał dostępny dla wszystkich.",
+    "q3": "Jakie linki są obsługiwane?",
+    "a3": "Pełne linki, takie jak tiktok.com/@user/video/123, oraz krótkie linki, takie jak vm.tiktok.com/xxxxx/.",
+    "q4": "Czy to jest powiązane z TikTokiem?",
+    "a4": "Nie. SlickTok to niezależny, niepowiązany projekt open source. Nie jest tworzony, wspierany ani zatwierdzany przez TikTok ani ByteDance Ltd.",
+    "qFail": "Dlaczego pobieranie czasem się nie udaje?",
+    "aFail": "Zwykle dlatego, że film jest prywatny, usunięty, zablokowany regionalnie, albo TikTok coś zmienił po swojej stronie. Spróbuj ponownie za chwilę, a jeśli hostujesz własną instancję, sprawdź, czy jest nowsza wersja yt-dlp.",
+    "qCreator": "Czy pobranie filmu wpływa na twórcę?",
+    "aCreator": "SlickTok nikogo nie polubia, nie obserwuje, nie komentuje ani nie powiadamia. Twórca nie dowiaduje się, że jego film został pobrany. Mimo to podawaj autorstwo i wspieraj twórców, których treści zapisujesz.",
+    "q5": "Czy mogę uruchomić własną kopię?",
+    "a5": "Tak, o to właśnie chodzi. Pełny kod źródłowy i przewodnik wdrożenia znajdują się w repozytorium, do którego link jest w stopce.",
+    "q6": "Czy mogę pobrać dowolny film, jaki chcę?",
+    "a6": "Pobieraj tylko filmy, które posiadasz, masz pozwolenie na zapisanie, lub które oglądasz w celach osobistych i zgodnych z prawem. Szczegóły w Regulaminie."
+  },
+  "notice": {
+    "text": "SlickTok nie jest powiązany, wspierany ani zatwierdzany przez TikTok ani ByteDance Ltd. Pobieraj tylko treści, do zapisania których masz prawo. Zobacz Regulamin i Politykę Prywatności.",
+    "terms": "Regulamin",
+    "privacy": "Prywatność"
+  },
+  "result": {
+    "likes": "polubień",
+    "views": "wyświetleń",
+    "comments": "komentarzy",
+    "shares": "udostępnień",
+    "untitled": "Bez tytułu",
+    "preview": "Podgląd filmu",
+    "download": "Pobierz",
+    "downloadHd": "Pobierz w HD",
+    "downloadAudio": "Pobierz audio",
+    "zip": "Pobierz wszystko (ZIP)",
+    "convertVideo": "Konwertuj na wideo (MP4)",
+    "converting": "Konwertowanie...",
+    "another": "Pobierz inny film"
+  },
+  "errors": {
+    "empty": "Najpierw wklej link do TikToka.",
+    "generic": "Coś poszło nie tak.",
+    "network": "Błąd sieci. Spróbuj ponownie.",
+    "conversionFailed": "Nie udało się przekonwertować tego pokazu slajdów na wideo."
+  }
+}

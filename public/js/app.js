@@ -19,6 +19,19 @@
     { code: 'vi', label: 'Tiếng Việt', flag: 'vn' },
     { code: 'zh', label: '中文', flag: 'cn' },
     { code: 'ru', label: 'Русский', flag: 'ru' },
+    { code: 'pl', label: 'Polski', flag: 'pl' },
+    { code: 'sv', label: 'Svenska', flag: 'se' },
+    { code: 'no', label: 'Norsk', flag: 'no' },
+    { code: 'fi', label: 'Suomi', flag: 'fi' },
+    { code: 'da', label: 'Dansk', flag: 'dk' },
+    { code: 'nl', label: 'Nederlands', flag: 'nl' },
+    { code: 'hu', label: 'Magyar', flag: 'hu' },
+    { code: 'ms', label: 'Bahasa Melayu', flag: 'my' },
+    { code: 'tr', label: 'Türkçe', flag: 'tr' },
+    { code: 'ja', label: '日本語', flag: 'jp' },
+    { code: 'ko', label: '한국어', flag: 'kr' },
+    { code: 'ro', label: 'Română', flag: 'ro' },
+    { code: 'uk', label: 'Українська', flag: 'ua' },
   ];
   const SUPPORTED_LANGS = LANGS.map((l) => l.code);
 
@@ -33,6 +46,19 @@
     vn: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#da251d"/><path d="M12 4l1.18 3.63h3.82l-3.09 2.24 1.18 3.63L12 11.26l-3.09 2.24 1.18-3.63-3.09-2.24h3.82Z" fill="#ff0"/></svg>',
     cn: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#de2910"/><path d="M4 3l0.9 2.77h2.9l-2.35 1.7 0.9 2.77L4 8.54l-2.35 1.7 0.9-2.77-2.35-1.7h2.9Z" fill="#ffde00"/><circle cx="10" cy="2" r="0.9" fill="#ffde00"/><circle cx="12" cy="4.2" r="0.9" fill="#ffde00"/><circle cx="12" cy="7" r="0.9" fill="#ffde00"/><circle cx="10" cy="9" r="0.9" fill="#ffde00"/></svg>',
     ru: '<svg viewBox="0 0 24 16"><rect width="24" height="5.33" fill="#fff"/><rect y="5.33" width="24" height="5.33" fill="#0039a6"/><rect y="10.66" width="24" height="5.34" fill="#d52b1e"/></svg>',
+    pl: '<svg viewBox="0 0 24 16"><rect width="24" height="8" fill="#fff"/><rect y="8" width="24" height="8" fill="#dc143c"/></svg>',
+    se: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#006aa7"/><rect x="7" width="3" height="16" fill="#fecc02"/><rect y="6.5" width="24" height="3" fill="#fecc02"/></svg>',
+    no: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#ba0c2f"/><rect x="6.5" width="4" height="16" fill="#fff"/><rect y="6" width="24" height="4" fill="#fff"/><rect x="7.2" width="2.6" height="16" fill="#00205b"/><rect y="6.7" width="24" height="2.6" fill="#00205b"/></svg>',
+    fi: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><rect x="7" width="3" height="16" fill="#003580"/><rect y="6.5" width="24" height="3" fill="#003580"/></svg>',
+    dk: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#c8102e"/><rect x="7" width="3" height="16" fill="#fff"/><rect y="6.5" width="24" height="3" fill="#fff"/></svg>',
+    nl: '<svg viewBox="0 0 24 16"><rect width="24" height="5.33" fill="#ae1c28"/><rect y="5.33" width="24" height="5.33" fill="#fff"/><rect y="10.66" width="24" height="5.34" fill="#21468b"/></svg>',
+    hu: '<svg viewBox="0 0 24 16"><rect width="24" height="5.33" fill="#ce2939"/><rect y="5.33" width="24" height="5.33" fill="#fff"/><rect y="10.66" width="24" height="5.34" fill="#477050"/></svg>',
+    my: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><g fill="#cc0001"><rect height="1.14"/><rect y="2.29" width="24" height="1.14"/><rect y="4.57" width="24" height="1.14"/><rect y="6.86" width="24" height="1.14"/><rect y="9.14" width="24" height="1.14"/><rect y="11.43" width="24" height="1.14"/><rect y="13.71" width="24" height="1.14"/></g><rect width="12" height="9.14" fill="#010066"/><circle cx="5" cy="4.57" r="3" fill="#fc0"/><circle cx="6" cy="4.57" r="2.5" fill="#010066"/></svg>',
+    tr: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#e30a17"/><circle cx="9.5" cy="8" r="4" fill="#fff"/><circle cx="10.7" cy="8" r="3.2" fill="#e30a17"/><path d="M13.2 6.3l0.55 1.7h1.78l-1.44 1.05 0.55 1.7-1.44-1.05-1.44 1.05 0.55-1.7-1.44-1.05h1.78Z" fill="#fff"/></svg>',
+    jp: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><circle cx="12" cy="8" r="4.6" fill="#bc002d"/></svg>',
+    kr: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><path d="M12 3.6a4.4 4.4 0 0 1 0 8.8 2.2 2.2 0 0 1 0-4.4 2.2 2.2 0 0 0 0-4.4Z" fill="#cd2e3a"/><path d="M12 3.6a4.4 4.4 0 0 0 0 8.8 2.2 2.2 0 0 1 0-4.4 2.2 2.2 0 0 0 0-4.4Z" fill="#0047a0"/></svg>',
+    ro: '<svg viewBox="0 0 24 16"><rect width="8" height="16" fill="#002b7f"/><rect x="8" width="8" height="16" fill="#fcd116"/><rect x="16" width="8" height="16" fill="#ce1126"/></svg>',
+    ua: '<svg viewBox="0 0 24 16"><rect width="24" height="8" fill="#005bbb"/><rect y="8" width="24" height="8" fill="#ffd500"/></svg>',
   };
 
   let strings = {};
@@ -176,6 +202,9 @@
 
   // --- FAQ accordion animation -----------------------------------------
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const faqDuration = prefersReducedMotion ? 1 : 200;
+
   document.querySelectorAll('.faq__list details').forEach((details) => {
     const summary = details.querySelector('summary');
     const content = details.querySelector('p');
@@ -190,7 +219,7 @@
         details.style.overflow = 'hidden';
         animation = content.animate(
           [{ height: `${startHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
-          { duration: 200, easing: 'ease' },
+          { duration: faqDuration, easing: 'ease' },
         );
         animation.onfinish = () => {
           details.removeAttribute('open');
@@ -203,7 +232,7 @@
         details.style.overflow = 'hidden';
         animation = content.animate(
           [{ height: '0px', opacity: 0 }, { height: `${endHeight}px`, opacity: 1 }],
-          { duration: 220, easing: 'ease' },
+          { duration: faqDuration + 20, easing: 'ease' },
         );
         animation.onfinish = () => {
           details.style.overflow = '';

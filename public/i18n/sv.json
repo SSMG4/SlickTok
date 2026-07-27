@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok-videonedladdare, utan vattenstämpel, utan reklam"
+  },
+  "nav": {
+    "how": "Så funkar det",
+    "faq": "Vanliga frågor",
+    "source": "Källkod"
+  },
+  "header": {
+    "themeToggle": "Växla mörkt läge"
+  },
+  "hero": {
+    "eyebrow": "Gratis, öppen källkod, ingen reklam. Aldrig.",
+    "title": "Ladda ner TikTok-videor, utan vattenstämpeln.",
+    "subtitle": "Klistra in en länk, få en HD-fil utan vattenstämpel tillbaka. Inget konto, ingen spårning, inget att installera.",
+    "inputLabel": "Länk till TikTok-video",
+    "placeholder": "Klistra in TikTok-videolänk här...",
+    "paste": "Klistra in",
+    "submit": "Ladda ner",
+    "submitLoading": "Bearbetar..."
+  },
+  "how": {
+    "title": "Tre steg, inga omvägar",
+    "step1Title": "Kopiera länken",
+    "step1Body": "I TikTok-appen, tryck på Dela och sedan Kopiera länk.",
+    "step2Title": "Klistra in den ovan",
+    "step2Body": "Fungerar med fullständiga tiktok.com-länkar och korta vm.tiktok.com-länkar.",
+    "step3Title": "Spara den rena filen",
+    "step3Body": "Ladda ner videon utan vattenstämpel direkt till din enhet."
+  },
+  "features": {
+    "title": "Vad SlickTok gör",
+    "f1Title": "Utan vattenstämpel",
+    "f1Body": "Nedladdningar använder TikToks egen rena uppspelningsfil, inget är pålagt.",
+    "f2Title": "Alltid reklamfritt",
+    "f2Body": "Inga annonsplatser, inga popup-fönster, inget \"titta på en annons för HD\". Bara verktyget.",
+    "f3Title": "Öppen källkod",
+    "f3Body": "Varje rad kod är offentlig. Läs den, forka den, driv din egen kopia.",
+    "f4Title": "Inget konto",
+    "f4Body": "Inget att registrera. Gränsen gäller per IP, inte per inloggning.",
+    "f5Title": "HD när tillgängligt",
+    "f5Body": "Om TikTok erbjöd en version med högre upplösning, erbjuder SlickTok den också.",
+    "f6Title": "Foton och bildspel",
+    "f6Body": "Fotoinlägg stöds efter bästa förmåga, bakgrundsmusik inkluderad."
+  },
+  "faq": {
+    "title": "Frågor",
+    "q1": "Lägger SlickTok till en egen vattenstämpel?",
+    "a1": "Nej. Filen du får är samma som TikToks egen app spelar upp internt, innan någon vattenstämpel läggs till för delning.",
+    "qSafe": "Är det säkert att använda SlickTok?",
+    "aSafe": "Ja. Inget installeras på din enhet, det finns ingen inloggning som kan äventyras, och koden är helt öppen så vem som helst kan kontrollera exakt vad den gör.",
+    "q2": "Behöver jag ett konto?",
+    "a2": "Nej. Det finns ingen inloggning någonstans på den här sidan. Användningen begränsas istället per IP-adress, för att hålla servern tillgänglig för alla.",
+    "q3": "Vilka länkar stöds?",
+    "a3": "Fullständiga länkar som tiktok.com/@user/video/123, och korta länkar som vm.tiktok.com/xxxxx/.",
+    "q4": "Är detta anknutet till TikTok?",
+    "a4": "Nej. SlickTok är ett oberoende, icke-anknutet öppen källkod-projekt. Det görs, godkänns eller stöds inte av TikTok eller ByteDance Ltd.",
+    "qFail": "Varför misslyckas en nedladdning ibland?",
+    "aFail": "Vanligtvis för att videon är privat, borttagen, regionsspärrad, eller att TikTok ändrat något på sin sida. Försök igen om en stund, eller kontrollera om det finns en nyare yt-dlp-version om du driver din egen instans.",
+    "qCreator": "Påverkar det skaparen att ladda ner en video?",
+    "aCreator": "SlickTok gillar, följer, kommenterar eller meddelar ingen. Skaparen får inte veta att videon laddades ner. Kreditera och stötta ändå de skapare vars innehåll du sparar.",
+    "q5": "Kan jag driva min egen kopia?",
+    "a5": "Ja, det är hela poängen. Den fullständiga källkoden och en distributionsguide finns i repot som länkas i sidfoten.",
+    "q6": "Får jag ladda ner vilken video jag vill?",
+    "a6": "Ladda bara ner videor du äger, har tillstånd att spara, eller som du tittar på för personligt, icke-intrångsgörande bruk. Se villkoren för detaljer."
+  },
+  "notice": {
+    "text": "SlickTok är inte anknutet till, godkänt av eller kopplat till TikTok eller ByteDance Ltd. Ladda endast ner innehåll du har rätt att spara. Se Villkoren och Integritetspolicyn.",
+    "terms": "Villkor",
+    "privacy": "Integritet"
+  },
+  "result": {
+    "likes": "gillningar",
+    "views": "visningar",
+    "comments": "kommentarer",
+    "shares": "delningar",
+    "untitled": "Utan titel",
+    "preview": "Förhandsgranska video",
+    "download": "Ladda ner",
+    "downloadHd": "Ladda ner i HD",
+    "downloadAudio": "Ladda ner ljud",
+    "zip": "Ladda ner allt (ZIP)",
+    "convertVideo": "Konvertera till video (MP4)",
+    "converting": "Konverterar...",
+    "another": "Ladda ner en annan video"
+  },
+  "errors": {
+    "empty": "Klistra in en TikTok-länk först.",
+    "generic": "Något gick fel.",
+    "network": "Nätverksfel. Försök igen.",
+    "conversionFailed": "Kunde inte konvertera detta bildspel till video."
+  }
+}

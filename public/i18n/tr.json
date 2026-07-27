@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. Filigransız, reklamsız TikTok video indirici"
+  },
+  "nav": {
+    "how": "Nasıl çalışır",
+    "faq": "Sık sorulan sorular",
+    "source": "Kaynak kod"
+  },
+  "header": {
+    "themeToggle": "Karanlık modu değiştir"
+  },
+  "hero": {
+    "eyebrow": "Ücretsiz, açık kaynak, reklamsız. Her zaman.",
+    "title": "TikTok videolarını, filigran olmadan indirin.",
+    "subtitle": "Bir bağlantı yapıştırın, filigransız HD dosyayı geri alın. Hesap yok, takip yok, kurulacak hiçbir şey yok.",
+    "inputLabel": "TikTok video bağlantısı",
+    "placeholder": "TikTok video bağlantısını buraya yapıştırın...",
+    "paste": "Yapıştır",
+    "submit": "İndir",
+    "submitLoading": "İşleniyor..."
+  },
+  "how": {
+    "title": "Üç adım, hiçbir dolambaç yok",
+    "step1Title": "Bağlantıyı kopyalayın",
+    "step1Body": "TikTok uygulamasında Paylaş'a, ardından Bağlantıyı Kopyala'ya dokunun.",
+    "step2Title": "Yukarıya yapıştırın",
+    "step2Body": "Hem tam tiktok.com bağlantılarıyla hem de kısa vm.tiktok.com bağlantılarıyla çalışır.",
+    "step3Title": "Temiz dosyayı kaydedin",
+    "step3Body": "Filigransız videoyu doğrudan cihazınıza indirin."
+  },
+  "features": {
+    "title": "SlickTok ne yapar",
+    "f1Title": "Filigransız",
+    "f1Body": "İndirmeler TikTok'un kendi temiz oynatma dosyasını kullanır, üzerine hiçbir şey eklenmez.",
+    "f2Title": "Her zaman reklamsız",
+    "f2Body": "Reklam alanı yok, açılır pencere yok, \"HD için reklam izle\" yok. Sadece araç.",
+    "f3Title": "Açık kaynak",
+    "f3Body": "Her kod satırı herkese açıktır. Okuyun, fork'layın, kendi kopyanızı barındırın.",
+    "f4Title": "Hesap yok",
+    "f4Body": "Kaydolacak hiçbir şey yok. Sınır giriş yerine IP başına uygulanır.",
+    "f5Title": "Mevcut olduğunda HD",
+    "f5Body": "TikTok daha yüksek çözünürlüklü bir sürüm sunuyorsa, SlickTok da onu sunar.",
+    "f6Title": "Fotoğraflar ve slayt gösterileri",
+    "f6Body": "Fotoğraf gönderileri en iyi çaba temelinde desteklenir, arka plan müziği dahil."
+  },
+  "faq": {
+    "title": "Sorular",
+    "q1": "SlickTok kendi filigranını ekliyor mu?",
+    "a1": "Hayır. Aldığınız dosya, paylaşım için filigran eklenmeden önce TikTok'un kendi uygulamasının dahili olarak oynattığı dosyanın aynısıdır.",
+    "qSafe": "SlickTok kullanmak güvenli mi?",
+    "aSafe": "Evet. Cihazınıza hiçbir şey kurulmaz, ele geçirilebilecek bir oturum açma yoktur ve kod tamamen açık kaynaktır, böylece herkes ne yaptığını tam olarak kontrol edebilir.",
+    "q2": "Hesaba ihtiyacım var mı?",
+    "a2": "Hayır. Bu sitede hiçbir yerde oturum açma yok. Bunun yerine kullanım, sunucuyu herkes için erişilebilir tutmak amacıyla IP adresine göre sınırlandırılır.",
+    "q3": "Hangi bağlantılar destekleniyor?",
+    "a3": "tiktok.com/@user/video/123 gibi tam bağlantılar ve vm.tiktok.com/xxxxx/ gibi kısa bağlantılar.",
+    "q4": "Bu, TikTok ile bağlantılı mı?",
+    "a4": "Hayır. SlickTok bağımsız, ilişkisiz bir açık kaynak projesidir. TikTok veya ByteDance Ltd. tarafından yapılmamış, onaylanmamış veya desteklenmemiştir.",
+    "qCreator": "Bir videoyu indirmek içerik üreticisini etkiler mi?",
+    "aCreator": "SlickTok kimseyi beğenmez, takip etmez, yorum yapmaz veya bildirim göndermez. İçerik üreticisi videosunun indirildiğini öğrenmez. Lütfen içeriğini kaydettiğiniz üreticileri yine de kaynak göstererek destekleyin.",
+    "q5": "Kendi kopyamı çalıştırabilir miyim?",
+    "a5": "Evet, tüm amaç bu. Tam kaynak kod ve bir dağıtım kılavuzu, altbilgide bağlantısı verilen depoda bulunur.",
+    "q6": "İstediğim herhangi bir videoyu indirebilir miyim?",
+    "a6": "Yalnızca sahip olduğunuz, kaydetme izniniz olan veya kişisel, hak ihlali oluşturmayan kullanım için izlediğiniz videoları indirin. Ayrıntılar için Şartlar'a bakın.",
+    "qFail": "İndirme neden bazen başarısız olur?",
+    "aFail": "Genellikle video özel, silinmiş, bölgesel olarak kısıtlanmış olduğu için veya TikTok kendi tarafında bir şey değiştirdiği için olur. Biraz sonra tekrar deneyin, ya da kendi sunucunuzu barındırıyorsanız daha yeni bir yt-dlp sürümü olup olmadığını kontrol edin."
+  },
+  "notice": {
+    "text": "SlickTok, TikTok veya ByteDance Ltd. ile bağlantılı, onaylanmış veya ilişkili değildir. Lütfen yalnızca kaydetme hakkına sahip olduğunuz içerikleri indirin. Şartlar ve Gizlilik Politikası'na bakın.",
+    "terms": "Şartlar",
+    "privacy": "Gizlilik"
+  },
+  "result": {
+    "likes": "beğeni",
+    "views": "görüntülenme",
+    "comments": "yorum",
+    "shares": "paylaşım",
+    "untitled": "Başlıksız",
+    "preview": "Videoyu önizle",
+    "download": "İndir",
+    "downloadHd": "HD indir",
+    "downloadAudio": "Sesi indir",
+    "zip": "Tümünü indir (ZIP)",
+    "convertVideo": "Videoya dönüştür (MP4)",
+    "converting": "Dönüştürülüyor...",
+    "another": "Başka bir video indir"
+  },
+  "errors": {
+    "empty": "Önce bir TikTok bağlantısı yapıştırın.",
+    "generic": "Bir şeyler ters gitti.",
+    "network": "Ağ hatası. Yeniden deneyin.",
+    "conversionFailed": "Bu slayt gösterisi videoya dönüştürülemedi."
+  }
+}

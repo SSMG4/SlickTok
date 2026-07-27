@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. TikTok-videoiden lataaja, ilman vesileimaa, ilman mainoksia"
+  },
+  "nav": {
+    "how": "Näin se toimii",
+    "faq": "Usein kysytyt kysymykset",
+    "source": "Lähdekoodi"
+  },
+  "header": {
+    "themeToggle": "Vaihda tumma tila"
+  },
+  "hero": {
+    "eyebrow": "Ilmainen, avoin lähdekoodi, ei mainoksia. Ikinä.",
+    "title": "Lataa TikTok-videoita, ilman vesileimaa.",
+    "subtitle": "Liitä linkki, saat HD-tiedoston ilman vesileimaa. Ei tiliä, ei seurantaa, ei mitään asennettavaa.",
+    "inputLabel": "TikTok-videon linkki",
+    "placeholder": "Liitä TikTok-videon linkki tähän...",
+    "paste": "Liitä",
+    "submit": "Lataa",
+    "submitLoading": "Käsitellään..."
+  },
+  "how": {
+    "title": "Kolme vaihetta, ei mutkia",
+    "step1Title": "Kopioi linkki",
+    "step1Body": "Napauta TikTok-sovelluksessa Jaa ja sitten Kopioi linkki.",
+    "step2Title": "Liitä se yllä",
+    "step2Body": "Toimii sekä täydellä tiktok.com-linkillä että lyhyellä vm.tiktok.com-linkillä.",
+    "step3Title": "Tallenna puhdas tiedosto",
+    "step3Body": "Lataa vesileimaton video suoraan laitteellesi."
+  },
+  "features": {
+    "title": "Mitä SlickTok tekee",
+    "f1Title": "Ilman vesileimaa",
+    "f1Body": "Lataukset käyttävät TikTokin omaa puhdasta toistotiedostoa, mitään ei ole lisätty päälle.",
+    "f2Title": "Aina mainokseton",
+    "f2Body": "Ei mainospaikkoja, ei ponnahdusikkunoita, ei \"katso mainos saadaksesi HD:n\". Vain työkalu.",
+    "f3Title": "Avoin lähdekoodi",
+    "f3Body": "Jokainen koodirivi on julkinen. Lue se, forkkaa se, ylläpidä omaa kopiotasi.",
+    "f4Title": "Ei tiliä",
+    "f4Body": "Ei mitään rekisteröitävää. Rajoitus koskee IP-osoitetta, ei kirjautumista.",
+    "f5Title": "HD kun saatavilla",
+    "f5Body": "Jos TikTok tarjosi korkeamman resoluution version, SlickTok tarjoaa senkin.",
+    "f6Title": "Kuvat ja diaesitykset",
+    "f6Body": "Kuvajulkaisuja tuetaan parhaan kyvyn mukaan, taustamusiikki mukaan lukien."
+  },
+  "faq": {
+    "title": "Kysymyksiä",
+    "q1": "Lisääkö SlickTok oman vesileimansa?",
+    "a1": "Ei. Saamasi tiedosto on sama, jota TikTokin oma sovellus toistaa sisäisesti, ennen kuin vesileima lisätään jakamista varten.",
+    "qSafe": "Onko SlickTokin käyttö turvallista?",
+    "aSafe": "Kyllä. Laitteellesi ei asenneta mitään, ei ole kirjautumista, joka voitaisiin vaarantaa, ja koodi on täysin avointa, joten kuka tahansa voi tarkistaa tarkalleen mitä se tekee.",
+    "q2": "Tarvitsenko tilin?",
+    "a2": "Ei. Tällä sivustolla ei ole kirjautumista missään. Käyttöä rajoitetaan sen sijaan IP-osoitteen mukaan, jotta palvelin pysyy kaikkien saatavilla.",
+    "q3": "Mitkä linkit ovat tuettuja?",
+    "a3": "Täydet linkit kuten tiktok.com/@user/video/123, ja lyhyet linkit kuten vm.tiktok.com/xxxxx/.",
+    "q4": "Onko tämä sidoksissa TikTokiin?",
+    "a4": "Ei. SlickTok on riippumaton, sidoksissa olematon avoimen lähdekoodin projekti. TikTok tai ByteDance Ltd. ei ole tehnyt, tukenut tai hyväksynyt sitä.",
+    "qFail": "Miksi lataus joskus epäonnistuu?",
+    "aFail": "Yleensä koska video on yksityinen, poistettu, aluelukittu, tai TikTok on muuttanut jotain omalla puolellaan. Yritä hetken kuluttua uudelleen, tai tarkista onko yt-dlp:stä uudempi versio, jos ylläpidät omaa instanssia.",
+    "qCreator": "Vaikuttaako videon lataaminen sisällöntuottajaan?",
+    "aCreator": "SlickTok ei tykkää, seuraa, kommentoi tai ilmoita kenellekään. Sisällöntuottaja ei saa tietää, että hänen videonsa ladattiin. Anna silti kunnia ja tue sisällöntuottajia, joiden sisältöä tallennat.",
+    "q5": "Voinko ylläpitää omaa kopiotani?",
+    "a5": "Kyllä, se on koko pointti. Täydellinen lähdekoodi ja käyttöönotto-opas löytyvät alatunnisteessa linkitetystä repositoriosta.",
+    "q6": "Saanko ladata minkä tahansa videon?",
+    "a6": "Lataa vain videoita, jotka omistat, sinulla on lupa tallentaa, tai joita katsot henkilökohtaiseen, laillisen käytön tarkoitukseen. Katso käyttöehdot lisätietoja varten."
+  },
+  "notice": {
+    "text": "SlickTok ei ole sidoksissa, hyväksytty tai yhteydessä TikTokiin tai ByteDance Ltd:hen. Lataa vain sisältöä, jonka tallentamiseen sinulla on oikeus. Katso käyttöehdot ja tietosuojakäytäntö.",
+    "terms": "Käyttöehdot",
+    "privacy": "Tietosuoja"
+  },
+  "result": {
+    "likes": "tykkäystä",
+    "views": "katselukertaa",
+    "comments": "kommenttia",
+    "shares": "jakoa",
+    "untitled": "Nimetön",
+    "preview": "Esikatsele videota",
+    "download": "Lataa",
+    "downloadHd": "Lataa HD:nä",
+    "downloadAudio": "Lataa ääni",
+    "zip": "Lataa kaikki (ZIP)",
+    "convertVideo": "Muunna videoksi (MP4)",
+    "converting": "Muunnetaan...",
+    "another": "Lataa toinen video"
+  },
+  "errors": {
+    "empty": "Liitä ensin TikTok-linkki.",
+    "generic": "Jokin meni pieleen.",
+    "network": "Verkkovirhe. Yritä uudelleen.",
+    "conversionFailed": "Tätä diaesitystä ei voitu muuntaa videoksi."
+  }
+}

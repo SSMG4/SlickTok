@@ -109,7 +109,45 @@ One tradeoff: since the response is a live piped stream, there's no
 `Content-Length` and no `Accept-Ranges` support, so the preview
 player can't seek to an arbitrary byte offset mid-stream. Acceptable
 for short TikTok clips; would need buffering to a temp file first if
-seeking ever becomes a real requirement.
+seeking ever becomes a real requirement. Very large/long videos are
+more likely to expose this (and to expose any hiccup in the pipe more
+visibly, e.g., a stalled connection reading as "corrupt" rather than
+"slow"), since there's more stream to get through.
+
+**Picking a format that actually has audio.** TikTok sometimes
+exposes a higher-resolution video-only stream alongside the normal
+combined (video+audio) file. Ranking purely by height, as an earlier
+version of this code did, can pick that video-only stream, which
+downloads and plays back fine visually but with no sound.
+`classifyFormats()` now prefers formats that already carry audio
+(`acodec !== 'none'`) and only falls back to a video-only pick, merged
+with the best available audio track via `-f "<id>+bestaudio"` (yt-dlp
++ ffmpeg handle the actual muxing), when no combined format exists at
+all. That merge fallback is a real edge case, though: merging two
+streams into a live, non-seekable stdout pipe is inherently more
+fragile than piping a single already-combined format straight
+through, since some containers expect to write trailing metadata that
+needs a seek back. `--merge-output-format mp4` is forced either way
+so the output extension/Content-Type stay consistent, but if
+downloads for a specific video are still flaky, this fallback path
+is the first thing to suspect.
+
+**Avoiding a redundant re-resolve.** Re-resolving at download time
+(above) costs a few seconds, dominated by `yt-dlp`'s own startup and
+its extraction round-trip to TikTok, on top of whatever `/api/resolve`
+already did. Since the common case is clicking download moments
+after resolving, `server/services/tiktok.js` keeps a short-lived
+(3 minute) in-memory cache of each URL's classified formats, populated
+at resolve time and consulted before `getFormatIdForQuality()` would
+otherwise re-run `yt-dlp -j` from scratch. This cuts out one of the
+two `yt-dlp` invocations in the common case; the second (inside the
+actual download spawn) is unavoidable in this architecture, since
+that's the one whose job is to talk to TikTok's CDN. A cache miss
+(first download, or one that lands after the window closes) just
+falls back to a fresh call, no functional difference, only slower.
+This is a real, measured trade-off: the previous "fetch the raw CDN
+URL directly" design was faster (no re-resolve at all) but broke
+outright; this is the more-reliable, still-not-instant middle ground.
 
 The slideshow-to-video converter (below) uses the same
 `getFormatIdForQuality()` path to fetch its audio track, for the same

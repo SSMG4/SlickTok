@@ -437,16 +437,23 @@ button {
   outline: none;
 }
 
+#url-input::placeholder {
+  color: var(--muted);
+  opacity: 0.85;
+}
+
 .icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
+  height: 100%;
   border: none;
   background: transparent;
   color: var(--muted);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  flex-shrink: 0;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -1083,9 +1090,8 @@ button {
 
   .hero__signature {
     order: -1;
+    align-self: center;
     max-width: 220px;
-    width: 100%;
-    margin-inline: auto;
   }
 
   .how__steps,
@@ -1167,11 +1173,10 @@ button {
     scroll-behavior: auto;
   }
 
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+  /* Reduced motion targets large-scale/continuous motion, not every brief
+     functional transition, so this intentionally does not blanket-zero
+     every animation on the page (that made hover states, the FAQ
+     accordion, and dropdown fades all look broken instead of reduced). */
 
   .progress-bar {
     animation: none !important;
@@ -1186,5 +1191,6 @@ button {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
   }
 }

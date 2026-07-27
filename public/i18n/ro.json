@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "SlickTok. Descărcător video TikTok, fără filigran, fără reclame"
+  },
+  "nav": {
+    "how": "Cum funcționează",
+    "faq": "Întrebări frecvente",
+    "source": "Cod sursă"
+  },
+  "header": {
+    "themeToggle": "Comută modul întunecat"
+  },
+  "hero": {
+    "eyebrow": "Gratuit, open source, fără reclame. Niciodată.",
+    "title": "Descarcă videoclipuri TikTok, fără filigran.",
+    "subtitle": "Lipește un link, primești un fișier HD fără filigran. Fără cont, fără urmărire, nimic de instalat.",
+    "inputLabel": "Link video TikTok",
+    "placeholder": "Lipește linkul videoclipului TikTok aici...",
+    "paste": "Lipește",
+    "submit": "Descarcă",
+    "submitLoading": "Se procesează..."
+  },
+  "how": {
+    "title": "Trei pași, fără ocolișuri",
+    "step1Title": "Copiază linkul",
+    "step1Body": "În aplicația TikTok, apasă pe Trimite, apoi pe Copiază linkul.",
+    "step2Title": "Lipește-l mai sus",
+    "step2Body": "Funcționează atât cu linkuri complete tiktok.com, cât și cu linkuri scurte vm.tiktok.com.",
+    "step3Title": "Salvează fișierul curat",
+    "step3Body": "Descarcă videoclipul fără filigran direct pe dispozitivul tău."
+  },
+  "features": {
+    "title": "Ce face SlickTok",
+    "f1Title": "Fără filigran",
+    "f1Body": "Descărcările folosesc propriul fișier de redare curat al TikTok, nimic nu este suprapus.",
+    "f2Title": "Mereu fără reclame",
+    "f2Body": "Fără spații publicitare, fără ferestre pop-up, fără \"urmărește o reclamă pentru HD\". Doar instrumentul.",
+    "f3Title": "Open source",
+    "f3Body": "Fiecare linie de cod este publică. Citește-o, fă un fork, hostează-ți propria copie.",
+    "f4Title": "Fără cont",
+    "f4Body": "Nimic de înregistrat. Limita se aplică per IP, nu per autentificare.",
+    "f5Title": "HD când este disponibil",
+    "f5Body": "Dacă TikTok a oferit o versiune cu rezoluție mai mare, SlickTok o oferă și pe aceasta.",
+    "f6Title": "Fotografii și prezentări de diapozitive",
+    "f6Body": "Postările foto sunt suportate în măsura posibilului, inclusiv muzica de fundal."
+  },
+  "faq": {
+    "title": "Întrebări",
+    "q1": "SlickTok adaugă propriul filigran?",
+    "a1": "Nu. Fișierul pe care îl primești este același pe care aplicația TikTok îl redă intern, înainte de a adăuga vreun filigran pentru partajare.",
+    "qSafe": "Este sigur să folosești SlickTok?",
+    "aSafe": "Da. Nimic nu se instalează pe dispozitivul tău, nu există autentificare care ar putea fi compromisă, iar codul este complet open source, astfel încât oricine poate verifica exact ce face.",
+    "q2": "Am nevoie de un cont?",
+    "a2": "Nu. Nu există autentificare nicăieri pe acest site. În schimb, utilizarea este limitată per adresă IP, pentru a păstra serverul disponibil pentru toată lumea.",
+    "q3": "Ce linkuri sunt suportate?",
+    "a3": "Linkuri complete precum tiktok.com/@user/video/123, și linkuri scurte precum vm.tiktok.com/xxxxx/.",
+    "q4": "Este acesta afiliat cu TikTok?",
+    "a4": "Nu. SlickTok este un proiect open source independent, neafiliat. Nu este creat, aprobat sau susținut de TikTok sau ByteDance Ltd.",
+    "qFail": "De ce eșuează uneori o descărcare?",
+    "aFail": "De obicei pentru că videoclipul este privat, șters, blocat regional, sau TikTok a schimbat ceva de partea lor. Încearcă din nou puțin mai târziu, sau verifică dacă există o versiune mai nouă de yt-dlp dacă găzduiești propria instanță.",
+    "qCreator": "Descărcarea unui videoclip afectează creatorul?",
+    "aCreator": "SlickTok nu apreciază, nu urmărește, nu comentează și nu notifică pe nimeni. Creatorul nu este informat că videoclipul său a fost descărcat. Te rugăm totuși să acorzi credit și să susții creatorii al căror conținut îl salvezi.",
+    "q5": "Îmi pot găzdui propria copie?",
+    "a5": "Da, exact acesta este scopul. Codul sursă complet și un ghid de implementare se găsesc în depozitul legat în subsol.",
+    "q6": "Pot descărca orice videoclip vreau?",
+    "a6": "Descarcă doar videoclipuri pe care le deții, ai permisiunea să le salvezi, sau pe care le vizionezi în scop personal, fără a încălca drepturi. Vezi Termenii pentru detalii."
+  },
+  "notice": {
+    "text": "SlickTok nu este afiliat, aprobat sau conectat cu TikTok sau ByteDance Ltd. Te rugăm să descarci doar conținut pe care ai dreptul să îl salvezi. Vezi Termenii și Politica de Confidențialitate.",
+    "terms": "Termeni",
+    "privacy": "Confidențialitate"
+  },
+  "result": {
+    "likes": "aprecieri",
+    "views": "vizualizări",
+    "comments": "comentarii",
+    "shares": "distribuiri",
+    "untitled": "Fără titlu",
+    "preview": "Previzualizează videoclipul",
+    "download": "Descarcă",
+    "downloadHd": "Descarcă în HD",
+    "downloadAudio": "Descarcă audio",
+    "zip": "Descarcă tot (ZIP)",
+    "convertVideo": "Convertește în video (MP4)",
+    "converting": "Se convertește...",
+    "another": "Descarcă alt videoclip"
+  },
+  "errors": {
+    "empty": "Lipește mai întâi un link TikTok.",
+    "generic": "Ceva nu a funcționat.",
+    "network": "Eroare de rețea. Încearcă din nou.",
+    "conversionFailed": "Nu s-a putut converti această prezentare de diapozitive în video."
+  }
+}

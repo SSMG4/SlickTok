@@ -81,7 +81,11 @@ router.get('/download', async (req, res) => {
   res.setHeader('Content-Disposition', disposition);
   res.setHeader('Content-Type', quality === 'audio' ? 'audio/mp4' : 'video/mp4');
 
-  const child = spawn(config.ytdlpPath, [url, '-f', formatId, '-o', '-', '--no-warnings', '--quiet'], {
+  const child = spawn(config.ytdlpPath, [
+    url, '-f', formatId, '-o', '-',
+    '--merge-output-format', 'mp4',
+    '--no-warnings', '--quiet',
+  ], {
     stdio: ['ignore', 'pipe', 'pipe'],
   });
 

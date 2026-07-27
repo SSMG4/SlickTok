@@ -256,13 +256,25 @@ tail logs/deploy.log
 - **Browser console shows a CSP error blocking an inline script**
   (`script-src-elem` / `script-src`), with a hash like
   `'sha256-...'` and a line number in the page itself, not in
-  `app.js`: this is almost certainly Cloudflare's **Rocket Loader**
-  (or, less commonly, **Email Address Obfuscation**), a
-  performance/anti-scraping feature that rewrites your page and
-  injects its own inline `<script>` at the edge, before it reaches the
-  browser. SlickTok's server never emits inline scripts, so if you see
-  this, it was added after the response left the app. Fix: in the
-  Cloudflare dashboard, go to your zone, **Speed → Optimization**, and
-  turn **Rocket Loader** off (and check **Scrape Shield → Email
-  Address Obfuscation** too). There's nothing to fix in the codebase,
-  the CSP is doing exactly what it's supposed to.
+  `app.js`: SlickTok's server never emits an inline `<script>` block,
+  every script tag it sends is external (`src="/js/..."`). You can
+  confirm this yourself: view the page source (`Ctrl+U` or
+  `view-source:https://your-domain/`) and look at the exact line the
+  error names, it will not be a `<script>...</script>` block with
+  code inside it. If it is, something between the server and your
+  browser inserted it. The two usual suspects:
+  - **Cloudflare Rocket Loader** (or, less commonly, **Scrape Shield →
+    Email Address Obfuscation**), a performance/anti-scraping feature
+    that rewrites the page and injects its own inline script at the
+    edge. Fix: Cloudflare dashboard → your zone → **Speed →
+    Optimization** → turn **Rocket Loader** off.
+  - **A VPN app or browser extension** doing its own content
+    injection/ad-injection, common in free VPN apps and some
+    "privacy" or ad-blocking extensions that proxy traffic through a
+    local certificate. Try the same page with the VPN/extension
+    off, if the error disappears, that's it.
+  Either way, there's nothing to fix in the codebase, the CSP is
+  correctly blocking a script it didn't send. If you check both of
+  the above and it still happens, view-source the exact injected
+  `<script>` tag's content and share it, that'll identify the
+  culprit for certain.
