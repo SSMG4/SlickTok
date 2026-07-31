@@ -1,5 +1,8 @@
-import { execFile } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 import { config } from '../config.js';
 
 const execFileAsync = promisify(execFile);
@@ -255,4 +258,47 @@ export async function getFormatIdForQuality(rawUrl, quality) {
     throw new ResolveError('That quality is not available for this video anymore.', 404);
   }
   return formatId;
+}
+
+// Downloads to a real temp file rather than piping yt-dlp's stdout straight
+// into the HTTP response. Two concrete problems drove this:
+//   1. Piping to a non-seekable stream means no Range support, so the
+//      in-page preview player can't seek and large files reading as
+//      "corrupt" when a network hiccup interrupts the one shot at
+//      streaming it.
+//   2. The rarer merge fallback (see classifyFormats' needsAudioMerge)
+//      needs yt-dlp/ffmpeg to mux two streams together, which is fragile
+//      when the output has to be a live pipe rather than a real file some
+//      high-quality videos with no combined format were coming out with
+//      no audio specifically because of this.
+// A real file sidesteps both: yt-dlp/ffmpeg get a normal seekable target
+// to write to, and the caller can serve it with full Range support
+// (Express's res.sendFile handles that natively) before cleaning up.
+export async function downloadMediaToFile(rawUrl, formatId) {
+  const dir = await mkdtemp(path.join(tmpdir(), 'slicktok-dl-'));
+  const outPath = path.join(dir, 'media.mp4');
+  const cleanup = () => rm(dir, { recursive: true, force: true }).catch(() => {});
+
+  try {
+    await new Promise((resolve, reject) => {
+      const child = spawn(config.ytdlpPath, [
+        rawUrl, '-f', formatId, '-o', outPath,
+        '--merge-output-format', 'mp4',
+        '--no-warnings', '--quiet',
+      ]);
+      let stderr = '';
+      child.stderr.on('data', (chunk) => {
+        stderr += chunk;
+      });
+      child.on('error', reject);
+      child.on('close', (code) => {
+        if (code === 0) resolve();
+        else reject(new Error(`yt-dlp exited ${code}: ${stderr.slice(-1000)}`));
+      });
+    });
+    return { path: outPath, cleanup };
+  } catch (err) {
+    await cleanup();
+    throw err;
+  }
 }

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "SlickTok. Descargador de videos de TikTok, sin marca de agua, sin anuncios"
+  },
+  "nav": {
+    "how": "Cómo funciona",
+    "faq": "Preguntas frecuentes",
+    "source": "Código fuente"
+  },
+  "header": {
+    "themeToggle": "Cambiar modo oscuro"
+  },
+  "hero": {
+    "eyebrow": "Gratis, de código abierto, sin anuncios. Nunca.",
+    "title": "Descarga videos de TikTok, sin la marca de agua.",
+    "subtitle": "Pega un enlace y recibe de vuelta un archivo en HD sin marca de agua. Sin cuenta, sin rastreo, nada que instalar.",
+    "inputLabel": "Enlace del video de TikTok",
+    "placeholder": "Pega aquí el enlace del video de TikTok...",
+    "paste": "Pegar",
+    "submit": "Descargar",
+    "submitLoading": "Procesando..."
+  },
+  "how": {
+    "title": "Tres pasos, sin vueltas",
+    "step1Title": "Copia el enlace",
+    "step1Body": "En la app de TikTok, toca Compartir y luego Copiar enlace.",
+    "step2Title": "Pégalo arriba",
+    "step2Body": "Funciona tanto con enlaces completos de tiktok.com como con enlaces cortos de vm.tiktok.com.",
+    "step3Title": "Guarda el archivo limpio",
+    "step3Body": "Descarga el video sin marca de agua directamente a tu dispositivo."
+  },
+  "features": {
+    "title": "Qué hace SlickTok",
+    "f1Title": "Sin marca de agua",
+    "f1Body": "Las descargas usan el mismo archivo de reproducción original de TikTok, no se le agrega nada encima.",
+    "f2Title": "Siempre sin anuncios",
+    "f2Body": "Sin espacios publicitarios, sin ventanas emergentes, sin \"mira un anuncio para HD\". Nada más que la herramienta.",
+    "f3Title": "Código abierto",
+    "f3Body": "Cada línea de código es pública. Léela, haz tu fork, hospeda tu propia copia.",
+    "f4Title": "Sin cuenta",
+    "f4Body": "No hay nada que registrar. El límite aplica por IP, no por inicio de sesión.",
+    "f5Title": "HD cuando está disponible",
+    "f5Body": "Si TikTok ofrece una versión de mayor resolución, SlickTok también la ofrece.",
+    "f6Title": "Fotos y carruseles",
+    "f6Body": "Las publicaciones de fotos se soportan lo mejor posible, incluyendo la música de fondo."
+  },
+  "faq": {
+    "title": "Preguntas",
+    "q1": "¿SlickTok agrega su propia marca de agua?",
+    "a1": "No. El archivo que obtienes es el mismo que reproduce internamente la app de TikTok, antes de que se agregue cualquier marca de agua para compartir.",
+    "qSafe": "¿Es seguro usar SlickTok?",
+    "aSafe": "Sí. No se instala nada en tu dispositivo, no hay inicio de sesión que puedan hackear, y el código es totalmente abierto, así que cualquiera puede revisar exactamente qué hace.",
+    "q2": "¿Necesito una cuenta?",
+    "a2": "No. No hay inicio de sesión en ninguna parte de este sitio. En su lugar, el uso se limita por dirección IP, para mantener el servidor disponible para todos.",
+    "q3": "¿Qué enlaces son compatibles?",
+    "a3": "Enlaces completos como tiktok.com/@user/video/123, y enlaces cortos como vm.tiktok.com/xxxxx/.",
+    "q4": "¿Esto está afiliado a TikTok?",
+    "a4": "No. SlickTok es un proyecto de código abierto independiente y sin afiliación. No está hecho, avalado ni respaldado por TikTok o ByteDance Ltd.",
+    "qFail": "¿Por qué a veces falla una descarga?",
+    "aFail": "Normalmente porque el video es privado, fue borrado, está bloqueado por región, o TikTok cambió algo de su lado. Inténtalo de nuevo en un rato, o revisa si hay una versión más reciente de yt-dlp si tú mismo estás hospedando el servicio.",
+    "qCreator": "¿Descargar un video afecta al creador?",
+    "aCreator": "SlickTok no le da like, no sigue, no comenta ni notifica a nadie. Al creador no se le avisa que su video fue descargado. Aun así, dale crédito y apoya a los creadores cuyo contenido guardes.",
+    "q5": "¿Puedo hospedar mi propia copia?",
+    "a5": "Sí, ese es justamente el punto. El código fuente completo y una guía de despliegue están en el repositorio enlazado en el pie de página.",
+    "q6": "¿Puedo descargar cualquier video que yo quiera?",
+    "a6": "Descarga solo videos que sean tuyos, que tengas permiso de guardar, o que estés viendo para uso personal y que no infrinja derechos. Consulta los Términos para más detalles."
+  },
+  "notice": {
+    "text": "SlickTok no está afiliado, avalado ni conectado con TikTok o ByteDance Ltd. Por favor descarga únicamente contenido que tengas derecho a guardar. Consulta los Términos y el Aviso de Privacidad.",
+    "terms": "Términos",
+    "privacy": "Privacidad"
+  },
+  "result": {
+    "likes": "me gusta",
+    "views": "reproducciones",
+    "comments": "comentarios",
+    "shares": "veces compartido",
+    "untitled": "Sin título",
+    "preview": "Vista previa del video",
+    "download": "Descargar",
+    "downloadHd": "Descargar en HD",
+    "downloadAudio": "Descargar audio",
+    "zip": "Descargar todo (ZIP)",
+    "convertVideo": "Convertir a video (MP4)",
+    "converting": "Convirtiendo...",
+    "another": "Descargar otro video"
+  },
+  "errors": {
+    "empty": "Pega primero un enlace de TikTok.",
+    "generic": "Algo salió mal.",
+    "network": "Error de red. Inténtalo de nuevo.",
+    "conversionFailed": "No se pudo convertir este carrusel a video."
+  },
+  "legal": {
+    "englishOnly": "Este documento está disponible solo en inglés, para mantener la precisión del texto legal.",
+    "back": "Volver a SlickTok",
+    "termsTitle": "Términos de Servicio",
+    "privacyTitle": "Aviso de Privacidad",
+    "notFoundTitle": "No encontrada",
+    "notFoundBody": "Esa página no existe."
+  }
+}

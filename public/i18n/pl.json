@@ -90,5 +90,13 @@
     "generic": "Coś poszło nie tak.",
     "network": "Błąd sieci. Spróbuj ponownie.",
     "conversionFailed": "Nie udało się przekonwertować tego pokazu slajdów na wideo."
+  },
+  "legal": {
+    "englishOnly": "Ten dokument jest dostępny tylko w języku angielskim, aby zachować dokładność tekstu prawnego.",
+    "back": "Powrót do SlickTok",
+    "termsTitle": "Regulamin",
+    "privacyTitle": "Polityka Prywatności",
+    "notFoundTitle": "Nie znaleziono",
+    "notFoundBody": "Ta strona nie istnieje."
   }
 }

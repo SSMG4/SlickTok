@@ -446,12 +446,13 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 100%;
+  width: 40px;
+  height: 40px;
+  align-self: center;
   border: none;
   background: transparent;
   color: var(--muted);
-  border-radius: var(--radius-sm);
+  border-radius: 13px;
   cursor: pointer;
   flex-shrink: 0;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -501,14 +502,6 @@ button {
   opacity: 0.85;
 }
 
-#submit-btn .spinner {
-  display: none;
-  width: 16px;
-  height: 16px;
-  animation: spin 0.8s linear infinite;
-  stroke: currentColor;
-}
-
 .btn-label--loading {
   display: none;
 }
@@ -519,14 +512,6 @@ button {
 
 #submit-btn.is-loading .btn-label--loading {
   display: inline;
-}
-
-#submit-btn.is-loading .spinner {
-  display: block;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 .progress-track {
@@ -902,6 +887,12 @@ button {
   cursor: pointer;
   font-weight: 600;
   list-style: none;
+  transform-origin: left center;
+  transition: transform 0.15s ease;
+}
+
+.faq__list summary:hover {
+  transform: scale(1.02);
 }
 
 .faq__list summary::-webkit-details-marker {
@@ -996,6 +987,14 @@ button {
 
 .legal h2 {
   margin-top: 2em;
+}
+
+.legal__note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  border-left: 2px solid var(--line);
+  padding-left: 12px;
 }
 
 .legal--center {
@@ -1169,23 +1168,22 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   /* Reduced motion targets large-scale/continuous motion, not every brief
      functional transition, so this intentionally does not blanket-zero
      every animation on the page (that made hover states, the FAQ
-     accordion, and dropdown fades all look broken instead of reduced). */
+     accordion, smooth-scrolling to a section, and dropdown fades all
+     look broken instead of just reduced). Anchor-link scrolling and the
+     FAQ accordion are left alone entirely; only the two truly continuous,
+     looping animations are softened. */
 
   .progress-bar {
-    animation: none !important;
+    animation: progress-pulse 2s ease-in-out infinite !important;
     width: 100% !important;
-    opacity: 0.5;
   }
 
-  #submit-btn .spinner {
-    animation: none !important;
+  @keyframes progress-pulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.75; }
   }
 
   .reveal {

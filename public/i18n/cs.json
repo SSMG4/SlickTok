@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "SlickTok. Stahovač videí z TikToku, bez vodoznaku, bez reklam"
+  },
+  "nav": {
+    "how": "Jak to funguje",
+    "faq": "Časté dotazy",
+    "source": "Zdrojový kód"
+  },
+  "header": {
+    "themeToggle": "Přepnout tmavý režim"
+  },
+  "hero": {
+    "eyebrow": "Zdarma, open source, žádné reklamy. Nikdy.",
+    "title": "Stahujte videa z TikToku, bez vodoznaku.",
+    "subtitle": "Vložte odkaz a získejte zpět HD soubor bez vodoznaku. Žádný účet, žádné sledování, nic k instalaci.",
+    "inputLabel": "Odkaz na video z TikToku",
+    "placeholder": "Sem vložte odkaz na video z TikToku...",
+    "paste": "Vložit",
+    "submit": "Stáhnout",
+    "submitLoading": "Zpracovává se..."
+  },
+  "how": {
+    "title": "Tři kroky, bez oklik",
+    "step1Title": "Zkopírujte odkaz",
+    "step1Body": "V aplikaci TikTok klepněte na Sdílet a poté na Kopírovat odkaz.",
+    "step2Title": "Vložte ho výše",
+    "step2Body": "Funguje s plnými odkazy tiktok.com i krátkými odkazy vm.tiktok.com.",
+    "step3Title": "Uložte čistý soubor",
+    "step3Body": "Stáhněte si video bez vodoznaku přímo do svého zařízení."
+  },
+  "features": {
+    "title": "Co SlickTok umí",
+    "f1Title": "Bez vodoznaku",
+    "f1Body": "Stahování používá vlastní čistý přehrávací soubor TikToku, nic na něj není přidáno.",
+    "f2Title": "Vždy bez reklam",
+    "f2Body": "Žádná reklamní místa, žádná vyskakovací okna, žádné \"podívejte se na reklamu pro HD\". Jen samotný nástroj.",
+    "f3Title": "Open source",
+    "f3Body": "Každý řádek kódu je veřejný. Přečtěte si ho, forkněte ho, hostujte si vlastní kopii.",
+    "f4Title": "Žádný účet",
+    "f4Body": "Není třeba se registrovat. Limit platí podle IP, ne podle přihlášení.",
+    "f5Title": "HD, pokud je dostupné",
+    "f5Body": "Pokud TikTok nabízí verzi ve vyšším rozlišení, SlickTok ji nabízí také.",
+    "f6Title": "Fotky a prezentace",
+    "f6Body": "Fotové příspěvky jsou podporovány podle nejlepších možností, včetně hudby na pozadí."
+  },
+  "faq": {
+    "title": "Dotazy",
+    "q1": "Přidává SlickTok vlastní vodoznak?",
+    "a1": "Ne. Soubor, který dostanete, je stejný jako ten, který interně přehrává samotná aplikace TikTok, než je přidán vodoznak pro sdílení.",
+    "qSafe": "Je používání SlickTok bezpečné?",
+    "aSafe": "Ano. Na vaše zařízení se nic neinstaluje, neexistuje žádné přihlášení, které by mohlo být napadeno, a kód je zcela otevřený, takže si kdokoli může přesně zkontrolovat, co dělá.",
+    "q2": "Potřebuji účet?",
+    "a2": "Ne. Na tomto webu není nikde žádné přihlášení. Používání je místo toho omezeno podle IP adresy, aby server zůstal dostupný pro všechny.",
+    "q3": "Jaké odkazy jsou podporovány?",
+    "a3": "Plné odkazy jako tiktok.com/@user/video/123 a krátké odkazy jako vm.tiktok.com/xxxxx/.",
+    "q4": "Souvisí to s TikTokem?",
+    "a4": "Ne. SlickTok je nezávislý, nepropojený open source projekt. Není vytvořen, schválen ani podporován společností TikTok nebo ByteDance Ltd.",
+    "qFail": "Proč se stahování občas nezdaří?",
+    "aFail": "Obvykle proto, že video je soukromé, smazané, regionálně omezené, nebo TikTok něco na své straně změnil. Zkuste to znovu za chvíli, nebo pokud provozujete vlastní instanci, zkontrolujte, zda existuje novější verze yt-dlp.",
+    "qCreator": "Ovlivňuje stažení videa tvůrce?",
+    "aCreator": "SlickTok nikomu nedává lajky, nesleduje, nekomentuje ani neposílá oznámení. Tvůrce se nedozví, že bylo jeho video staženo. I tak prosím uveďte autora a podpořte tvůrce, jejichž obsah ukládáte.",
+    "q5": "Můžu provozovat vlastní kopii?",
+    "a5": "Ano, přesně o to jde. Kompletní zdrojový kód a průvodce nasazením najdete v repozitáři odkazovaném v patičce.",
+    "q6": "Smím stáhnout jakékoli video, které chci?",
+    "a6": "Stahujte pouze videa, která vlastníte, máte svolení je uložit, nebo se na ně díváte pro osobní, neporušující účely. Podrobnosti najdete v podmínkách."
+  },
+  "notice": {
+    "text": "SlickTok není propojen, schválen ani spojen se společností TikTok nebo ByteDance Ltd. Stahujte prosím pouze obsah, který máte právo uložit. Viz Podmínky a Zásady ochrany soukromí.",
+    "terms": "Podmínky",
+    "privacy": "Soukromí"
+  },
+  "result": {
+    "likes": "To se mi líbí",
+    "views": "zhlédnutí",
+    "comments": "komentářů",
+    "shares": "sdílení",
+    "untitled": "Bez názvu",
+    "preview": "Náhled videa",
+    "download": "Stáhnout",
+    "downloadHd": "Stáhnout v HD",
+    "downloadAudio": "Stáhnout zvuk",
+    "zip": "Stáhnout vše (ZIP)",
+    "convertVideo": "Převést na video (MP4)",
+    "converting": "Převádí se...",
+    "another": "Stáhnout další video"
+  },
+  "errors": {
+    "empty": "Nejprve vložte odkaz na TikTok.",
+    "generic": "Něco se pokazilo.",
+    "network": "Chyba sítě. Zkuste to znovu.",
+    "conversionFailed": "Nepodařilo se převést tuto prezentaci na video."
+  },
+  "legal": {
+    "englishOnly": "Tento dokument je dostupný pouze v angličtině, aby byla zachována přesnost právního textu.",
+    "back": "Zpět na SlickTok",
+    "termsTitle": "Podmínky služby",
+    "privacyTitle": "Zásady ochrany soukromí",
+    "notFoundTitle": "Nenalezeno",
+    "notFoundBody": "Tato stránka neexistuje."
+  }
+}

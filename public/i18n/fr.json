@@ -90,5 +90,13 @@
     "generic": "Une erreur s'est produite.",
     "network": "Erreur réseau. Réessayez.",
     "conversionFailed": "Impossible de convertir ce diaporama en vidéo."
+  },
+  "legal": {
+    "englishOnly": "Ce document n'est disponible qu'en anglais, afin de garder le texte juridique exact.",
+    "back": "Retour à SlickTok",
+    "termsTitle": "Conditions d'utilisation",
+    "privacyTitle": "Politique de confidentialité",
+    "notFoundTitle": "Introuvable",
+    "notFoundBody": "Cette page n'existe pas."
   }
 }

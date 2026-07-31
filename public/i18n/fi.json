@@ -90,5 +90,13 @@
     "generic": "Jokin meni pieleen.",
     "network": "Verkkovirhe. Yritä uudelleen.",
     "conversionFailed": "Tätä diaesitystä ei voitu muuntaa videoksi."
+  },
+  "legal": {
+    "englishOnly": "Tämä asiakirja on saatavilla vain englanniksi, jotta lakiteksti pysyy tarkkana.",
+    "back": "Takaisin SlickTokiin",
+    "termsTitle": "Käyttöehdot",
+    "privacyTitle": "Tietosuojakäytäntö",
+    "notFoundTitle": "Ei löytynyt",
+    "notFoundBody": "Kyseistä sivua ei ole olemassa."
   }
 }

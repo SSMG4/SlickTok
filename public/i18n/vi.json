@@ -90,5 +90,13 @@
     "generic": "Đã xảy ra lỗi.",
     "network": "Lỗi mạng. Vui lòng thử lại.",
     "conversionFailed": "Không thể chuyển đổi slideshow này thành video."
+  },
+  "legal": {
+    "englishOnly": "Tài liệu này chỉ có sẵn bằng tiếng Anh, để giữ cho văn bản pháp lý được chính xác.",
+    "back": "Quay lại SlickTok",
+    "termsTitle": "Điều khoản dịch vụ",
+    "privacyTitle": "Chính sách quyền riêng tư",
+    "notFoundTitle": "Không tìm thấy",
+    "notFoundBody": "Trang đó không tồn tại."
   }
 }

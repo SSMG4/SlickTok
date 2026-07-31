@@ -11,9 +11,32 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="wrap site-header__row">
+    <a class="wordmark" href="/" aria-label="SlickTok home">
+      <img class="wordmark__mark" src="/favicon.svg" width="26" height="26" alt="">
+      <span>Slick<b>Tok</b></span>
+    </a>
+    <div class="header-controls" style="margin-inline-start:auto;">
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-switch__button" id="lang-button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="lang-switch__flag" id="lang-button-flag" aria-hidden="true"></span>
+          <span class="lang-switch__code" id="lang-button-code">EN</span>
+          <svg class="lang-switch__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </button>
+        <ul class="lang-switch__list" id="lang-list" role="listbox" aria-label="Language"></ul>
+      </div>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" data-i18n-label="header.themeToggle">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.6" y1="4.6" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.4" y2="19.4"/><line x1="4.6" y1="19.4" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.4" y2="4.6"/></g></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 <main class="legal">
-  <p><a href="/">← Back to SlickTok</a></p>
-  <h1>Privacy Policy</h1>
+  <p><a href="/" data-i18n="legal.back">← Back to SlickTok</a></p>
+  <h1 data-i18n="legal.privacyTitle">Privacy Policy</h1>
+  <p class="legal__note" data-i18n="legal.englishOnly">This document is available in English only, to keep the legal text accurate.</p>
   <p>SlickTok is built to need as little data about you as possible.</p>
 
   <h2>No accounts</h2>
@@ -44,5 +67,16 @@
   <hr>
   <p><em>This is a plain-language description of how the software behaves, not legal advice. The full text and its version history live in the project's repository under <code>docs/PRIVACY.md</code>.</em></p>
 </main>
+<footer class="site-footer">
+  <div class="wrap site-footer__row">
+    <p>SlickTok. AGPL-3.0-or-later.</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/SSMG4/slicktok" target="_blank" rel="noopener">GitHub</a>
+      <a href="/legal/terms.html" data-i18n="notice.terms">Terms</a>
+      <a href="/legal/privacy.html" data-i18n="notice.privacy">Privacy</a>
+    </nav>
+  </div>
+</footer>
+<script src="/js/app.js" defer></script>
 </body>
 </html>

@@ -90,5 +90,13 @@
     "generic": "Algo deu errado.",
     "network": "Erro de rede. Tente novamente.",
     "conversionFailed": "Não foi possível converter este carrossel em vídeo."
+  },
+  "legal": {
+    "englishOnly": "Este documento está disponível apenas em inglês, para manter a precisão do texto legal.",
+    "back": "Voltar ao SlickTok",
+    "termsTitle": "Termos de Serviço",
+    "privacyTitle": "Política de Privacidade",
+    "notFoundTitle": "Não encontrada",
+    "notFoundBody": "Essa página não existe."
   }
 }

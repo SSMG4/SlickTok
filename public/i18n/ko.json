@@ -90,5 +90,13 @@
     "generic": "문제가 발생했습니다.",
     "network": "네트워크 오류입니다. 다시 시도하세요.",
     "conversionFailed": "이 슬라이드쇼를 동영상으로 변환할 수 없습니다."
+  },
+  "legal": {
+    "englishOnly": "이 문서는 법적 문구의 정확성을 유지하기 위해 영어로만 제공됩니다.",
+    "back": "SlickTok으로 돌아가기",
+    "termsTitle": "이용약관",
+    "privacyTitle": "개인정보 보호정책",
+    "notFoundTitle": "찾을 수 없음",
+    "notFoundBody": "해당 페이지가 존재하지 않습니다."
   }
 }

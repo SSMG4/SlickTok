@@ -90,5 +90,13 @@
     "generic": "Bir şeyler ters gitti.",
     "network": "Ağ hatası. Yeniden deneyin.",
     "conversionFailed": "Bu slayt gösterisi videoya dönüştürülemedi."
+  },
+  "legal": {
+    "englishOnly": "Bu belge, hukuki metnin doğruluğunu korumak için yalnızca İngilizce olarak mevcuttur.",
+    "back": "SlickTok'a dön",
+    "termsTitle": "Hizmet Şartları",
+    "privacyTitle": "Gizlilik Politikası",
+    "notFoundTitle": "Bulunamadı",
+    "notFoundBody": "Bu sayfa mevcut değil."
   }
 }

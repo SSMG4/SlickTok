@@ -90,5 +90,13 @@
     "generic": "Etwas ist schiefgelaufen.",
     "network": "Netzwerkfehler. Bitte erneut versuchen.",
     "conversionFailed": "Diese Diashow konnte nicht in ein Video umgewandelt werden."
+  },
+  "legal": {
+    "englishOnly": "Dieses Dokument ist nur auf Englisch verfügbar, um den Rechtstext genau zu halten.",
+    "back": "Zurück zu SlickTok",
+    "termsTitle": "Nutzungsbedingungen",
+    "privacyTitle": "Datenschutzerklärung",
+    "notFoundTitle": "Nicht gefunden",
+    "notFoundBody": "Diese Seite existiert nicht."
   }
 }

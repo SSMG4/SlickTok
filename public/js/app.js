@@ -32,8 +32,15 @@
     { code: 'ko', label: '한국어', flag: 'kr' },
     { code: 'ro', label: 'Română', flag: 'ro' },
     { code: 'uk', label: 'Українська', flag: 'ua' },
+    { code: 'cs', label: 'Čeština', flag: 'cz' },
+    { code: 'bg', label: 'Български', flag: 'bg' },
+    { code: 'sr', label: 'Српски', flag: 'rs' },
+    { code: 'ar', label: 'العربية', flag: 'sa' },
+    { code: 'el', label: 'Ελληνικά', flag: 'gr' },
+    { code: 'es-mx', label: 'Español (México)', flag: 'mx' },
   ];
   const SUPPORTED_LANGS = LANGS.map((l) => l.code);
+  const RTL_LANGS = ['ar'];
 
   const FLAGS = {
     gb: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#0a3d91"/><path d="M0 0L24 16M24 0L0 16" stroke="#fff" stroke-width="3"/><path d="M0 0L24 16M24 0L0 16" stroke="#c8102e" stroke-width="1.2"/><path d="M12 0V16M0 8H24" stroke="#fff" stroke-width="5"/><path d="M12 0V16M0 8H24" stroke="#c8102e" stroke-width="2.4"/></svg>',
@@ -59,6 +66,12 @@
     kr: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><path d="M12 3.6a4.4 4.4 0 0 1 0 8.8 2.2 2.2 0 0 1 0-4.4 2.2 2.2 0 0 0 0-4.4Z" fill="#cd2e3a"/><path d="M12 3.6a4.4 4.4 0 0 0 0 8.8 2.2 2.2 0 0 1 0-4.4 2.2 2.2 0 0 0 0-4.4Z" fill="#0047a0"/></svg>',
     ro: '<svg viewBox="0 0 24 16"><rect width="8" height="16" fill="#002b7f"/><rect x="8" width="8" height="16" fill="#fcd116"/><rect x="16" width="8" height="16" fill="#ce1126"/></svg>',
     ua: '<svg viewBox="0 0 24 16"><rect width="24" height="8" fill="#005bbb"/><rect y="8" width="24" height="8" fill="#ffd500"/></svg>',
+    cz: '<svg viewBox="0 0 24 16"><rect width="24" height="8" fill="#fff"/><rect y="8" width="24" height="8" fill="#d7141a"/><path d="M0 0 L12 8 L0 16 Z" fill="#11457e"/></svg>',
+    bg: '<svg viewBox="0 0 24 16"><rect width="24" height="5.33" fill="#fff"/><rect y="5.33" width="24" height="5.33" fill="#00966e"/><rect y="10.66" width="24" height="5.34" fill="#d62612"/></svg>',
+    rs: '<svg viewBox="0 0 24 16"><rect width="24" height="5.33" fill="#c6363c"/><rect y="5.33" width="24" height="5.33" fill="#0c4076"/><rect y="10.66" width="24" height="5.34" fill="#fff"/></svg>',
+    sa: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#006c35"/><rect x="4" y="7" width="15" height="1.6" fill="#fff"/><path d="M19 6.2 L21.5 7.8 L19 9.4 Z" fill="#fff"/></svg>',
+    gr: '<svg viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/><g fill="#0d5eaf"><rect y="0" width="24" height="1.78"/><rect y="3.56" width="24" height="1.78"/><rect y="7.11" width="24" height="1.78"/><rect y="10.67" width="24" height="1.78"/><rect y="14.22" width="24" height="1.78"/></g><rect width="9" height="9" fill="#0d5eaf"/><rect x="3.6" width="1.8" height="9" fill="#fff"/><rect y="3.6" width="9" height="1.8" fill="#fff"/></svg>',
+    mx: '<svg viewBox="0 0 24 16"><rect width="8" height="16" fill="#006847"/><rect x="8" width="8" height="16" fill="#fff"/><rect x="16" width="8" height="16" fill="#ce1126"/><circle cx="12" cy="8" r="1.8" fill="#8b5a2b"/></svg>',
   };
 
   let strings = {};
@@ -83,7 +96,9 @@
       const value = t(key, null);
       if (value) el.setAttribute('aria-label', value);
     });
-    document.title = t('meta.title', document.title);
+    if (document.getElementById('download-form')) {
+      document.title = t('meta.title', document.title);
+    }
   }
 
   async function loadLang(lang) {
@@ -95,6 +110,7 @@
       strings = {};
     }
     document.documentElement.lang = safe;
+    document.documentElement.dir = RTL_LANGS.includes(safe) ? 'rtl' : 'ltr';
     applyTranslations();
     updateLangButton(safe);
   }
@@ -186,24 +202,27 @@
   const siteNav = document.getElementById('site-nav');
 
   function closeNav() {
-    siteNav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
+    if (siteNav) siteNav.classList.remove('is-open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
   }
 
-  navToggle.addEventListener('click', () => {
-    const isOpen = siteNav.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-  });
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
-  siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+    siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+  }
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeNav();
   });
 
   // --- FAQ accordion animation -----------------------------------------
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const faqDuration = prefersReducedMotion ? 1 : 200;
+  // Deliberately not gated behind prefers-reduced-motion: this is brief,
+  // user-triggered UI feedback, not the large ambient motion that
+  // preference is meant to suppress, and gating it made desktop (where
+  // reduced-motion is more often on) and mobile animate inconsistently.
 
   document.querySelectorAll('.faq__list details').forEach((details) => {
     const summary = details.querySelector('summary');
@@ -219,7 +238,7 @@
         details.style.overflow = 'hidden';
         animation = content.animate(
           [{ height: `${startHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
-          { duration: faqDuration, easing: 'ease' },
+          { duration: 200, easing: 'ease' },
         );
         animation.onfinish = () => {
           details.removeAttribute('open');
@@ -232,7 +251,7 @@
         details.style.overflow = 'hidden';
         animation = content.animate(
           [{ height: '0px', opacity: 0 }, { height: `${endHeight}px`, opacity: 1 }],
-          { duration: faqDuration + 20, easing: 'ease' },
+          { duration: 220, easing: 'ease' },
         );
         animation.onfinish = () => {
           details.style.overflow = '';
@@ -279,28 +298,32 @@
     previewModal.hidden = true;
   }
 
-  previewClose.addEventListener('click', closePreview);
-  previewBackdrop.addEventListener('click', closePreview);
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !previewModal.hidden) closePreview();
-  });
+  if (previewClose && previewBackdrop) {
+    previewClose.addEventListener('click', closePreview);
+    previewBackdrop.addEventListener('click', closePreview);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && previewModal && !previewModal.hidden) closePreview();
+    });
+  }
 
   // --- Paste / clear ------------------------------------------------
 
-  pasteBtn.addEventListener('click', async () => {
-    if (input.value) {
-      input.value = '';
-      input.focus();
-      return;
-    }
-    try {
-      const text = await navigator.clipboard.readText();
-      input.value = text.trim();
-      input.focus();
-    } catch {
-      input.focus();
-    }
-  });
+  if (pasteBtn) {
+    pasteBtn.addEventListener('click', async () => {
+      if (input.value) {
+        input.value = '';
+        input.focus();
+        return;
+      }
+      try {
+        const text = await navigator.clipboard.readText();
+        input.value = text.trim();
+        input.focus();
+      } catch {
+        input.focus();
+      }
+    });
+  }
 
   function setLoading(isLoading) {
     submitBtn.classList.toggle('is-loading', isLoading);
@@ -428,33 +451,33 @@
     }
 
     const downloads = el('div', { class: 'download-list' });
-    const safeName = (data.title || 'slicktok-video').replace(/[^\w.-]/g, '_').slice(0, 60);
+    const idPart = (data.id || 'unknown').replace(/[^\w-]/g, '');
     const hasBoth = Boolean(data.downloads?.sd && data.downloads?.hd);
 
     if (data.downloads?.sd) {
       downloads.appendChild(el('a', {
         class: `dl-btn ${hasBoth ? 'dl-btn--light' : 'dl-btn--dark'}`,
-        href: downloadUrl(data.sourceUrl, 'sd', `${safeName}.mp4`),
+        href: downloadUrl(data.sourceUrl, 'sd', `slicktok_${idPart}_SD.mp4`),
         text: t('result.download', 'Download'),
       }));
     }
     if (data.downloads?.hd) {
       downloads.appendChild(el('a', {
         class: 'dl-btn dl-btn--dark',
-        href: downloadUrl(data.sourceUrl, 'hd', `${safeName}-hd.mp4`),
+        href: downloadUrl(data.sourceUrl, 'hd', `slicktok_${idPart}_HD.mp4`),
         text: t('result.downloadHd', 'Download HD'),
       }));
     }
     if (data.downloads?.audio) {
       downloads.appendChild(el('a', {
         class: 'dl-btn dl-btn--light',
-        href: downloadUrl(data.sourceUrl, 'audio', `${safeName}.m4a`),
+        href: downloadUrl(data.sourceUrl, 'audio', `slicktok_${idPart}_AUDIO.m4a`),
         text: t('result.downloadAudio', 'Download audio'),
       }));
     }
     if (data.type === 'slideshow' && Array.isArray(data.images) && data.images.length) {
       const zipBtn = el('button', { type: 'button', class: 'dl-btn dl-btn--light', text: t('result.zip', 'Download all (ZIP)') });
-      zipBtn.addEventListener('click', () => triggerBlobDownload('/api/download-zip', { images: data.images }, 'slicktok-slideshow.zip'));
+      zipBtn.addEventListener('click', () => triggerBlobDownload('/api/download-zip', { images: data.images }, `slicktok_${idPart}_IMAGES.zip`));
       downloads.appendChild(zipBtn);
 
       if (data.downloads?.audio) {
@@ -486,33 +509,35 @@
     resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    clearError();
+  if (form) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearError();
 
-    const url = input.value.trim();
-    if (!url) {
-      showError(t('errors.empty', 'Paste a TikTok link first.'));
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const res = await fetch('/api/resolve', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        showError(data.error || t('errors.generic', 'Something went wrong.'));
+      const url = input.value.trim();
+      if (!url) {
+        showError(t('errors.empty', 'Paste a TikTok link first.'));
         return;
       }
-      renderResult(data);
-    } catch {
-      showError(t('errors.network', 'Network error. Try again.'));
-    } finally {
-      setLoading(false);
-    }
-  });
+
+      setLoading(true);
+      try {
+        const res = await fetch('/api/resolve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          showError(data.error || t('errors.generic', 'Something went wrong.'));
+          return;
+        }
+        renderResult(data);
+      } catch {
+        showError(t('errors.network', 'Network error. Try again.'));
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
 })();

@@ -90,5 +90,13 @@
     "generic": "Noe gikk galt.",
     "network": "Nettverksfeil. Prøv igjen.",
     "conversionFailed": "Kunne ikke konvertere denne lysbildeserien til video."
+  },
+  "legal": {
+    "englishOnly": "Dette dokumentet er kun tilgjengelig på engelsk, for å holde den juridiske teksten nøyaktig.",
+    "back": "Tilbake til SlickTok",
+    "termsTitle": "Vilkår for bruk",
+    "privacyTitle": "Personvernerklæring",
+    "notFoundTitle": "Ikke funnet",
+    "notFoundBody": "Den siden finnes ikke."
   }
 }

@@ -90,5 +90,13 @@
     "generic": "Terjadi kesalahan.",
     "network": "Kesalahan jaringan. Coba lagi.",
     "conversionFailed": "Tidak dapat mengonversi slideshow ini ke video."
+  },
+  "legal": {
+    "englishOnly": "Dokumen ini hanya tersedia dalam bahasa Inggris, agar teks hukum tetap akurat.",
+    "back": "Kembali ke SlickTok",
+    "termsTitle": "Ketentuan Layanan",
+    "privacyTitle": "Kebijakan Privasi",
+    "notFoundTitle": "Tidak ditemukan",
+    "notFoundBody": "Halaman itu tidak ada."
   }
 }

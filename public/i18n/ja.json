@@ -90,5 +90,13 @@
     "generic": "問題が発生しました。",
     "network": "ネットワークエラーです。再試行してください。",
     "conversionFailed": "このスライドショーを動画に変換できませんでした。"
+  },
+  "legal": {
+    "englishOnly": "このドキュメントは、法的テキストの正確性を保つため英語版のみをご用意しています。",
+    "back": "SlickTokに戻る",
+    "termsTitle": "利用規約",
+    "privacyTitle": "プライバシーポリシー",
+    "notFoundTitle": "見つかりません",
+    "notFoundBody": "そのページは存在しません。"
   }
 }

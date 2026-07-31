@@ -90,5 +90,13 @@
     "generic": "Sesuatu telah tidak kena.",
     "network": "Ralat rangkaian. Cuba lagi.",
     "conversionFailed": "Tidak dapat menukar tayangan slaid ini kepada video."
+  },
+  "legal": {
+    "englishOnly": "Dokumen ini hanya tersedia dalam bahasa Inggeris, untuk memastikan ketepatan teks perundangan.",
+    "back": "Kembali ke SlickTok",
+    "termsTitle": "Terma Perkhidmatan",
+    "privacyTitle": "Dasar Privasi",
+    "notFoundTitle": "Tidak dijumpai",
+    "notFoundBody": "Halaman itu tidak wujud."
   }
 }

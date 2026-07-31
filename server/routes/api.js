@@ -1,16 +1,15 @@
 import { Router } from 'express';
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
-import { execSync, spawn } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import archiver from 'archiver';
 import {
-  resolveTikTok, isAllowedCdnUrl, isSupportedTikTokUrl, getFormatIdForQuality, ResolveError,
+  resolveTikTok, isAllowedCdnUrl, isSupportedTikTokUrl, getFormatIdForQuality, downloadMediaToFile, ResolveError,
 } from '../services/tiktok.js';
 import { buildSlideshowVideo } from '../services/slideshowVideo.js';
 import { hourlyLimiter, dailyLimiter, conversionLimiter } from '../middleware/rateLimiter.js';
-import { config } from '../config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.join(__dirname, '..', '..');
@@ -77,37 +76,24 @@ router.get('/download', async (req, res) => {
     return;
   }
 
+  let media;
+  try {
+    media = await downloadMediaToFile(url, formatId);
+  } catch {
+    res.status(502).json({ error: 'Download failed. Paste the video link again.' });
+    return;
+  }
+
   const disposition = req.query.inline === '1' ? 'inline' : `attachment; filename="${filename}"`;
   res.setHeader('Content-Disposition', disposition);
   res.setHeader('Content-Type', quality === 'audio' ? 'audio/mp4' : 'video/mp4');
 
-  const child = spawn(config.ytdlpPath, [
-    url, '-f', formatId, '-o', '-',
-    '--merge-output-format', 'mp4',
-    '--no-warnings', '--quiet',
-  ], {
-    stdio: ['ignore', 'pipe', 'pipe'],
-  });
-
-  let stderr = '';
-  child.stderr.on('data', (chunk) => {
-    stderr += chunk;
-  });
-  child.on('error', () => {
-    if (!res.headersSent) res.status(502).json({ error: 'Download failed to start.' });
-  });
-  child.on('close', (code) => {
-    if (code !== 0 && !res.headersSent) {
-      console.error(`[download] yt-dlp exited ${code}: ${stderr.slice(-500)}`);
-      res.status(502).json({ error: 'Download failed. Paste the video link again.' });
+  res.sendFile(media.path, (err) => {
+    media.cleanup();
+    if (err && !res.headersSent) {
+      res.status(500).json({ error: 'Could not read the downloaded file.' });
     }
   });
-
-  req.on('close', () => {
-    if (!child.killed) child.kill();
-  });
-
-  child.stdout.pipe(res);
 });
 
 router.post('/download-zip', async (req, res) => {

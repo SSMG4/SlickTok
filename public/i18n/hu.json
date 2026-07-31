@@ -90,5 +90,13 @@
     "generic": "Valami hiba történt.",
     "network": "Hálózati hiba. Próbálja újra.",
     "conversionFailed": "Nem sikerült videóvá konvertálni ezt a diavetítést."
+  },
+  "legal": {
+    "englishOnly": "Ez a dokumentum csak angol nyelven érhető el, hogy a jogi szöveg pontos maradjon.",
+    "back": "Vissza a SlickTokhoz",
+    "termsTitle": "Felhasználási feltételek",
+    "privacyTitle": "Adatvédelmi szabályzat",
+    "notFoundTitle": "Nem található",
+    "notFoundBody": "Ez az oldal nem létezik."
   }
 }

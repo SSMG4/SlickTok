@@ -90,5 +90,13 @@
     "generic": "Noget gik galt.",
     "network": "Netværksfejl. Prøv igen.",
     "conversionFailed": "Kunne ikke konvertere dette diasshow til video."
+  },
+  "legal": {
+    "englishOnly": "Dette dokument er kun tilgængeligt på engelsk, for at holde den juridiske tekst præcis.",
+    "back": "Tilbage til SlickTok",
+    "termsTitle": "Servicevilkår",
+    "privacyTitle": "Privatlivspolitik",
+    "notFoundTitle": "Ikke fundet",
+    "notFoundBody": "Den side findes ikke."
   }
 }

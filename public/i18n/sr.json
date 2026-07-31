@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "SlickTok. Preuzimač TikTok videa, bez vodenog žiga, bez reklama"
+  },
+  "nav": {
+    "how": "Kako radi",
+    "faq": "Česta pitanja",
+    "source": "Izvorni kod"
+  },
+  "header": {
+    "themeToggle": "Uključi tamni režim"
+  },
+  "hero": {
+    "eyebrow": "Besplatno, otvoreni kod, bez reklama. Zauvek.",
+    "title": "Preuzimajte TikTok video snimke, bez vodenog žiga.",
+    "subtitle": "Nalepite link, dobijte HD fajl bez vodenog žiga. Bez naloga, bez praćenja, ništa za instaliranje.",
+    "inputLabel": "Link do TikTok videa",
+    "placeholder": "Nalepite link TikTok videa ovde...",
+    "paste": "Nalepi",
+    "submit": "Preuzmi",
+    "submitLoading": "Obrada u toku..."
+  },
+  "how": {
+    "title": "Tri koraka, bez zaobilaska",
+    "step1Title": "Kopirajte link",
+    "step1Body": "U TikTok aplikaciji dodirnite Deli, a zatim Kopiraj link.",
+    "step2Title": "Nalepite ga iznad",
+    "step2Body": "Radi i sa punim tiktok.com linkovima i kratkim vm.tiktok.com linkovima.",
+    "step3Title": "Sačuvajte čist fajl",
+    "step3Body": "Preuzmite video bez vodenog žiga direktno na svoj uređaj."
+  },
+  "features": {
+    "title": "Šta SlickTok radi",
+    "f1Title": "Bez vodenog žiga",
+    "f1Body": "Preuzimanja koriste sopstveni čist fajl za reprodukciju TikToka, ništa nije nalepljeno preko.",
+    "f2Title": "Uvek bez reklama",
+    "f2Body": "Bez reklamnih mesta, bez iskačućih prozora, bez \"pogledaj reklamu za HD\". Samo alat.",
+    "f3Title": "Otvoreni kod",
+    "f3Body": "Svaka linija koda je javna. Pročitajte je, forkujte je, hostujte svoju kopiju.",
+    "f4Title": "Bez naloga",
+    "f4Body": "Ništa za registraciju. Ograničenje važi po IP adresi, a ne po prijavi.",
+    "f5Title": "HD kada je dostupno",
+    "f5Body": "Ako TikTok ponudi verziju u većoj rezoluciji, SlickTok takođe nudi tu verziju.",
+    "f6Title": "Fotografije i slajd šouovi",
+    "f6Body": "Objave sa fotografijama su podržane u najboljoj mogućoj meri, uključujući i pozadinsku muziku."
+  },
+  "faq": {
+    "title": "Pitanja",
+    "q1": "Da li SlickTok dodaje sopstveni vodeni žig?",
+    "a1": "Ne. Fajl koji dobijete je isti onaj koji sama TikTok aplikacija interno reprodukuje, pre nego što se doda vodeni žig za deljenje.",
+    "qSafe": "Da li je bezbedno koristiti SlickTok?",
+    "aSafe": "Da. Ništa se ne instalira na vaš uređaj, ne postoji prijava koja bi mogla biti kompromitovana, a kod je potpuno otvoren, tako da svako može tačno da proveri šta radi.",
+    "q2": "Da li mi je potreban nalog?",
+    "a2": "Ne. Na ovom sajtu nigde ne postoji prijava. Umesto toga, korišćenje je ograničeno po IP adresi, kako bi server ostao dostupan svima.",
+    "q3": "Koji linkovi su podržani?",
+    "a3": "Puni linkovi poput tiktok.com/@user/video/123, i kratki linkovi poput vm.tiktok.com/xxxxx/.",
+    "q4": "Da li je ovo povezano sa TikTokom?",
+    "a4": "Ne. SlickTok je nezavisan, nepovezan projekat otvorenog koda. Nije napravljen, odobren niti podržan od strane TikToka ili ByteDance Ltd.",
+    "qFail": "Zašto preuzimanje ponekad ne uspe?",
+    "aFail": "Obično zato što je video privatan, obrisan, regionalno ograničen, ili je TikTok nešto promenio na svojoj strani. Pokušajte ponovo malo kasnije, ili proverite da li postoji novija verzija yt-dlp ako sami hostujete instancu.",
+    "qCreator": "Da li preuzimanje videa utiče na kreatora?",
+    "aCreator": "SlickTok nikome ne lajkuje, ne prati, ne komentariše i ne šalje obaveštenja. Kreator ne saznaje da je njegov video preuzet. Ipak, navedite izvor i podržite kreatore čiji sadržaj čuvate.",
+    "q5": "Mogu li da hostujem sopstvenu kopiju?",
+    "a5": "Da, to je cela poenta. Kompletan izvorni kod i vodič za implementaciju nalaze se u repozitorijumu povezanom u podnožju.",
+    "q6": "Da li smem da preuzmem bilo koji video koji želim?",
+    "a6": "Preuzimajte samo video snimke koje posedujete, imate dozvolu da sačuvate, ili gledate u lične, zakonite svrhe. Pogledajte Uslove korišćenja za detalje."
+  },
+  "notice": {
+    "text": "SlickTok nije povezan, odobren niti u vezi sa TikTokom ili ByteDance Ltd. Preuzimajte samo sadržaj koji imate pravo da sačuvate. Pogledajte Uslove korišćenja i Politiku privatnosti.",
+    "terms": "Uslovi",
+    "privacy": "Privatnost"
+  },
+  "result": {
+    "likes": "lajkova",
+    "views": "pregleda",
+    "comments": "komentara",
+    "shares": "deljenja",
+    "untitled": "Bez naslova",
+    "preview": "Pregledaj video",
+    "download": "Preuzmi",
+    "downloadHd": "Preuzmi u HD-u",
+    "downloadAudio": "Preuzmi audio",
+    "zip": "Preuzmi sve (ZIP)",
+    "convertVideo": "Konvertuj u video (MP4)",
+    "converting": "Konvertovanje...",
+    "another": "Preuzmi drugi video"
+  },
+  "errors": {
+    "empty": "Prvo nalepite TikTok link.",
+    "generic": "Nešto nije u redu.",
+    "network": "Greška mreže. Pokušajte ponovo.",
+    "conversionFailed": "Nije uspelo konvertovanje ovog slajd šoua u video."
+  },
+  "legal": {
+    "englishOnly": "Ovaj dokument je dostupan samo na engleskom jeziku, kako bi pravni tekst ostao precizan.",
+    "back": "Nazad na SlickTok",
+    "termsTitle": "Uslovi korišćenja",
+    "privacyTitle": "Politika privatnosti",
+    "notFoundTitle": "Nije pronađeno",
+    "notFoundBody": "Ta stranica ne postoji."
+  }
+}

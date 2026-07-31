@@ -90,5 +90,13 @@
     "generic": "Something went wrong.",
     "network": "Network error. Try again.",
     "conversionFailed": "Could not convert this slideshow to video."
+  },
+  "legal": {
+    "englishOnly": "This document is available in English only, to keep the legal text accurate.",
+    "back": "Back to SlickTok",
+    "termsTitle": "Terms of Service",
+    "privacyTitle": "Privacy Policy",
+    "notFoundTitle": "Not found",
+    "notFoundBody": "That page doesn't exist."
   }
 }

@@ -90,5 +90,13 @@
     "generic": "Ceva nu a funcționat.",
     "network": "Eroare de rețea. Încearcă din nou.",
     "conversionFailed": "Nu s-a putut converti această prezentare de diapozitive în video."
+  },
+  "legal": {
+    "englishOnly": "Acest document este disponibil doar în engleză, pentru a păstra acuratețea textului juridic.",
+    "back": "Înapoi la SlickTok",
+    "termsTitle": "Termeni și condiții",
+    "privacyTitle": "Politica de confidențialitate",
+    "notFoundTitle": "Negăsit",
+    "notFoundBody": "Acea pagină nu există."
   }
 }

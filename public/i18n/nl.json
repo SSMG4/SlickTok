@@ -90,5 +90,13 @@
     "generic": "Er is iets misgegaan.",
     "network": "Netwerkfout. Probeer opnieuw.",
     "conversionFailed": "Kon deze diavoorstelling niet naar video converteren."
+  },
+  "legal": {
+    "englishOnly": "Dit document is alleen in het Engels beschikbaar, om de juridische tekst accuraat te houden.",
+    "back": "Terug naar SlickTok",
+    "termsTitle": "Servicevoorwaarden",
+    "privacyTitle": "Privacybeleid",
+    "notFoundTitle": "Niet gevonden",
+    "notFoundBody": "Die pagina bestaat niet."
   }
 }

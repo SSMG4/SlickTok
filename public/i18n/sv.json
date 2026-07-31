@@ -90,5 +90,13 @@
     "generic": "Något gick fel.",
     "network": "Nätverksfel. Försök igen.",
     "conversionFailed": "Kunde inte konvertera detta bildspel till video."
+  },
+  "legal": {
+    "englishOnly": "Det här dokumentet finns endast på engelska, för att hålla den juridiska texten korrekt.",
+    "back": "Tillbaka till SlickTok",
+    "termsTitle": "Användarvillkor",
+    "privacyTitle": "Integritetspolicy",
+    "notFoundTitle": "Hittades inte",
+    "notFoundBody": "Den sidan finns inte."
   }
 }
